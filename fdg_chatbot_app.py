@@ -19,6 +19,19 @@ STARTER_QUESTIONS = [
     "Where are the equations defined?",
 ]
 
+SOURCE_LABELS = {
+    "index.html": "Home",
+    "guidebook.html": "Guidebook",
+    "note_from_author.html": "Author Note",
+    "measurement_registers.html": "Measurement Registers",
+    "chapter_1.html": "Chapter 1",
+    "chapter_2.html": "Chapter 2",
+    "chapter_3.html": "Chapter 3",
+    "chapter_4.html": "Chapter 4",
+    "quantitative_appendix.html": "Quantitative Appendix",
+    "references.html": "References",
+}
+
 
 def apply_book_theme() -> None:
     st.markdown(
@@ -112,16 +125,19 @@ def _format_source_line(result: RetrievalResult) -> str:
     source_file = result.chunk.source_file
     section_title = (result.chunk.section_title or "").strip()
     section_title = re.sub(r"^\d+(?:\.\d+)*\s*", "", section_title).strip()
-    section_title = section_title or "Overview"
+    label = SOURCE_LABELS.get(source_file)
+    if not label:
+        chapter_match = re.match(r"^chapter_(\d+)\.html$", source_file)
+        if chapter_match:
+            label = f"Chapter {int(chapter_match.group(1))}"
+        else:
+            stem = Path(source_file).stem.replace("_", " ").strip()
+            label = stem.title()
 
-    chapter_match = re.match(r"^chapter_(\d+)\.html$", source_file)
-    if chapter_match:
-        label = f"Chapter {int(chapter_match.group(1))}"
-    else:
-        stem = Path(source_file).stem.replace("_", " ").strip()
-        label = stem.title()
-
+    section_title = section_title or ""
     if section_title.lower() == label.lower():
+        return f"- {label}"
+    if not section_title:
         return f"- {label}"
     return f"- {label} — {section_title}"
 
@@ -242,19 +258,17 @@ def main() -> None:
         "Answers stay plain-language by default."
     )
 
-    if "fdg_question" not in st.session_state:
-        st.session_state.fdg_question = ""
     if "fdg_answer" not in st.session_state:
         st.session_state.fdg_answer = ""
     if "fdg_sources" not in st.session_state:
         st.session_state.fdg_sources = []
 
-    question = st.text_input("Your question", value=st.session_state.fdg_question, placeholder="What is finite deformable geometry?")
-    ask_pressed = st.button("Ask", use_container_width=False)
+    with st.form("fdg_question_form", clear_on_submit=True):
+        question = st.text_input("Your question", placeholder="What is finite deformable geometry?")
+        ask_pressed = st.form_submit_button("Ask")
 
     if ask_pressed and question.strip():
         prompt = question.strip()
-        st.session_state.fdg_question = prompt
 
         retrieved = retriever.search(prompt, top_k=6, min_score=0.12)
         if not retrieved and chunks:
@@ -275,14 +289,13 @@ def main() -> None:
     if st.session_state.fdg_answer:
         st.markdown(f"<div class='fdg-answer-card'>{st.session_state.fdg_answer}</div>", unsafe_allow_html=True)
         if st.session_state.fdg_sources:
-            st.markdown("**Sources:**")
+            st.markdown("**Sources used:**")
             for line in st.session_state.fdg_sources:
                 st.markdown(line)
 
     with st.expander("Starter questions", expanded=False):
         for starter in STARTER_QUESTIONS:
             if st.button(starter, key=f"starter_{starter}", use_container_width=True):
-                st.session_state.fdg_question = starter
                 retrieved = retriever.search(starter, top_k=6, min_score=0.12)
                 if not retrieved and chunks:
                     retrieved = retriever.search(starter, top_k=6, min_score=-1.0)
