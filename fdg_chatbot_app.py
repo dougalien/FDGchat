@@ -144,12 +144,14 @@ def _format_source_line(result: RetrievalResult) -> str:
 
 def _dedup_source_lines(results: List[RetrievalResult], max_items: int = 4) -> List[str]:
     lines: List[str] = []
-    seen_files: set[str] = set()
+    seen_pairs: set[tuple[str, str]] = set()
     for item in results:
         source_file = item.chunk.source_file
-        if source_file in seen_files:
+        section_title = re.sub(r"^\d+(?:\.\d+)*\s*", "", (item.chunk.section_title or "").strip()).lower()
+        pair = (source_file, section_title)
+        if pair in seen_pairs:
             continue
-        seen_files.add(source_file)
+        seen_pairs.add(pair)
         lines.append(_format_source_line(item))
         if len(lines) >= max_items:
             break
