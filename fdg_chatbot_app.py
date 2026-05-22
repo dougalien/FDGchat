@@ -1,5 +1,7 @@
 ﻿from __future__ import annotations
 
+import re
+from pathlib import Path
 from typing import Dict, List
 
 import streamlit as st
@@ -107,8 +109,35 @@ def _load_corpus() -> tuple[List[BookChunk], LiteKeywordRetriever, Dict[str, obj
 
 
 def _format_source_line(result: RetrievalResult) -> str:
-    anchor = result.chunk.anchor_id or "top"
-    return f"- `{result.chunk.source_file}#{anchor}` - {result.chunk.section_title}"
+    source_file = result.chunk.source_file
+    section_title = (result.chunk.section_title or "").strip()
+    section_title = re.sub(r"^\d+(?:\.\d+)*\s*", "", section_title).strip()
+    section_title = section_title or "Overview"
+
+    chapter_match = re.match(r"^chapter_(\d+)\.html$", source_file)
+    if chapter_match:
+        label = f"Chapter {int(chapter_match.group(1))}"
+    else:
+        stem = Path(source_file).stem.replace("_", " ").strip()
+        label = stem.title()
+
+    if section_title.lower() == label.lower():
+        return f"- {label}"
+    return f"- {label} — {section_title}"
+
+
+def _dedup_source_lines(results: List[RetrievalResult], max_items: int = 4) -> List[str]:
+    lines: List[str] = []
+    seen_files: set[str] = set()
+    for item in results:
+        source_file = item.chunk.source_file
+        if source_file in seen_files:
+            continue
+        seen_files.add(source_file)
+        lines.append(_format_source_line(item))
+        if len(lines) >= max_items:
+            break
+    return lines
 
 
 def _is_in_scope_query(query: str) -> bool:
@@ -138,15 +167,27 @@ def _is_in_scope_query(query: str) -> bool:
 
 def _show_source_status(status: Dict[str, object], error_message: str) -> None:
     with st.sidebar.expander("Book source status", expanded=False):
-        st.write(f"book_context path: `{status.get('book_context_dir', '')}`")
+        st.write(f"search root: `{status.get('book_context_dir', '')}`")
         st.write(f"source files found: `{status.get('source_files_found', 0)}`")
         st.write(f"chunks loaded: `{status.get('chunks_loaded', 0)}`")
+
+        search_roots = status.get("search_roots", [])
+        if isinstance(search_roots, list) and search_roots:
+            st.write("search roots:")
+            for root in search_roots:
+                st.write(f"- `{root}`")
 
         filenames = status.get("filenames_found", [])
         if isinstance(filenames, list) and filenames:
             st.write("filenames found:")
             for name in filenames:
                 st.write(f"- `{name}`")
+
+        required_paths = status.get("required_file_paths", {})
+        if isinstance(required_paths, dict) and required_paths:
+            st.write("required files:")
+            for filename in BOOK_SOURCE_FILES:
+                st.write(f"- `{filename}`: `{required_paths.get(filename, 'MISSING')}`")
 
         cleaned = status.get("cleaned_char_count_by_file", {})
         if isinstance(cleaned, dict) and cleaned:
@@ -175,13 +216,13 @@ def main() -> None:
     chunks_loaded = int(load_status.get("chunks_loaded", 0) or 0)
 
     if source_files_found == 0:
-        st.error("Book source loading failed. The chatbot cannot answer until book_context files are available.")
+        st.error("No book HTML files were found in the deployed repo. The chatbot cannot answer until the source HTML files are committed to GitHub.")
         if load_error:
             st.caption(load_error)
         st.stop()
 
     if source_files_found > 0 and chunks_loaded == 0:
-        st.error("Book files were found, but no text chunks were created. Check fdg_book_loader.py cleaning/chunking.")
+        st.error("Book HTML files were found, but no text chunks were created. Check fdg_book_loader.py cleaning/chunking.")
         if load_error:
             st.caption(load_error)
         st.stop()
@@ -226,7 +267,7 @@ def main() -> None:
             )
             st.session_state.fdg_sources = []
         else:
-            source_lines = [_format_source_line(item) for item in retrieved[:4]]
+            source_lines = _dedup_source_lines(retrieved, max_items=4)
             config = resolve_ollama_config(st.secrets)
             st.session_state.fdg_answer = generate_answer(prompt, retrieved, config)
             st.session_state.fdg_sources = source_lines
@@ -234,7 +275,7 @@ def main() -> None:
     if st.session_state.fdg_answer:
         st.markdown(f"<div class='fdg-answer-card'>{st.session_state.fdg_answer}</div>", unsafe_allow_html=True)
         if st.session_state.fdg_sources:
-            st.markdown("**Sources**")
+            st.markdown("**Sources:**")
             for line in st.session_state.fdg_sources:
                 st.markdown(line)
 
@@ -245,7 +286,7 @@ def main() -> None:
                 retrieved = retriever.search(starter, top_k=6, min_score=0.12)
                 if not retrieved and chunks:
                     retrieved = retriever.search(starter, top_k=6, min_score=-1.0)
-                source_lines = [_format_source_line(item) for item in retrieved[:4]]
+                source_lines = _dedup_source_lines(retrieved, max_items=4)
                 config = resolve_ollama_config(st.secrets)
                 st.session_state.fdg_answer = generate_answer(starter, retrieved, config)
                 st.session_state.fdg_sources = source_lines
