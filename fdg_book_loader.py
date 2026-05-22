@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from pathlib import Path
 import html
 import re
-from typing import Iterable, List, Optional
+from typing import Dict, Iterable, List, Optional
 
 try:
     from bs4 import BeautifulSoup
@@ -23,6 +23,9 @@ BOOK_SOURCE_FILES = [
     "quantitative_appendix.html",
     "references.html",
 ]
+
+BASE_DIR = Path(__file__).resolve().parent
+BOOK_CONTEXT_DIR = BASE_DIR / "book_context"
 
 HEADING_TAGS = {"h1", "h2", "h3", "h4"}
 TEXT_TAGS = {
@@ -47,6 +50,18 @@ class BookChunk:
     chapter: str
     content_type: str
     content: str
+
+
+LAST_LOAD_STATUS: Dict[str, object] = {
+    "base_dir": str(BASE_DIR),
+    "book_context_dir": str(BOOK_CONTEXT_DIR),
+    "source_files_found": 0,
+    "filenames_found": [],
+    "cleaned_char_count_by_file": {},
+    "chunks_created_by_file": {},
+    "chunks_loaded": 0,
+    "error": "",
+}
 
 
 @dataclass
@@ -117,18 +132,23 @@ def _chunk_section_text(text: str, target_chars: int = 1200, overlap_chars: int 
     return chunks
 
 
-def _extract_sections_from_html(file_path: Path) -> List[_SectionBuffer]:
+def _clean_text_block(text: str) -> str:
+    return _normalize_whitespace(html.unescape(text))
+
+
+def _extract_sections_from_html(file_path: Path) -> tuple[List[_SectionBuffer], str]:
     raw = file_path.read_text(encoding="utf-8", errors="ignore")
     if BeautifulSoup is None:
         return _extract_sections_without_bs4(file_path, raw)
 
     soup = BeautifulSoup(raw, "html.parser")
 
-    for removable in soup.find_all(["header", "nav", "footer", "script", "style", "noscript"]):
+    for removable in soup.find_all(["header", "nav", "footer", "script", "style", "noscript", "aside"]):
         removable.decompose()
 
     main = soup.find("main") or soup.body or soup
     page_title = _normalize_whitespace(soup.title.get_text(" ", strip=True) if soup.title else file_path.stem)
+    cleaned_page_text = _clean_text_block(main.get_text(" ", strip=True))
 
     sections: List[_SectionBuffer] = []
     current = _SectionBuffer(
@@ -162,13 +182,35 @@ def _extract_sections_from_html(file_path: Path) -> List[_SectionBuffer]:
     if current.lines:
         sections.append(current)
 
-    return sections
+    if not sections and cleaned_page_text:
+        sections = [
+            _SectionBuffer(
+                source_file=file_path.name,
+                page_title=page_title,
+                section_title=page_title,
+                anchor_id="top",
+                lines=[cleaned_page_text],
+            )
+        ]
+
+    return sections, cleaned_page_text
 
 
-def _extract_sections_without_bs4(file_path: Path, raw: str) -> List[_SectionBuffer]:
+def _extract_sections_without_bs4(file_path: Path, raw: str) -> tuple[List[_SectionBuffer], str]:
     title_match = re.search(r"<title[^>]*>(.*?)</title>", raw, flags=re.IGNORECASE | re.DOTALL)
     title_raw = title_match.group(1) if title_match else file_path.stem
     page_title = _normalize_whitespace(html.unescape(_strip_html_tags(title_raw)))
+    cleaned_page_text = _normalize_whitespace(
+        html.unescape(
+            _strip_html_tags(
+                re.sub(
+                    r"(?is)<(script|style|nav|noscript|header|footer|aside)[^>]*>.*?</\1>",
+                    " ",
+                    raw,
+                )
+            )
+        )
+    )
 
     sections: List[_SectionBuffer] = []
     current = _SectionBuffer(
@@ -209,7 +251,17 @@ def _extract_sections_without_bs4(file_path: Path, raw: str) -> List[_SectionBuf
 
     if current.lines:
         sections.append(current)
-    return sections
+    if not sections and cleaned_page_text:
+        sections = [
+            _SectionBuffer(
+                source_file=file_path.name,
+                page_title=page_title,
+                section_title=page_title,
+                anchor_id="top",
+                lines=[cleaned_page_text],
+            )
+        ]
+    return sections, cleaned_page_text
 
 
 def _extract_attr(attrs: str, name: str) -> str:
@@ -222,16 +274,49 @@ def _strip_html_tags(text: str) -> str:
     return re.sub(r"<[^>]+>", " ", text, flags=re.DOTALL)
 
 
-def load_book_chunks(base_dir: Path, source_files: Optional[Iterable[str]] = None) -> List[BookChunk]:
+def _resolve_candidate_file(base_dir: Path, source_name: str) -> Optional[Path]:
+    first = base_dir / "book_context" / source_name
+    if first.exists():
+        return first
+    fallback = base_dir / source_name
+    if fallback.exists():
+        return fallback
+    return None
+
+
+def get_last_load_status() -> Dict[str, object]:
+    return dict(LAST_LOAD_STATUS)
+
+
+def load_book_chunks(base_dir: Optional[Path] = None, source_files: Optional[Iterable[str]] = None) -> List[BookChunk]:
+    resolved_base = (base_dir or BASE_DIR).resolve()
     files = list(source_files or BOOK_SOURCE_FILES)
     all_chunks: List[BookChunk] = []
+    found_file_paths: List[Path] = []
+
+    LAST_LOAD_STATUS.update(
+        {
+            "base_dir": str(resolved_base),
+            "book_context_dir": str((resolved_base / "book_context").resolve()),
+            "source_files_found": 0,
+            "filenames_found": [],
+            "cleaned_char_count_by_file": {},
+            "chunks_created_by_file": {},
+            "chunks_loaded": 0,
+            "error": "",
+        }
+    )
 
     for source_name in files:
-        file_path = base_dir / source_name
-        if not file_path.exists():
+        file_path = _resolve_candidate_file(resolved_base, source_name)
+        if file_path is None:
             continue
+        found_file_paths.append(file_path)
 
-        sections = _extract_sections_from_html(file_path)
+        sections, cleaned_text = _extract_sections_from_html(file_path)
+        file_chunk_count = 0
+        file_cleaned_chars = len(cleaned_text)
+
         for section_idx, section in enumerate(sections, start=1):
             section_text = section.materialize()
             if not section_text:
@@ -254,5 +339,51 @@ def load_book_chunks(base_dir: Path, source_files: Optional[Iterable[str]] = Non
                         content=split_text,
                     )
                 )
+                file_chunk_count += 1
+
+        if file_chunk_count == 0 and cleaned_text:
+            fallback_chunks = _chunk_section_text(cleaned_text)
+            for split_idx, split_text in enumerate(fallback_chunks, start=1):
+                chunk_id = f"{file_path.name}:fallback:{split_idx}"
+                all_chunks.append(
+                    BookChunk(
+                        chunk_id=chunk_id,
+                        source_file=file_path.name,
+                        page_title=file_path.stem.replace("_", " ").title(),
+                        section_title=file_path.stem.replace("_", " ").title(),
+                        anchor_id="top",
+                        chapter=file_path.stem.replace("_", " ").title(),
+                        content_type=_detect_content_type(file_path.stem, split_text),
+                        content=split_text,
+                    )
+                )
+                file_chunk_count += 1
+
+        cleaned_by_file = LAST_LOAD_STATUS.get("cleaned_char_count_by_file")
+        chunks_by_file = LAST_LOAD_STATUS.get("chunks_created_by_file")
+        if isinstance(cleaned_by_file, dict):
+            cleaned_by_file[file_path.name] = file_cleaned_chars
+        if isinstance(chunks_by_file, dict):
+            chunks_by_file[file_path.name] = file_chunk_count
+
+    LAST_LOAD_STATUS["source_files_found"] = len(found_file_paths)
+    LAST_LOAD_STATUS["filenames_found"] = [path.name for path in found_file_paths]
+    LAST_LOAD_STATUS["chunks_loaded"] = len(all_chunks)
+
+    if not found_file_paths:
+        message = (
+            f"No book source files were found. Checked "
+            f"'{(resolved_base / 'book_context').resolve()}' first, then '{resolved_base}'."
+        )
+        LAST_LOAD_STATUS["error"] = message
+        raise RuntimeError(message)
+
+    if not all_chunks:
+        message = (
+            f"Book source files were found ({len(found_file_paths)}), but 0 chunks were extracted. "
+            "Check parser compatibility and source file contents."
+        )
+        LAST_LOAD_STATUS["error"] = message
+        raise RuntimeError(message)
 
     return all_chunks
