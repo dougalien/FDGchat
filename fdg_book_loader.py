@@ -1,0 +1,258 @@
+﻿from __future__ import annotations
+
+from dataclasses import dataclass
+from pathlib import Path
+import html
+import re
+from typing import Iterable, List, Optional
+
+try:
+    from bs4 import BeautifulSoup
+except ImportError:  # pragma: no cover
+    BeautifulSoup = None  # type: ignore
+
+BOOK_SOURCE_FILES = [
+    "index.html",
+    "guidebook.html",
+    "note_from_author.html",
+    "measurement_registers.html",
+    "chapter_1.html",
+    "chapter_2.html",
+    "chapter_3.html",
+    "chapter_4.html",
+    "quantitative_appendix.html",
+    "references.html",
+]
+
+HEADING_TAGS = {"h1", "h2", "h3", "h4"}
+TEXT_TAGS = {
+    "p",
+    "li",
+    "figcaption",
+    "td",
+    "th",
+    "summary",
+    "blockquote",
+    "pre",
+}
+
+
+@dataclass(frozen=True)
+class BookChunk:
+    chunk_id: str
+    source_file: str
+    page_title: str
+    section_title: str
+    anchor_id: str
+    chapter: str
+    content_type: str
+    content: str
+
+
+@dataclass
+class _SectionBuffer:
+    source_file: str
+    page_title: str
+    section_title: str
+    anchor_id: str
+    lines: List[str]
+
+    def materialize(self) -> str:
+        merged = "\n".join(line for line in self.lines if line)
+        return _normalize_whitespace(merged)
+
+
+def _normalize_whitespace(text: str) -> str:
+    text = text.replace("\xa0", " ")
+    text = re.sub(r"\s+", " ", text)
+    return text.strip()
+
+
+def _detect_content_type(section_title: str, text: str) -> str:
+    title_lower = section_title.lower()
+    text_lower = text.lower()
+    if "equation" in title_lower or "equation" in text_lower or "\\(" in text:
+        return "equation"
+    if "table" in title_lower:
+        return "table"
+    if "figure" in title_lower or "fig." in text_lower:
+        return "figure_caption"
+    if "reference" in title_lower:
+        return "reference"
+    return "text"
+
+
+def _chapter_label(source_file: str, page_title: str) -> str:
+    stem = Path(source_file).stem
+    if stem.startswith("chapter_"):
+        return stem.replace("_", " ").title()
+    return page_title or stem.replace("_", " ").title()
+
+
+def _chunk_section_text(text: str, target_chars: int = 1200, overlap_chars: int = 180) -> List[str]:
+    if len(text) <= target_chars:
+        return [text]
+
+    paragraphs = [p.strip() for p in text.split("\n") if p.strip()]
+    chunks: List[str] = []
+    current = ""
+
+    for para in paragraphs:
+        if not current:
+            current = para
+            continue
+
+        candidate = f"{current}\n{para}"
+        if len(candidate) <= target_chars:
+            current = candidate
+            continue
+
+        chunks.append(current)
+        tail = current[-overlap_chars:].strip()
+        current = f"{tail}\n{para}" if tail else para
+
+    if current:
+        chunks.append(current)
+
+    return chunks
+
+
+def _extract_sections_from_html(file_path: Path) -> List[_SectionBuffer]:
+    raw = file_path.read_text(encoding="utf-8", errors="ignore")
+    if BeautifulSoup is None:
+        return _extract_sections_without_bs4(file_path, raw)
+
+    soup = BeautifulSoup(raw, "html.parser")
+
+    for removable in soup.find_all(["header", "nav", "footer", "script", "style", "noscript"]):
+        removable.decompose()
+
+    main = soup.find("main") or soup.body or soup
+    page_title = _normalize_whitespace(soup.title.get_text(" ", strip=True) if soup.title else file_path.stem)
+
+    sections: List[_SectionBuffer] = []
+    current = _SectionBuffer(
+        source_file=file_path.name,
+        page_title=page_title,
+        section_title="Overview",
+        anchor_id="top",
+        lines=[],
+    )
+
+    for node in main.descendants:
+        if getattr(node, "name", None) in HEADING_TAGS:
+            if current.lines:
+                sections.append(current)
+            heading_text = _normalize_whitespace(node.get_text(" ", strip=True))
+            heading_text = heading_text or "Untitled Section"
+            current = _SectionBuffer(
+                source_file=file_path.name,
+                page_title=page_title,
+                section_title=heading_text,
+                anchor_id=node.get("id") or heading_text.lower().replace(" ", "-")[:80],
+                lines=[],
+            )
+            continue
+
+        if getattr(node, "name", None) in TEXT_TAGS:
+            line = _normalize_whitespace(node.get_text(" ", strip=True))
+            if len(line) >= 20:
+                current.lines.append(line)
+
+    if current.lines:
+        sections.append(current)
+
+    return sections
+
+
+def _extract_sections_without_bs4(file_path: Path, raw: str) -> List[_SectionBuffer]:
+    title_match = re.search(r"<title[^>]*>(.*?)</title>", raw, flags=re.IGNORECASE | re.DOTALL)
+    title_raw = title_match.group(1) if title_match else file_path.stem
+    page_title = _normalize_whitespace(html.unescape(_strip_html_tags(title_raw)))
+
+    sections: List[_SectionBuffer] = []
+    current = _SectionBuffer(
+        source_file=file_path.name,
+        page_title=page_title,
+        section_title="Overview",
+        anchor_id="top",
+        lines=[],
+    )
+
+    pattern = re.compile(
+        r"<(h[1-4]|p|li|figcaption|td|th|summary|blockquote|pre)\b([^>]*)>(.*?)</\1>",
+        flags=re.IGNORECASE | re.DOTALL,
+    )
+
+    for match in pattern.finditer(raw):
+        tag = match.group(1).lower()
+        attrs = match.group(2) or ""
+        inner = match.group(3) or ""
+        text = _normalize_whitespace(html.unescape(_strip_html_tags(inner)))
+
+        if tag in HEADING_TAGS:
+            if current.lines:
+                sections.append(current)
+            heading_text = text or "Untitled Section"
+            anchor_id = _extract_attr(attrs, "id") or heading_text.lower().replace(" ", "-")[:80]
+            current = _SectionBuffer(
+                source_file=file_path.name,
+                page_title=page_title,
+                section_title=heading_text,
+                anchor_id=anchor_id,
+                lines=[],
+            )
+            continue
+
+        if len(text) >= 20:
+            current.lines.append(text)
+
+    if current.lines:
+        sections.append(current)
+    return sections
+
+
+def _extract_attr(attrs: str, name: str) -> str:
+    pattern = rf'{name}\s*=\s*["\']([^"\']+)["\']'
+    match = re.search(pattern, attrs, flags=re.IGNORECASE)
+    return match.group(1).strip() if match else ""
+
+
+def _strip_html_tags(text: str) -> str:
+    return re.sub(r"<[^>]+>", " ", text, flags=re.DOTALL)
+
+
+def load_book_chunks(base_dir: Path, source_files: Optional[Iterable[str]] = None) -> List[BookChunk]:
+    files = list(source_files or BOOK_SOURCE_FILES)
+    all_chunks: List[BookChunk] = []
+
+    for source_name in files:
+        file_path = base_dir / source_name
+        if not file_path.exists():
+            continue
+
+        sections = _extract_sections_from_html(file_path)
+        for section_idx, section in enumerate(sections, start=1):
+            section_text = section.materialize()
+            if not section_text:
+                continue
+
+            split_chunks = _chunk_section_text(section_text)
+            for split_idx, split_text in enumerate(split_chunks, start=1):
+                chapter = _chapter_label(section.source_file, section.page_title)
+                content_type = _detect_content_type(section.section_title, split_text)
+                chunk_id = f"{section.source_file}:{section_idx}:{split_idx}"
+                all_chunks.append(
+                    BookChunk(
+                        chunk_id=chunk_id,
+                        source_file=section.source_file,
+                        page_title=section.page_title,
+                        section_title=section.section_title,
+                        anchor_id=section.anchor_id,
+                        chapter=chapter,
+                        content_type=content_type,
+                        content=split_text,
+                    )
+                )
+
+    return all_chunks
