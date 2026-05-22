@@ -274,14 +274,40 @@ def _strip_html_tags(text: str) -> str:
     return re.sub(r"<[^>]+>", " ", text, flags=re.DOTALL)
 
 
-def _resolve_candidate_file(base_dir: Path, source_name: str) -> Optional[Path]:
-    first = base_dir / "book_context" / source_name
-    if first.exists():
-        return first
-    fallback = base_dir / source_name
-    if fallback.exists():
-        return fallback
-    return None
+def _source_dir_candidates(base_dir: Path) -> List[Path]:
+    return [
+        base_dir / "book_context",
+        base_dir / "fdg_ai_chatbot" / "book_context",
+        base_dir.parent / "fdg_ai_chatbot" / "book_context",
+        base_dir,
+        base_dir.parent / "book_context",
+    ]
+
+
+def _select_source_dir(base_dir: Path, source_files: List[str]) -> tuple[Optional[Path], Dict[str, int], List[Path]]:
+    candidates = _source_dir_candidates(base_dir)
+    coverage: Dict[str, int] = {}
+    full_match_dir: Optional[Path] = None
+    best_dir: Optional[Path] = None
+    best_count = -1
+
+    for candidate in candidates:
+        resolved = candidate.resolve()
+        count = 0
+        for source_name in source_files:
+            if (resolved / source_name).exists():
+                count += 1
+        coverage[str(resolved)] = count
+
+        if count == len(source_files) and full_match_dir is None:
+            full_match_dir = resolved
+        if count > best_count:
+            best_count = count
+            best_dir = resolved
+
+    selected = full_match_dir or best_dir
+    checked = [candidate.resolve() for candidate in candidates]
+    return selected, coverage, checked
 
 
 def get_last_load_status() -> Dict[str, object]:
@@ -293,11 +319,12 @@ def load_book_chunks(base_dir: Optional[Path] = None, source_files: Optional[Ite
     files = list(source_files or BOOK_SOURCE_FILES)
     all_chunks: List[BookChunk] = []
     found_file_paths: List[Path] = []
+    selected_source_dir, coverage, checked_dirs = _select_source_dir(resolved_base, files)
 
     LAST_LOAD_STATUS.update(
         {
             "base_dir": str(resolved_base),
-            "book_context_dir": str((resolved_base / "book_context").resolve()),
+            "book_context_dir": str(selected_source_dir) if selected_source_dir else "",
             "source_files_found": 0,
             "filenames_found": [],
             "cleaned_char_count_by_file": {},
@@ -307,9 +334,18 @@ def load_book_chunks(base_dir: Optional[Path] = None, source_files: Optional[Ite
         }
     )
 
+    if isinstance(LAST_LOAD_STATUS, dict):
+        LAST_LOAD_STATUS["source_path_coverage"] = coverage
+
+    if selected_source_dir is None:
+        checked_text = ", ".join(f"'{path}'" for path in checked_dirs)
+        message = f"No book source files were found. Checked: {checked_text}."
+        LAST_LOAD_STATUS["error"] = message
+        raise RuntimeError(message)
+
     for source_name in files:
-        file_path = _resolve_candidate_file(resolved_base, source_name)
-        if file_path is None:
+        file_path = selected_source_dir / source_name
+        if not file_path.exists():
             continue
         found_file_paths.append(file_path)
 
@@ -371,10 +407,8 @@ def load_book_chunks(base_dir: Optional[Path] = None, source_files: Optional[Ite
     LAST_LOAD_STATUS["chunks_loaded"] = len(all_chunks)
 
     if not found_file_paths:
-        message = (
-            f"No book source files were found. Checked "
-            f"'{(resolved_base / 'book_context').resolve()}' first, then '{resolved_base}'."
-        )
+        checked_text = ", ".join(f"'{path}'" for path in checked_dirs)
+        message = f"No book source files were found. Checked: {checked_text}."
         LAST_LOAD_STATUS["error"] = message
         raise RuntimeError(message)
 
