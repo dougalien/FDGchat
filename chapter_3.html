@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 3: A Finite Deformable Universe</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.MathJax = { tex: { tags: 'ams' } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">A FINITE UNIVERSE</a>
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="guidebook.html">Guidebook</a>
+      <a href="note_from_author.html">Author Note</a>
+      <a href="measurement_registers.html">Registers</a>
+      <a href="chapter_1.html">Chapter 1</a>
+      <a href="chapter_2.html">Chapter 2</a>
+      <a href="chapter_3.html">Chapter 3</a>
+      <a href="chapter_4.html">Chapter 4</a>
+      <a href="quantitative_appendix.html">Appendix</a>
+      <a href="references.html">References</a>
+    </nav>
+  </header>
+
+  <main class="chapter-layout">
+    <aside class="chapter-toc">
+      <p>Chapter 3</p>
+      <a href="#top">Top</a>
+      <a href="#figures">Figures</a>
+      <a href="references.html">References</a>
+    </aside>
+    <article class="chapter-content" id="top">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Chapter 3</span></nav>
+      <section class="chapter-intro">
+        <p class="kicker">Chapter 3</p>
+        <h1>Chapter 3 &mdash; A Finite Deformable Universe</h1>
+      </section>
+      <div class="model-status"><strong>Model status.</strong> This chapter assembles the redshift, projection, gravity, morphology, and compactness results into one finite-domain picture. It establishes the register map and the response-engine target C(X, eta, u, D_n); the next model-building step is deriving that engine from a conservation-compatible dynamics.</div>
+      <div class="guide-callout">
+        <strong>Plain-language companion:</strong>
+        For a less technical explanation of the finite-universe premise, see
+        <a href="guidebook.html#trouble-with-endless-things">The trouble with endless things</a>,
+        <a href="guidebook.html#universe-without-outside-ruler">A Universe without an outside ruler</a>, and
+        <a href="guidebook.html#what-the-book-is-really-asking">What the book is really asking</a>.
+      </div>
+      <details class="technical-details" open>
+        <summary>Chapter 3 figure anchors</summary>
+        <div class="figure-jump-list" id="figures"><a href="#fig-3-1">Figure 3-1</a>
+<a href="#fig-3-2">Figure 3-2</a>
+<a href="#fig-3-3">Figure 3-3</a>
+<a href="#fig-3-4">Figure 3-4</a>
+<a href="#fig-3-5">Figure 3-5</a></div>
+      </details>
+      <p>A model-building synthesis for a finite universe emerging from no external scale</p>
+<h2>Abstract</h2>
+<p>A finite deformable universe model is assembled from the empirical and diagnostic results developed earlier. The redshift analysis treated redshift as accumulated path response, A(d) = ln(1+z), with local response G(d) = g0/(1+d/db), and identified a BAO-CMB shared-ruler failure requiring a sharp projection transition. The observational-register analysis recast that transition into a dimensionless depth coordinate, tested JWST mass-size projection behavior, expressed the SPARC radial-acceleration relation as weak-field compliance, and added matter-void foam and compactness-boundary screens. These pieces define a visual model of a finite deformable geometric domain.</p>
+<p>The central proposal is that observed redshift, inferred size, local gravitational response, void architecture, and compactness limits are different observational registers of one finite geometry. The model uses X = A/At as a normalized transition coordinate, D = A G as a raw morphology response coordinate, eta = gbar/gdagger as a weak-field compliance coordinate, and u = 2GM/(Rc^2) as a compactness coordinate. When morphology enters the response engine, D is normalized as D_n = D/D0, where D0 has the same units as D. These registers are collected into a generalized finite-response function C(X, eta, u, D_n), which defines testable relations among projection, gravity, morphology, and compactness.</p>
+<h2>1. Model premise</h2>
+<p>The model is intentionally visual, but it remains constrained. A, chi, X, D, eta, and u must remain separate; ordinary local physics must be preserved; and every proposed register must point to a measurable success or failure condition.</p>
+<p>Earlier observational audits reorganized real observables under a finite deformable geometry interpretation. The synthesis question is what kind of universe could make the strongest relationships appear as parts of one geometry.</p>
+<p>The starting concern is physical infinity. Infinite space, infinite time, singular density, negative time, and negative physical amounts may be useful mathematical limits, but they are not automatically physical structures. A finite event-domain provides the setting in which redshift, gravity, void space, and compactness can appear from inside the domain.</p>
+<p>The model is tied to specific empirical patterns: the supernova path-response relation, the BAO-CMB shared-ruler failure, the approximate 0.39 CMB-to-BAO scale ratio, the JWST mass-size direction of effect, the SPARC acceleration transition, the partial matter-void foam result, and the compactness-boundary target.</p><figure class="figure-card" id="fig-3-1">
+  <a href="assets/figures/figure_3_1.png" target="_blank">
+    <img src="assets/figures/figure_3_1.png" alt="Figure 3-1">
+  </a>
+  <figcaption>
+    <strong>Figure 3-1.</strong> Visual model of the finite deformable universe. The observable domain is treated as a bounded, deformable geometric body with interior stable behavior, an approach regime, a focal transition boundary at X = 1, a compressed projection-side register, local deformation wells, and a matter-void foam network.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_3_1.png" target="_blank">Open full-size image</a>
+  
+</figure><h2>2. Assumptions and operating constraints</h2><section class="table-card">
+  <p class="table-caption"><strong>Table 3-1.</strong> Operating assumptions.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Assumption</th><th>Role in the model</th></tr></thead>
+      <tbody>
+        <tr><td>Finite domain</td><td>The observable universe is treated as a finite geometric event-domain, not an actually infinite background.</td></tr>
+<tr><td>Local stability</td><td>Ordinary local physics, laboratory behavior, solar-system behavior, and high-acceleration systems must remain effectively unchanged.</td></tr>
+<tr><td>Redshift as path response</td><td>Observed redshift is still measured normally, but its accumulation is modeled as a path response through deformable geometry.</td></tr>
+<tr><td>Projection registers</td><td>Luminosity distance, angular-size distance, wavelength, timing, and ruler scale are treated as related but separable observational registers.</td></tr>
+<tr><td>Matter and voids together</td><td>The cosmic web is not only matter. The void spaces between matter structures are part of the shape signal.</td></tr>
+<tr><td>No physical infinities</td><td>Singularities and unbounded extrapolations are treated as warnings that a response law has left its domain.</td></tr>
+<tr><td>Testability</td><td>Equations, assumptions, predictions, and failure tests are stated explicitly.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><h2>3. Coordinate dictionary</h2><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>Coordinate separation keeps the model coherent. A = 0.2 is not the same statement as chi = 0.2. The master comparison coordinate is X = A/At, so X = 1 marks the principal projection boundary recovered from the BAO-CMB shared-ruler failure.</p>
+</details><section class="table-card">
+  <p class="table-caption"><strong>Table 3-2.</strong> Coordinate dictionary.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Symbol</th><th>Role</th><th>Meaning</th></tr></thead>
+      <tbody>
+        <tr><td>z</td><td>Observed redshift</td><td>Measured spectral shift; not itself a distance.</td></tr>
+<tr><td>A(z)=ln(1+z)</td><td>Accumulated path deformation</td><td>Core redshift bookkeeping coordinate from the redshift analysis.</td></tr>
+<tr><td>G(d)=g0/(1+d/db)</td><td>Local response rate</td><td>Declining contribution to accumulated response along path length.</td></tr>
+<tr><td>D=A G</td><td>Shape/morphology response</td><td>Raw matter-void coordinate used for shape screens.</td></tr>
+<tr><td>D_n=D/D0</td><td>Normalized morphology response</td><td>Response-engine argument; D0 has the same units as D.</td></tr>
+<tr><td>chi=fvis A/A_CMB</td><td>Finite-depth display coordinate</td><td>Scaled display coordinate used for visual regime ordering.</td></tr>
+<tr><td>X=A/At</td><td>Normalized focal coordinate</td><td>X=1 marks the main projection boundary.</td></tr>
+<tr><td>0.390906</td><td>CMB/BAO scale ratio</td><td>A scale ratio, not redshift, not A, and not chi.</td></tr>
+<tr><td>eta=gbar/gdagger</td><td>Weak-field gravity coordinate</td><td>Controls local gravitational compliance.</td></tr>
+<tr><td>u=2GM/(Rc^2)</td><td>Compactness coordinate</td><td>Controls black-hole saturation target.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><p>The key definitions are:</p><div class="equation">\[A(z) = \ln(1 + z) \tag{3-2}\]</div><div class="equation">\[A_t = \ln(1 + z_t),\quad z_t = 34.5754 \tag{3-3}\]</div><div class="equation">\[X(z) = \frac{A(z)}{A_t} = \frac{\ln(1+z)}{\ln(1+z_t)} \tag{3-4}\]</div><div class="equation">\[\chi(z) = \frac{f_{\mathrm{vis}} A(z)}{A_{\mathrm{CMB}}},\quad f_{\mathrm{vis}} = \frac{S_{\mathrm{CMB}}}{S_{\mathrm{BAO}}} = 0.390906 \tag{3-5}\]</div><figure class="figure-card" id="fig-3-2">
+  <a href="assets/figures/figure_3_2.png" target="_blank">
+    <img src="assets/figures/figure_3_2.png" alt="Figure 3-2">
+  </a>
+  <figcaption>
+    <strong>Figure 3-2.</strong> Coordinate discipline. A, chi, and X are related but not interchangeable. A is accumulated path deformation; chi is a finite-depth display coordinate; X is the normalized focal coordinate with X = 1 at the transition recovered from the BAO-CMB failure.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_3_2.png" target="_blank">Open full-size image</a>
+  
+</figure><h2>4. The finite geometric domain</h2>
+<p>The model treats the universe as a finite deformable event-domain. This does not require a literal hard wall in ordinary space. It means that the event has a bounded geometric register: path response, projection, and compactness approach limiting behavior rather than physical infinity. In the schematic domain notation below, X(x) is a model-assigned depth coordinate for an event or signal path, and Xmax is the maximum depth covered by the chosen model domain.</p><div class="equation">\[U = \left\{x \mid 0 \le X(x) \le X_{\max}\right\} \tag{3-6}\]</div><p class="legacy-note">See the <a href="quantitative_appendix.html#a19">Quantitative Appendix</a> for domain-coordinate notation and response-register definitions.</p><p>Interior observations have X &lt; 1. The focal projection boundary has X = 1. CMB-side projection behavior lies in a compressed register beyond the transition. Local objects can still sit deep inside the domain while entering a different regime through eta or u. For this reason, the model uses several registers rather than one universal scalar.</p>
+<h2>5. Path-response redshift</h2>
+<p>The redshift law is constrained by the earlier redshift-distance analysis. Redshift is treated as accumulated response along a signal path through deformable geometry. The observable redshift is not changed; the interpretation of its accumulation is changed.</p><div class="equation">\[A(d) = \int_0^d G(s)\,ds \tag{3-7}\]</div><div class="equation">\[G(d) = \frac{g_0}{1 + d/d_b} \tag{3-8}\]</div><div class="equation">\[A(d) = g_0 d_b \ln(1 + d/d_b) \tag{3-9}\]</div><p>This response law gives a nonlinear redshift-distance curve without requiring local light speed to vary. Light still propagates locally at c. The wavelength, timing, and inferred projection registers accumulate through the geometry crossed by the signal.</p>
+<h2>6. Projection boundary and one-focal-length normalization</h2><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>The BAO-CMB shared-ruler failure requires a sharp transition. A broad rescaling would disturb the BAO range. The model therefore places the projection transition at one normalized focal length: X = 1.</p>
+</details><div class="equation">\[T(X) = 1 - \frac{\Delta X^m}{X^m + 1} \tag{3-11}\]</div><p>For the recovery target, Delta = 0.627714 and m = 4. The high-X limit is 1 - Delta = 0.372286, close to the CMB-side compression band and close to e^-1. The scale ratio 0.390906 remains distinct from T(CMB), but both point to a similar compressed-register magnitude.</p><figure class="figure-card" id="fig-3-3">
+  <a href="assets/figures/figure_3_3.png" target="_blank">
+    <img src="assets/figures/figure_3_3.png" alt="Figure 3-3">
+  </a>
+  <figcaption>
+    <strong>Figure 3-3.</strong> Projection and local-response laws. T(X) defines the focal projection boundary. G(d) shows local weakening response for several response scales. Each response curve belongs to the same finite-domain picture, but the registers are not forced to use one identical curve.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_3_3.png" target="_blank">Open full-size image</a>
+  
+</figure><h2>7. Size and luminosity registers</h2>
+<p>A projection boundary should affect inferred quantities before it affects direct observables. Spectroscopic redshift, flux, and angular size are measured. Stellar mass, luminosity distance, angular-size distance, physical radius, and compactness are inferred through a conversion. If the projection register shifts, mass and size move in opposite directions.</p>
+<p>M_audit approx Phi^2 M_LCDM</p>
+<p>R_e,audit approx R_e,LCDM / Phi</p>
+<p>This is the central JWST prediction. The model does not need the spectra to be wrong. It predicts that a finite-geometry projection conversion should make some high-redshift galaxies less massive, larger, and less compact than they appear under the standard conversion.</p>
+<h2>8. Vacuum as a separation between physical and optical registers</h2>
+<p>A useful way to visualize the model is as a separation between a physical geometric register and an optical or signal register. Earlier exploratory versions of this idea considered a dual expansion picture in which physical expansion outruns the light/signal register. The present finite-deformable formulation does not require ordinary expansion as the fundamental starting point. It preserves the important intuition that a vacuum-like register can emerge from separation between what the geometry is doing and what photon paths can report.</p>
+<p>Vacuum is therefore not treated as empty nothing. It is treated as a low-coupling geometric state: a region where matter-linked deformation pressure weakens toward near-zero response rather than becoming a required negative amount. This makes the pressure idea a boundary-state question rather than a negative-energy assumption.</p>
+<h2>9. Gravity as local compliance</h2>
+<p>The SPARC radial acceleration relation becomes the cleanest local compliance target. Baryons remain the local source term, while the effective response of geometry becomes more compliant below a characteristic acceleration scale.</p><div class="equation">\[\eta = \frac{g_{\mathrm{bar}}}{g^\dagger} \tag{3-12}\]</div><div class="equation">\[C_g(\eta) = 1 - \exp\!\left(-\sqrt{\eta}\right) \tag{3-13}\]</div><div class="equation">\[\frac{g_{\mathrm{obs}}}{g_{\mathrm{bar}}} = \frac{1}{C_g(\eta)} \tag{3-14}\]</div><p>Eta is not the same coordinate as X. A galaxy outskirts can have small X but small eta. A high-redshift path can have large X without being a local low-acceleration system. This separation is a strength of the model because it prevents every observation from being forced onto one axis.</p>
+<h2>10. Matter-void foam and shape response</h2>
+<p>The most visual part of the model is the matter-void foam. The cosmic web is not only matter in a background. The voids are part of the geometry. If the model is physically meaningful, void bubbles, walls, filaments, clusters, and local wells should be co-expressions of the same deformable domain.</p><div class="equation">\[I_{\mathrm{foam}} = \frac{N_{\mathrm{watershed}}}{N_{\mathrm{VoidFinder}}} \tag{3-15}\]</div><div class="equation">\[\mathbf{S}_{\mathrm{vec}} = \left(I_{\mathrm{foam}}, R_{\mathrm{eff}}, V_e, C_{\mathrm{shape}}\right) \tag{3-16}\]</div><div class="equation">\[D = A\,G,\quad D_n = D/D_0 \tag{3-17}\]</div><p>The SDSS VAST screen showed that D = A G improves several shape metrics relative to A alone, while also showing that the result is mixed and shallow. Dimensional entries in the shape vector are standardized before comparison, and D_n is reserved for response-engine use. The result is a methodology signal. The model prediction is that a deeper catalog sampling closer to X = 1 should show coordinated change in foam architecture: void ellipticity, basin hierarchy, large-void fraction, and connectivity should not vary independently.</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a19">Quantitative Appendix</a> for D_n normalization and unified response notation.</p>
+<h2>11. Compactness boundary and finite saturation</h2>
+<p>Black holes are the strongest compactness test because they push classical coordinates toward horizon and singularity limits. In a finite deformable geometry, the horizon is a compactness-regime boundary beyond which ordinary exterior coordinates are replaced by a finite saturation law.</p><div class="equation">\[u = \frac{2GM}{R c^2} \tag{3-18}\]</div><div class="equation">\[S(u) = \frac{u^m}{u^m + u_h^m},\quad u_h \approx 1 \tag{3-19}\]</div><p>S(u) is the compactness response law used for finite saturation. Weak compactness leaves ordinary exterior gravity unchanged; compactness near u = 1 activates saturation. A later theory must preserve exterior Schwarzschild/Kerr behavior, shadows, lensing, ringdown observations, and gravitational-wave constraints while avoiding a physical singular endpoint.</p>
+<h2>12. Unified finite-response engine</h2>
+<p>The finite-response engine is a generalized constitutive map stating how the geometry responds when projection depth, weak-field acceleration, compactness, or normalized morphology response enters a boundary regime.</p><div class="equation">\[C = C(X,\eta,u,D_n) \tag{3-20}\]</div><figure class="figure-card" id="fig-3-4">
+  <a href="assets/figures/figure_3_4.png" target="_blank">
+    <img src="assets/figures/figure_3_4.png" alt="Figure 3-4">
+  </a>
+  <figcaption>
+    <strong>Figure 3-4.</strong> Unified finite-response state space. The model is organized by regime variables, not one universal scalar. X controls projection depth, eta controls weak-field compliance, u controls compactness, and D_n controls normalized matter-void morphology response.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_3_4.png" target="_blank">Open full-size image</a>
+  
+</figure><section class="table-card">
+  <p class="table-caption"><strong>Table 3-3.</strong> Response-engine limits.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Limit</th><th>Required behavior</th></tr></thead>
+      <tbody>
+        <tr><td>Projection limit</td><td>C -&gt; T(X)</td></tr>
+<tr><td>Weak-field galaxy limit</td><td>C -&gt; C_g(eta)</td></tr>
+<tr><td>Compactness limit</td><td>C -&gt; S(u)</td></tr>
+<tr><td>Matter-void limit</td><td>C organizes D_n-dependent foam morphology</td></tr>
+<tr><td>Ordinary tested limit</td><td>C reduces to standard behavior in high-acceleration, weak-boundary, low-compactness regimes</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><h2>13. Field-equation bridge</h2>
+<p>A conservative bridge to relativistic gravity can be written as an effective correction to the local GR limit:</p><div class="equation">\[G_{\mu\nu} + \Lambda g_{\mu\nu} + F_{\mu\nu} = \frac{8\pi G}{c^4}T_{\mu\nu} \tag{3-21}\]</div><div class="equation">\[F_{\mu\nu} = \alpha B_{\mu\nu} C(X,\eta,u,D_n) \tag{3-22}\]</div><p>F_mu_nu is introduced as an effective bridge term. The equation requires activation near regime thresholds, vanishing in tested ordinary limits, conservation compatibility, and agreement with the empirical response functions isolated by the observational analyses.</p>
+<h2>14. What the universe looks like in this model</h2>
+<p>If the model is physically correct, the universe is not matter expanding through a passive infinite background. It is a bounded deformable geometric event with nested response registers. The low-depth interior preserves ordinary local physics and most SN/BAO behavior. Farther along the path-response coordinate, projection relations begin to shift, producing high-redshift mass-size effects. Near X = 1, distance, wavelength, timing, and standard-ruler registers no longer map through one simple expansion conversion. Beyond that boundary, the CMB-side acoustic projection lies in a compressed register.</p>
+<p>Inside the domain, matter and voids are not independent of geometry. Galaxies sit in local deformation wells. Low-acceleration outskirts show increased compliance. Cluster mergers may reveal partial separation among baryonic, lensing, and flow registers. Voids form the foam architecture of the finite geometry. Black holes mark compactness saturation points rather than physical infinities.</p><figure class="figure-card" id="fig-3-5">
+  <a href="assets/figures/figure_3_5.png" target="_blank">
+    <img src="assets/figures/figure_3_5.png" alt="Figure 3-5">
+  </a>
+  <figcaption>
+    <strong>Figure 3-5.</strong> Prediction board. The model produces five test targets: projection boundary behavior, mass-size relief, weak-field compliance, void-foam transition behavior, and compactness saturation.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_3_5.png" target="_blank">Open full-size image</a>
+  
+</figure><h2>15. Predictions and failure tests</h2><section class="table-card">
+  <p class="table-caption"><strong>Table 3-4.</strong> Predictions and failure tests.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Prediction</th><th>Observable test</th><th>Failure mode</th></tr></thead>
+      <tbody>
+        <tr><td>Projection boundary</td><td>BAO/SN interior remains nearly preserved while CMB-side projection requires sharp transition near X=1.</td><td>Weakened if full covariance treatments remove the shared-ruler failure or favor a smooth rescaling.</td></tr>
+<tr><td>JWST mass-size register</td><td>Projection conversion lowers inferred stellar masses and compactness while increasing effective radii.</td><td>Weakened if homogeneous SED/morphology analyses do not move in this direction.</td></tr>
+<tr><td>Gravity compliance</td><td>Low-acceleration galaxies follow a repeatable compliance relation tied to eta, with ordinary behavior at high eta.</td><td>Weakened if galaxy-by-galaxy fits show no stable compliance behavior.</td></tr>
+<tr><td>Matter-void foam</td><td>Object-level void catalogs reaching X=1 show coordinated changes in foam index, ellipticity, hierarchy, or connectivity.</td><td>Weakened if deeper surveys show no coordinated morphology transition.</td></tr>
+<tr><td>Compactness saturation</td><td>Interior black-hole modeling replaces singular divergence with finite saturation while preserving exterior observables.</td><td>Weakened if no conservation-compatible saturation law can preserve shadows, lensing, and ringdowns.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><h2>16. Model status and required tests</h2>
+<p>The current formulation specifies T, Phi, C_g, S, G, D, and the response map C(X, eta, u, D_n) as coupled model components. The next step is a unified derivation and numerical implementation that links these components through one conservation-compatible dynamics, including an explicit field-theory form for F_mu_nu and a compactness interior law.</p>
+<p>Next tests include a unified numerical model containing X, T(X), Phi, G, D, eta, u, C_g, and S(u); homogeneous JWST mass-size conversion using consistent spectroscopy and morphology; deeper object-level void catalogs closer to X = 1; and SPARC galaxy-by-galaxy finite-compliance fitting.</p>
+<h3>Register-Specific Scaling Exponents</h3>
+<p>Within the finite deformable geometry framework, separate observational registers may exhibit characteristic scaling behavior rather than collapsing to a single universal response coefficient. A perturbation-stability analysis was performed using independent model registers derived from the finite response framework.</p>
+<p>The tested registers included:</p>
+<div class="equation">\[D = A\,G\]</div>
+<p>for the combined path/morphology response,</p>
+<div class="equation">\[X = \frac{A}{A_t}\]</div>
+<p>for the normalized projection coordinate, and</p>
+<div class="equation">\[\eta = \frac{g_{\mathrm{bar}}}{g^\dagger}\]</div>
+<p>for the weak-field galaxy-response register associated with the SPARC/RAR relation.</p>
+<p>Three dimensionless scaling exponents emerged from the analysis:</p>
+<div class="equation">\[K_D \approx 0.504869\]</div>
+<p>for the path/morphology register,</p>
+<div class="equation">\[K_X \approx 0.980376\]</div>
+<p>for the projection/BAO register, and</p>
+<div class="equation">\[K_\eta \approx 0.666348\]</div>
+<p>for the weak-field galaxy-response register.</p>
+<p>The resulting values lie near simple fractional forms:</p>
+<div class="equation">\[K_D \sim \frac{1}{2}, \qquad K_X \sim 1, \qquad K_\eta \sim \frac{2}{3}\]</div>
+<p>The weak-field exponent remained particularly stable during perturbation testing.</p>
+<p>These results suggest that separate finite-geometry observational registers may organize around distinct scaling exponents rather than a single universal geometric response. In this interpretation, different observational sectors occupy different response regimes while remaining coupled through the broader finite response structure.</p>
+<h3>Interpretation of the Scaling Exponents</h3>
+<p>The near-half exponent \(K_D \sim 1/2\) aligns with a familiar geometric-transport pattern. Half-order behavior appears when propagation broadens while local response weakens, as in diffusion-length scaling, random-walk broadening, and other sublinear transport-growth systems. In the present register \(D = A\,G\), accumulated path response \(A\) grows through the domain while the local response factor \(G\) decays with scale, producing a natural setting for square-root-like scaling structure.</p>
+<p>The near-linear exponent \(K_X \sim 1\) corresponds to coherent projection mapping across a regime where relative structure is largely preserved. Because \(X = A/A_t\) is a normalized projection coordinate, near-unity scaling indicates that the tested BAO-side projection register retains proportional ordering under the finite response mapping, rather than collapsing into a strongly nonlinear compression in that range.</p>
+<p>The near-two-thirds exponent \(K_\eta \sim 2/3\) is also geometrically characteristic. Two-thirds scaling often appears when surface-like and volume-like behaviors are coupled, or when lower-dimensional boundary structure regulates higher-dimensional distributed systems. This includes familiar surface-area/volume relations, packing transitions, and distributed-to-boundary scaling regimes. In the weak-field galaxy register, that behavior is consistent with a distributed response picture of SPARC/RAR-type structure, where baryonic organization and effective geometric compliance co-evolve across the low-acceleration regime <a class="citation" href="references.html#ref-lelli-f-2016">[50]</a> <a class="citation" href="references.html#ref-mcgaugh-s-2016">[51]</a>.</p>
+<p>Taken together, \(K_D \sim 1/2\), \(K_X \sim 1\), and \(K_\eta \sim 2/3\) form a low-order rational set associated with transport, projection coherence, and dimensional coupling in geometric systems. Their appearance here is physically interesting because the values emerged from independent observational registers and then aligned as a structured exponent triplet within the same finite-response framework.</p>
+<h2>17. Conclusions</h2>
+<p>The finite deformable universe model unifies the empirical results and diagnostic screens into a finite geometric domain with several response registers.</p>
+<p>The central object is a finite geometric domain with several response registers: projection depth, local gravitational compliance, matter-void foam shape, and compactness saturation.</p><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>The normalized coordinate X = A/At keeps the model tied to the BAO-CMB recovery transition and prevents confusion among A, chi, and the 0.390906 scale ratio.</p>
+</details><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>The path-response law A(d) = integral G(d) dd supplies the redshift engine; T(X) supplies the focal projection boundary; Phi supplies the mass-size projection register.</p>
+</details><p>The SPARC relation becomes a weak-field compliance target, while black holes become compactness-saturation targets.</p>
+<p>The matter-void network is treated as a shape register of the geometry, with voids and web structures interpreted together.</p>
+<p>The unified response function C(X, eta, u, D_n) is the central model object and the main target for mathematical development.</p>
+<p>The model defines a finite-domain picture that can be tested through projection-boundary behavior, JWST mass-size conversion, weak-field compliance, void-foam morphology, and compactness saturation.</p>
+      <nav class="chapter-bottom-nav">
+        <a href="chapter_2.html">Previous: Chapter 2</a>
+        <a href="chapter_4.html">Next: Chapter 4</a>
+      </nav>
+    </article>
+  </main>
+
+</body>
+</html>
+
+
+
+
+

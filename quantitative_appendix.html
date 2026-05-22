@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quantitative Appendix | A FINITE UNIVERSE</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.MathJax = { tex: { tags: 'ams' } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">A FINITE UNIVERSE</a>
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="guidebook.html">Guidebook</a>
+      <a href="note_from_author.html">Author Note</a>
+      <a href="measurement_registers.html">Registers</a>
+      <a href="chapter_1.html">Chapter 1</a>
+      <a href="chapter_2.html">Chapter 2</a>
+      <a href="chapter_3.html">Chapter 3</a>
+      <a href="chapter_4.html">Chapter 4</a>
+      <a href="quantitative_appendix.html">Appendix</a>
+      <a href="references.html">References</a>
+    </nav>
+  </header>
+
+  <main class="chapter-layout">
+    <aside class="chapter-toc">
+      <p>Appendix</p>
+      <a href="#top">Top</a>
+      <a href="#a1">A1</a><a href="#a2">A2</a><a href="#a3">A3</a><a href="#a4">A4</a><a href="#a5">A5</a><a href="#a6">A6</a><a href="#a7">A7</a><a href="#a8">A8</a><a href="#a9">A9</a><a href="#a10">A10</a><a href="#a11">A11</a><a href="#a12">A12</a><a href="#a13">A13</a><a href="#a14">A14</a><a href="#a15">A15</a><a href="#a16">A16</a><a href="#a17">A17</a><a href="#a18">A18</a><a href="#a19">A19</a>
+    </aside>
+    <article class="chapter-content" id="top">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Quantitative Appendix</span></nav>
+      <details class="technical-details" open><summary>Appendix sections</summary><div class="figure-jump-list"><a href="#a1">A1</a><a href="#a2">A2</a><a href="#a3">A3</a><a href="#a4">A4</a><a href="#a5">A5</a><a href="#a6">A6</a><a href="#a7">A7</a><a href="#a8">A8</a><a href="#a9">A9</a><a href="#a10">A10</a><a href="#a11">A11</a><a href="#a12">A12</a><a href="#a13">A13</a><a href="#a14">A14</a><a href="#a15">A15</a><a href="#a16">A16</a><a href="#a17">A17</a><a href="#a18">A18</a><a href="#a19">A19</a></div></details>
+      <section class="chapter-intro">
+        <p class="kicker">Appendix</p>
+        <h1>Quantitative Appendix</h1>
+        <p class="subtitle">Finite-Boundary Redshift-Distance Framework</p>
+      </section>
+      <div class="guide-callout">
+        <strong>Plain-language companion:</strong>
+        For a plain-language orientation before the calculations, see
+        <a href="guidebook.html#what-the-book-is-really-asking">What the book is really asking</a> and
+        <a href="guidebook.html#when-rulers-stop-agreeing">When rulers stop agreeing</a>.
+      </div>
+<p>This appendix collects the mathematical definitions, fitted forms, variables, units, and diagnostic equations used in the finite-boundary redshift-distance analysis.</p>
+<h2 id="a1">A1. Purpose, scope, and master glossary</h2>
+<p>Purpose: define the equations, variables, inputs, diagnostics, and output quantities needed to reproduce the finite-boundary redshift-distance calculations.</p>
+<p>Required inputs: Type Ia supernova redshifts and distance coordinates; BAO ratios; cosmic chronometer values; published supernova time-dilation exponents; compressed CMB distance-prior quantities; fitting choices for redshift windows, train/test splits, nuisance scales, and CMB-prior covariance.</p>
+<p>Required outputs: fitted redshift-distance curves, accumulated-response curves, finite-boundary parameters, residual diagnostics, BAO shape statistics, chronometer derivative comparison, time-dilation exponent comparison, CMB-prior statistic, shared/separate ruler-scale diagnostics, and high-redshift projection target.</p>
+<p>Unit convention: use one distance coordinate consistently. If d is plotted as d/1000 Mpc, db uses the same scaled unit and g0 uses the reciprocal unit.</p>
+<h3>Data specification for reproduction</h3>
+<p>The table records the minimum schema needed to reproduce the calculations. Substituting a different compilation or calibration is a new numerical test.</p>
+<section class="table-card appendix-table"><div class="table-scroll"><table><thead><tr><th>Probe</th><th>Required columns or quantities</th><th>Units/status</th><th>Used for</th></tr></thead><tbody><tr><td>Type Ia supernova redshift-distance data</td><td>zHD, MU_SHOES, distance_mpc or equivalent redshift, distance modulus, and distance coordinate</td><td>z dimensionless; d in Mpc or plotted as d/1000 Mpc</td><td>A2-A8 redshift fits, accumulated response, residuals, and stability statistics</td></tr><tr><td>Supernova sky-sector data</td><td>z, mu, ra, dec</td><td>redshift dimensionless; RA/DEC in degrees</td><td>A9 sector-specific boundary-scale fits</td></tr><tr><td>BAO standard-ruler data</td><td>source, tracer, z, observable, value, sigma</td><td>DM/rd, DH/rd, and DV/rd are dimensionless ratios</td><td>A10, A14-A16 ruler-shape and scale diagnostics</td></tr><tr><td>Cosmic chronometer data</td><td>z, H_km_s_Mpc, sigma_H, method, reference_group</td><td>Hz in km s-1 Mpc-1</td><td>A11 derivative-shape comparison</td></tr><tr><td>Published supernova time-dilation constraints</td><td>study, object_type, sample_size, z_min, z_max, b, uncertainty columns</td><td>b dimensionless</td><td>A12 weighted exponent comparison</td></tr><tr><td>Compressed CMB distance priors</td><td>parameter, value, sigma, plus covariance/correlation matrix</td><td>mixed compressed-prior components handled through covariance</td><td>A13-A17 CMB-prior and projection-target diagnostics</td></tr></tbody></table></div></section>
+<h3>Numerical settings</h3>
+<p>These settings are required to reproduce the representative values in this appendix.</p>
+<section class="table-card appendix-table"><div class="table-scroll"><table><thead><tr><th>Calculation</th><th>Setting</th><th>Output controlled</th></tr></thead><tbody><tr><td>Train/test prediction</td><td>training fraction 0.80</td><td>held-out RMSE and overfit gap</td></tr><tr><td>Stability stress</td><td>minimum rows per window 80; 10 upper-redshift windows; training fractions 0.7, 0.8, 0.9; low-z cutoffs included</td><td>boundary-scale distribution and win rate</td></tr><tr><td>Independent-dataset comparison</td><td>high-z holdout training fraction 0.80</td><td>repeatability of fitted db</td></tr><tr><td>Directional partitioning</td><td>quadrants and 8 right-ascension slices</td><td>sector-specific db spread</td></tr><tr><td>BAO shape comparison</td><td>maximum BAO redshift about 2.33; Lyα points included</td><td>BAO point selection</td></tr><tr><td>Chronometer comparison</td><td>maximum redshift about 1.97; maximum σH about 62; locked db≈2.04</td><td>derivative-shape range and locked scale</td></tr><tr><td>Time-dilation comparison</td><td>published time-dilation exponents only</td><td>external b constraint</td></tr><tr><td>CMB-prior comparison</td><td>z*≈1089.92; locked db≈2.04; locked and free finite-boundary checks</td><td>compressed-prior distance statistic</td></tr><tr><td>Joint BAO+CMB comparison</td><td>one shared BAO/CMB ruler; CMB weight 1.00; Lyα points included</td><td>shared-ruler failure statistic</td></tr><tr><td>Separate-scale comparison</td><td>z*≈1089.92; locked db≈2.04; Lyα points included</td><td>CMB-to-BAO scale ratio</td></tr><tr><td>Projection trials</td><td>transition scale zt=10 for the logistic trial; CMB weight 1.00</td><td>variable-ruler behavior</td></tr><tr><td>Geometry-tied projection</td><td>locked db≈2.04; CMB weight 1.00</td><td>geometry-tied projection comparison</td></tr><tr><td>Sharp high-redshift transition</td><td>locked db≈2.04; z*≈1089.92; BAO-preservation penalty weight 5.00</td><td>BAO-preserving CMB-side transition target</td></tr></tbody></table></div></section>
+<h3>Fitting and optimization conventions</h3>
+<div class="equation">For one-parameter scale fits of the form Yi=SFi, the diagnostic scale is chosen by minimizing the weighted least-squares objective</div>
+<div class="equation">χ2S=i​Yi-SFiσi2.</div>
+<div class="equation">When the prediction is linear in S, the equivalent analytic solution is</div>
+<div class="equation">S=i​YiFi/σi2i​Fi2/σi2.</div>
+<div class="equation">For mixed BAO/CMB tests where the CMB-prior vector introduces additional covariance terms, the same principle is used, but the total objective may be evaluated by one-dimensional numerical minimization over the shared scale. Trial projection functions Tz are selected by minimizing the stated diagnostic objective while preserving Tz≈1 over the BAO redshift range and approaching the CMB-side target near z*.</div>
+<h3>Master glossary</h3>
+<section class="table-card appendix-table"><div class="table-scroll"><table><thead><tr><th>Symbol</th><th>Meaning</th><th>Units or status</th><th>Used in</th></tr></thead><tbody><tr><td>z</td><td>observed redshift</td><td>dimensionless</td><td>A2-A3</td></tr><tr><td>d</td><td>supplied distance coordinate used for supernova fitting</td><td>Mpc, often plotted as d/1000 Mpc</td><td>A2-A5</td></tr><tr><td>Ad</td><td>accumulated redshift response</td><td>dimensionless</td><td>A2-A5</td></tr><tr><td>Gd</td><td>local response rate along the path</td><td>inverse distance, e.g. Mpc-1</td><td>A2, A4-A5</td></tr><tr><td>s</td><td>dummy path-distance variable in integrals</td><td>same units as d</td><td>A2, A5</td></tr><tr><td>g0</td><td>near-origin local response-rate scale</td><td>same units as Gd</td><td>A5-A6</td></tr><tr><td>db</td><td>finite-boundary distance scale</td><td>same units as d</td><td>A5-A9</td></tr><tr><td>g0db</td><td>dimensionless accumulated-response exponent</td><td>dimensionless if d and db share units</td><td>A5-A6</td></tr><tr><td>xz</td><td>inverted model distance coordinate</td><td>same units as d</td><td>A6, A10-A17</td></tr><tr><td>x'z</td><td>derivative dx/dz</td><td>distance per unit redshift</td><td>A6, A10-A11</td></tr><tr><td>a</td><td>empirical scale coefficient in redshift-distance fits</td><td>inverse distance, or scaled inverse distance</td><td>A3-A4</td></tr><tr><td>n</td><td>empirical power-law exponent</td><td>dimensionless</td><td>A3-A4</td></tr><tr><td>k</td><td>constant accumulated-response rate</td><td>inverse distance</td><td>A4</td></tr><tr><td>β</td><td>quadratic coefficient in accumulated-response tests</td><td>inverse distance squared</td><td>A4</td></tr><tr><td>γ</td><td>cubic coefficient in accumulated-response tests</td><td>inverse distance cubed</td><td>A4</td></tr><tr><td>ri</td><td>residual for data point i</td><td>same units as fitted observable</td><td>A7-A8</td></tr><tr><td>yi</td><td>observed value for point i</td><td>observable-dependent</td><td>A7</td></tr><tr><td>yi</td><td>model-predicted value for point i</td><td>same units as yi</td><td>A7</td></tr><tr><td>σi</td><td>uncertainty for point i</td><td>same units as yi</td><td>A7, A10-A13</td></tr><tr><td>ndata</td><td>number of data points</td><td>count</td><td>A7-A8</td></tr><tr><td>kpar</td><td>number of fitted model parameters</td><td>count</td><td>A7</td></tr><tr><td>RMSE</td><td>root-mean-square error</td><td>same units as residual</td><td>A7-A8</td></tr><tr><td>RSS</td><td>residual sum of squares</td><td>residual units squared</td><td>A7</td></tr><tr><td>AIC</td><td>Akaike information criterion</td><td>model-ranking statistic</td><td>A7</td></tr><tr><td>BIC</td><td>Bayesian information criterion</td><td>model-ranking statistic</td><td>A7</td></tr><tr><td>χ2</td><td>chi-square mismatch statistic</td><td>dimensionless</td><td>A7, A10, A13-A14</td></tr><tr><td>χν2</td><td>reduced chi-square</td><td>dimensionless</td><td>A7, A14</td></tr><tr><td>Δoverfit</td><td>test-error excess relative to training error</td><td>RMSE units</td><td>A8</td></tr><tr><td>μdb</td><td>mean fitted boundary scale across splits or sectors</td><td>same units as db</td><td>A8-A9</td></tr><tr><td>CVdb</td><td>coefficient of variation of fitted db values</td><td>dimensionless</td><td>A8-A9</td></tr><tr><td>DMz</td><td>transverse comoving distance used in BAO ratios</td><td>Mpc before division by rd</td><td>A10</td></tr><tr><td>DHz</td><td>radial Hubble distance used in BAO ratios</td><td>Mpc before division by rd</td><td>A10</td></tr><tr><td>DVz</td><td>volume-averaged BAO distance</td><td>Mpc before division by rd</td><td>A10</td></tr><tr><td>rd</td><td>BAO sound-horizon ruler scale</td><td>Mpc, or absorbed into dimensionless BAO ratios</td><td>A10</td></tr><tr><td>S</td><td>nuisance calibration scale for ruler comparisons</td><td>converts model coordinate into BAO/CMB ruler units</td><td>A10, A14</td></tr><tr><td>Bi</td><td>observed BAO ratio for point i</td><td>dimensionless</td><td>A10</td></tr><tr><td>Bi</td><td>predicted BAO ratio for point i</td><td>dimensionless</td><td>A10</td></tr><tr><td>Hz</td><td>chronometer expansion-history quantity</td><td>km s-1 Mpc-1 after calibration</td><td>A11</td></tr><tr><td>Hshapez</td><td>derivative-shape comparison from finite-boundary coordinate</td><td>arbitrary normalization before calibration</td><td>A11</td></tr><tr><td>b</td><td>time-dilation exponent</td><td>dimensionless</td><td>A12</td></tr><tr><td>Δtobs</td><td>observed time interval</td><td>time</td><td>A12</td></tr><tr><td>Δtemit</td><td>emitted or rest-frame time interval</td><td>time</td><td>A12</td></tr><tr><td>p</td><td>compressed CMB-prior vector</td><td>mixed components, handled by covariance</td><td>A13</td></tr><tr><td>R</td><td>CMB shift parameter</td><td>dimensionless compressed prior</td><td>A13</td></tr><tr><td>lA</td><td>acoustic angular scale</td><td>dimensionless multipole-like scale</td><td>A13</td></tr><tr><td>ωbh2</td><td>physical baryon-density term</td><td>dimensionless</td><td>A13</td></tr><tr><td>z*</td><td>last-scattering redshift used in CMB-prior checks</td><td>approximately 1089.92 here</td><td>A13-A17</td></tr><tr><td>rsz*</td><td>sound horizon at last scattering</td><td>Mpc</td><td>A13</td></tr><tr><td>C</td><td>covariance matrix for compressed CMB-prior vector</td><td>component-dependent</td><td>A13</td></tr><tr><td>wCMB</td><td>weight applied to CMB term in joint diagnostic</td><td>dimensionless</td><td>A14</td></tr><tr><td>SBAO</td><td>effective BAO-side calibration scale</td><td>same calibration role as S</td><td>A14-A15</td></tr><tr><td>SCMB</td><td>effective CMB-side calibration scale</td><td>same calibration role as S</td><td>A14-A15</td></tr><tr><td>Sratio</td><td>CMB-to-BAO effective scale ratio</td><td>dimensionless</td><td>A15</td></tr><tr><td>Seffz</td><td>redshift-dependent effective scale</td><td>same status as S</td><td>A16</td></tr><tr><td>S0</td><td>low-redshift normalization of effective scale</td><td>same status as S</td><td>A16</td></tr><tr><td>Tz</td><td>redshift-dependent projection factor</td><td>dimensionless</td><td>A16-A17</td></tr><tr><td>q</td><td>projection-strength parameter in trial forms</td><td>dimensionless or scale-dependent by form</td><td>A16</td></tr><tr><td>Δ</td><td>amplitude of sharp projection transition</td><td>dimensionless</td><td>A17</td></tr><tr><td>zt</td><td>transition midpoint redshift</td><td>dimensionless redshift</td><td>A17</td></tr><tr><td>m</td><td>transition sharpness parameter</td><td>dimensionless</td><td>A17</td></tr></tbody></table></div></section>
+<h3>Calculation map</h3>
+<section class="table-card appendix-table"><div class="table-scroll"><table><thead><tr><th>Appendix section</th><th>Calculation</th><th>Primary input -&gt; primary output</th></tr></thead><tbody><tr><td>A2</td><td>accumulated-response transform</td><td>z,d -&gt; A(d)=ln(1+z)</td></tr><tr><td>A3</td><td>empirical redshift-distance fits</td><td>supernova z,d -&gt; fit parameters and residuals</td></tr><tr><td>A4</td><td>candidate accumulated-response forms</td><td>d,A(d) -&gt; fitted A(d) and G(d)</td></tr><tr><td>A5</td><td>finite-boundary response law</td><td>g0,db,d -&gt; G(d), A(d), z(d)</td></tr><tr><td>A6</td><td>inverted distance-redshift coordinate</td><td>z,g0,db -&gt; x(z), x'(z)</td></tr><tr><td>A7</td><td>fit residual and model-ranking statistics</td><td>observed/predicted values -&gt; RMSE, χ2, AIC, BIC</td></tr><tr><td>A8</td><td>prediction and stability diagnostics</td><td>splits/windows -&gt; overfit gap and db distribution</td></tr><tr><td>A9</td><td>directional partitioning</td><td>sky sectors -&gt; sector-specific db values</td></tr><tr><td>A10</td><td>BAO standard-ruler shape comparison</td><td>x(z), x'(z), BAO ratios -&gt; χBAO2</td></tr><tr><td>A11</td><td>chronometer derivative comparison</td><td>x'(z), H(z) data -&gt; derivative-shape residuals</td></tr><tr><td>A12</td><td>time-dilation exponent comparison</td><td>published b values -&gt; common b and model comparison</td></tr><tr><td>A13</td><td>CMB compressed distance-prior comparison</td><td>x(z*), CMB priors -&gt; χCMB2</td></tr><tr><td>A14</td><td>joint BAO+CMB shared-ruler test</td><td>BAO plus CMB priors -&gt; shared-ruler statistic</td></tr><tr><td>A15</td><td>separate BAO/CMB scale comparison</td><td>independent scales -&gt; Sratio</td></tr><tr><td>A16</td><td>redshift-dependent projection factor</td><td>T(z) trials -&gt; BAO preservation and CMB target behavior</td></tr><tr><td>A17</td><td>sharp high-redshift transition</td><td>Δ,zt,m -&gt; BAO-preserving CMB-side target</td></tr><tr><td>A18</td><td>compact replication chain</td><td>A2-A17 equations -&gt; end-to-end calculation sequence</td></tr><tr><td>A19</td><td>assumptions and caveats</td><td>calibration and covariance limits -&gt; interpretation bounds</td></tr></tbody></table></div></section>
+<h2 id="a2">A2. Accumulated redshift response</h2>
+<p class="appendix-note">Calculation purpose: transform observed redshift into an accumulated path response and define its local derivative.</p>
+<p>Inputs are z and d. Outputs are A(d) and G(d); the transformation is independent of the later choice of local response law.</p>
+<div class="equation">\[A(d)=\ln(1+z) \tag{A2.1}\]</div>
+<div class="equation">where Ad is the accumulated redshift response after distance d; z is observed redshift; both Ad and z are dimensionless.</div>
+<div class="equation">\[1+z=\exp[A(d)] \tag{A2.2}\]</div>
+<div class="equation">where expAd is the exponential mapping from accumulated response back to the observed redshift factor.</div>
+<div class="equation">\[z(d)=\exp[A(d)]-1 \tag{A2.3}\]</div>
+<div class="equation">where zd is the redshift predicted at the distance coordinate d.</div>
+<div class="equation">The path-response interpretation treats Ad as an integral of a local response rate along the path.</div>
+<div class="equation">\[A(d)=\int_0^d G(s)\,ds \tag{A2.4}\]</div>
+<div class="equation">where Gs is the local response rate at path coordinate s; s is a dummy distance variable; ds has the same units as d; the product Gs ds is dimensionless.</div>
+<div class="equation">\[G(d)=\frac{dA}{dd} \tag{A2.5}\]</div>
+<div class="equation">where Gd is the local incremental response per unit distance. If d is measured in Mpc, then Gd has units of Mpc-1.</div>
+<p class="appendix-note">Implementation notes. Inputs are observed redshift z and distance coordinate d. Compute Ad with Equation (A2.1), optionally recover zd through Equations (A2.2-A2.3), and treat the slope dA/dd as the local response rate in Equation (A2.5). The output is a transformed dataset d,Ad that feeds the accumulated-response and finite-boundary tests.</p>
+<h2 id="a3">A3. Empirical redshift-distance forms</h2>
+<p class="appendix-note">Calculation purpose: fit compact empirical redshift-distance curves before applying the accumulated-response interpretation.</p>
+<div class="equation">Inputs are supernova z and d. Outputs are fitted curve parameters, predicted z(d), residuals, and ranking statistics. These forms fit directly into zd and are not dynamical derivations.</div>
+<p class="equation-number">(A3.1)</p>
+<div class="equation">zlind=ad</div>
+<div class="equation">where zlind is the linear Hubble-form redshift curve; a is a fitted slope parameter with inverse-distance units; d is the supplied distance coordinate.</div>
+<p class="equation-number">(A3.2)</p>
+<div class="equation">zexpd=expad-1</div>
+<div class="equation">where zexpd is the exponential redshift curve; a is a fitted exponential scale parameter with inverse-distance units.</div>
+<p class="equation-number">(A3.3)</p>
+<div class="equation">zpowd=1+adn-1</div>
+<div class="equation">where zpowd is the power-law redshift curve; a is a fitted distance-scale coefficient; n is a fitted dimensionless exponent controlling curvature.</div>
+<p class="equation-number">(A3.4)</p>
+<div class="equation">zquadd=ad+bd2</div>
+<div class="equation">where zquadd is the quadratic redshift curve; a is the fitted linear coefficient; b is the fitted quadratic coefficient with inverse-distance-squared units.</div>
+<div class="equation">A flat ΛCDM luminosity-distance reference can be written schematically as:</div>
+<p class="equation-number">(A3.5)</p>
+<div class="equation">dLz;H0,Ωm=c1+zH00zduΩm1+u3+1-Ωm</div>
+<div class="equation">where dL is luminosity distance; H0 is the Hubble constant; Ωm is the matter-density parameter; c is the speed of light; and u is a dummy redshift integration variable. The equation returns a distance when c/H0 is expressed in distance units.</div>
+<p class="appendix-note">Implementation notes. Inputs are the supernova redshift and distance columns. Fit Equations (A3.1-A3.4) and compare them with the ΛCDM reference curve in Equation (A3.5). Outputs are fitted parameters, predicted redshift curves, residuals, RMSE, AIC, and BIC.</p>
+<h3>Minimal supernova replication recipe.</h3>
+<div class="equation">Read the supernova distance coordinate d and observed redshift z.</div>
+<div class="equation">Fit Equations (A3.1-A3.4) to zd.</div>
+<p>Compute predicted redshifts and residuals with Section A7.</p>
+<p>Rank the forms by RMSE, AIC, BIC, and residual structure.</p>
+<p>Carry the preferred compact form into the accumulated-response comparison in Section A4.</p>
+<h2 id="a4">A4. Accumulated-response model forms</h2>
+<p class="appendix-note">Calculation purpose: compare candidate A(d) forms and their implied local response rates G(d).</p>
+<div class="equation">This section uses the transformation from Equation (A2.1) to compare candidate forms for Ad and their implied local response rates Gd.</div>
+<h3>Constant accumulation</h3>
+<p class="equation-number">(A4.1)</p>
+<div class="equation">Ad=kd</div>
+<p class="equation-number">(A4.2)</p>
+<div class="equation">Gd=k</div>
+<div class="equation">where k is a constant response rate with inverse-distance units. This is the reference case in which each unit of distance contributes the same accumulated response.</div>
+<h3>Quadratic deformation</h3>
+<p class="equation-number">(A4.3)</p>
+<div class="equation">Ad=kd+βd2</div>
+<p class="equation-number">(A4.4)</p>
+<div class="equation">Gd=k+2βd</div>
+<div class="equation">where β is a fitted quadratic coefficient with inverse-distance-squared units; Gd is the derivative of Ad with respect to d.</div>
+<h3>Logarithmic / power-law shadow</h3>
+<p class="equation-number">(A4.5)</p>
+<div class="equation">Ad=nln1+ad</div>
+<p class="equation-number">(A4.6)</p>
+<div class="equation">Gd=na1+ad</div>
+<div class="equation">where n is the exponent from the empirical power-law redshift form, a is a fitted distance-scale coefficient, and Gd is a declining local response rate. Equations (A4.5-A4.6) provide the bridge between the empirical power-law fit and the finite-boundary interpretation.</div>
+<h3>Cubic deformation</h3>
+<p class="equation-number">(A4.7)</p>
+<div class="equation">Ad=kd+βd2+γd3</div>
+<p class="equation-number">(A4.8)</p>
+<div class="equation">Gd=k+2βd+3γd2</div>
+<div class="equation">where γ is a fitted cubic coefficient with inverse-distance-cubed units.</div>
+<p class="appendix-note">Implementation notes. Inputs are d and Ad from Section A2. Fit candidate accumulated-response forms to Ad, differentiate each form to obtain Gd, and compare residual structure. Outputs are fitted response curves and implied local-rate curves.</p>
+<h2 id="a5">A5. Finite-boundary local-response law</h2>
+<p class="appendix-note">Calculation purpose: define the finite-boundary local-response law, integrate it, and recover z(d).</p>
+<p>Inputs are d, g0, and db. Outputs are G(d), A(d), and z(d). The calculation depends on the accumulated-response framework from Section A2.</p>
+<div class="equation">\[G(d)=\frac{g_0}{1+d/d_b} \tag{A5.1}\]</div>
+<div class="equation">where Gd is the local response rate at a distance d; g0 is the near-origin response-rate scale; db is the finite-boundary distance scale. If d and db are in Mpc, then g0 has units of Mpc-1.</div>
+<p>The same expression can be written without a nested denominator:</p>
+<div class="equation">\[G(d)=\frac{g_0 d_b}{d_b+d} \tag{A5.2}\]</div>
+<div class="equation">where db+d is the sum of the finite-boundary scale and the path coordinate.</div>
+<p>The accumulated response follows by integrating Equation (A5.1):</p>
+<div class="equation">\[A(d)=\int_0^d \frac{g_0}{1+s/d_b}\,ds \tag{A5.3}\]</div>
+<div class="equation">where s is the dummy path coordinate inside the integral.</div>
+<div class="equation">Using the substitution u=1+s/db gives ds=db du, so the integral becomes:</div>
+<div class="equation">\[A(d)=g_0d_b\int_1^{1+d/d_b}\frac{du}{u} \tag{A5.4}\]</div>
+<div class="equation">where u is dimensionless.</div>
+<p>Therefore:</p>
+<div class="equation">\[A(d)=g_0d_b\ln\!\left(1+\frac{d}{d_b}\right) \tag{A5.5}\]</div>
+<div class="equation">where g0db is dimensionless when d and db share units. The logarithmic term is also dimensionless.</div>
+<p>The predicted redshift is obtained by substituting Equation (A5.5) into Equation (A2.3):</p>
+<div class="equation">\[z(d)=\exp\!\left[g_0d_b\ln\!\left(1+\frac{d}{d_b}\right)\right]-1 \tag{A5.6}\]</div>
+<p>Equivalently:</p>
+<div class="equation">\[z(d)=\left(1+\frac{d}{d_b}\right)^{g_0d_b}-1 \tag{A5.7}\]</div>
+<div class="equation">where g0db controls the curvature of the redshift-distance relation.</div>
+<p class="appendix-note">Units note. If the plotted coordinate is d/1000 Mpc, then the numerical value of db is also in thousands of Mpc. The dimensionless product g0db and dimensionless predictions are unchanged as long as g0 is expressed in the reciprocal units of db.</p>
+<p class="appendix-note">Implementation notes. Inputs are the distance grid d, fitted g0, and fitted db. Compute Gd with Equation (A5.1), integrate or evaluate Ad with Equation (A5.5), and recover zd with Equation (A5.7). Outputs are finite-boundary response curves, redshift predictions, and residuals.</p>
+<h2 id="a6">A6. Inverted distance-redshift coordinate</h2>
+<p class="appendix-note">Calculation purpose: invert the finite-boundary redshift relation to obtain x(z) and x'(z).</p>
+<p>The BAO and CMB diagnostics require the finite-boundary relation to be used as a distance coordinate as a function of redshift. This section depends on the finite-boundary redshift relation in Equation (A5.7).</p>
+<p>Starting from:</p>
+<div class="equation">\[1+z=\left(1+\frac{d}{d_b}\right)^{g_0d_b} \tag{A6.1}\]</div>
+<div class="equation">raise both sides to the power 1/g0db:</div>
+<div class="equation">\[(1+z)^{1/(g_0d_b)}=1+\frac{d}{d_b} \tag{A6.2}\]</div>
+<p>Solving for the inverted coordinate gives:</p>
+<div class="equation">\[x(z)=d_b\left[(1+z)^{1/(g_0d_b)}-1\right] \tag{A6.3}\]</div>
+<div class="equation">where xz is the model distance coordinate inferred from redshift. It has the same units as db.</div>
+<p>The redshift derivative of this coordinate is:</p>
+<div class="equation">\[x'(z)=\frac{dx}{dz}=\frac{1}{g_0}(1+z)^{1/(g_0d_b)-1} \tag{A6.4}\]</div>
+<div class="equation">where x'z is the distance-coordinate change per unit redshift. It has distance units because redshift is dimensionless.</div>
+<p class="appendix-note">Units sanity check. The coordinate xz is a model-distance coordinate, not automatically a physical BAO or CMB distance. BAO and CMB comparisons require a calibration or nuisance scale such as S.</p>
+<p class="appendix-note">Implementation notes. Inputs are z, g0, and db from the finite-boundary fit. Compute xz and x'z from Equations (A6.3-A6.4). Outputs feed the BAO ratios, chronometer derivative comparison, CMB-prior projection, and high-redshift transition tests.</p>
+<h2 id="a7">A7. Fit residuals and model-ranking quantities</h2>
+<p class="appendix-note">Calculation purpose: compute residuals, goodness-of-fit quantities, and information criteria.</p>
+<p>This section defines the statistical diagnostics used in the empirical fit ranking and train/test comparisons.</p>
+<p class="equation-number">(A7.1)</p>
+<div class="equation">ri=yi-yi</div>
+<div class="equation">where ri is the residual for the point i; yi is the observed value; yi is the model-predicted value.</div>
+<p class="equation-number">(A7.2)</p>
+<div class="equation">RMSE=1ndatai=1ndatari2</div>
+<div class="equation">where ndata is the number of fitted data points.</div>
+<p class="equation-number">(A7.3)</p>
+<div class="equation">χ2=i=1ndatayi-yiσi2</div>
+<div class="equation">where σi is the uncertainty assigned to the point i.</div>
+<p class="equation-number">(A7.4)</p>
+<div class="equation">χν2=χ2ndata-kpar</div>
+<div class="equation">where kpar is the number of fitted parameters; ndata-kpar is the degrees of freedom.</div>
+<p class="equation-number">(A7.5)</p>
+<div class="equation">RSS=i=1ndatari2</div>
+<p class="equation-number">(A7.6)</p>
+<div class="equation">AIC=2kpar+ndatalnRSSndata</div>
+<p class="equation-number">(A7.7)</p>
+<div class="equation">BIC=kparlnndata+ndatalnRSSndata</div>
+<p>where AIC is Akaike information criterion; BIC is Bayesian information criterion; RSS is residual sum of squares.</p>
+<section class="table-card appendix-table"><div class="table-scroll"><table><thead><tr><th>Model form</th><th>Representative RMSE</th></tr></thead><tbody><tr><td>Power-law form</td><td>0.0213</td></tr><tr><td>Linear Hubble form</td><td>0.0488</td></tr><tr><td>Exponential form</td><td>0.1303</td></tr><tr><td>Quadratic proxy</td><td>0.0709</td></tr></tbody></table></div></section>
+<p class="appendix-note">Implementation notes. Inputs are observed values, predicted values, optional uncertainties, and parameter counts. Outputs are residuals, RMSE, chi-square statistics, and information criteria.</p>
+<h2 id="a8">A8. Cross-validation and stability diagnostics</h2>
+<p class="appendix-note">Calculation purpose: test prediction error and boundary-scale stability under split or window changes.</p>
+<p>Inputs are repeated train/test splits or redshift windows. Outputs are train/test RMSE, overfit gap, fitted db distribution, and stability summary statistics.</p>
+<p class="equation-number">(A8.1)</p>
+<div class="equation">RMSEtrain=1ntraini∈train​ri2</div>
+<p class="equation-number">(A8.2)</p>
+<div class="equation">RMSEtest=1ntesti∈test​ri2</div>
+<div class="equation">where ntrain and ntest are the numbers of training and held-out points.</div>
+<p class="equation-number">(A8.3)</p>
+<div class="equation">Δoverfit=RMSEtest-RMSEtrain</div>
+<div class="equation">where Δoverfit is the test-error excess relative to the training error.</div>
+<p>Repeated redshift-window tests produce a distribution of fitted boundary scales:</p>
+<p class="equation-number">(A8.4)</p>
+<div class="equation">{db,1,db,2,…,db,N}</div>
+<p class="equation-number">(A8.5)</p>
+<div class="equation">db=mediandb,j</div>
+<p class="equation-number">(A8.6)</p>
+<div class="equation">CVdb=σdb,jμdb,j</div>
+<div class="equation">where db,j is the fitted boundary scale from split or window j; N is the number of repeated windows or splits; σ is standard deviation; μ is mean. Representative values are median db≈1.57, coefficient of variation ≈0.26, and finite-boundary win rate ≈97.6%.</div>
+<p class="appendix-note">Implementation notes. Inputs are data splits, fitted models, and recovered db values from each split or window. Outputs are train/test RMSE, overfit gap, and the distribution of boundary-scale values.</p>
+<p>Minimal stability replication recipe.</p>
+<div class="equation">Define repeated train/test splits or redshift windows.</div>
+<p>Fit the same model form in each split or window.</p>
+<div class="equation">Record train RMSE, test RMSE, and fitted db.</div>
+<p>Compute Equations (A8.3-A8.6).</p>
+<div class="equation">Compare the finite-boundary form against alternate forms by win rate and spread in db.</div>
+<h2 id="a9">A9. Directional partitioning</h2>
+<p class="appendix-note">Calculation purpose: fit the same finite-boundary accumulated-response form independently by sky sector.</p>
+<p>Inputs are sector assignments, z, and d. Outputs are sector-specific db values and their spread.</p>
+<p class="equation-number">(A9.1)</p>
+<div class="equation">Ajd=g0,jdb,jln1+ddb,j</div>
+<div class="equation">where j is the sky-sector index; g0,j is the fitted response scale in sector j; db,j is the fitted boundary scale in sector j.</div>
+<p>The sector-scale distribution is summarized by:</p>
+<p class="equation-number">(A9.2)</p>
+<div class="equation">μdb=1Nj=1Ndb,j</div>
+<p class="equation-number">(A9.3)</p>
+<div class="equation">CVdb=1N-1j=1Ndb,j-μdb2μdb</div>
+<div class="equation">where μdb is the mean boundary scale across sectors; N is the number of sectors; CVdb is the relative sector-to-sector spread. For the right-ascension slice test, representative values are mean db≈2.25, coefficient of variation ≈0.077, and max/min ≈1.23.</div>
+<p class="appendix-note">Implementation notes. Inputs are sky coordinates, sector assignments, redshift, and distance. Fit Equation (A9.1) separately in each sky sector. Outputs are sector-specific db values, mean, coefficient of variation, and max/min comparison.</p>
+<h2 id="a10">A10. BAO standard-ruler diagnostics</h2>
+<p class="appendix-note">Calculation purpose: compare BAO standard-ruler ratios against finite-boundary shape predictions.</p>
+<div class="equation">Inputs are BAO redshifts, observable labels, ratios, uncertainties, xz, and x'z from Section A6. Output is χBAO2.</div>
+<p>The BAO comparison uses dimensionless standard-ruler ratios:</p>
+<div class="equation">\[\frac{D_M(z)}{r_d} \tag{A10.1}\]</div>
+<div class="equation">\[\frac{D_H(z)}{r_d} \tag{A10.2}\]</div>
+<div class="equation">\[\frac{D_V(z)}{r_d} \tag{A10.3}\]</div>
+<div class="equation">where DMz is transverse comoving distance; DHz is radial Hubble distance; DVz is volume-averaged BAO distance; rd is the BAO sound-horizon ruler scale. Each ratio is dimensionless.</div>
+<div class="equation">Using a nuisance calibration scale S, the diagnostic BAO shape predictions are:</div>
+<div class="equation">\[\widehat{D_M/r_d}=S\,x(z) \tag{A10.4}\]</div>
+<div class="equation">\[\widehat{D_H/r_d}=S\,x'(z) \tag{A10.5}\]</div>
+<div class="equation">\[\widehat{D_V/r_d}=S\left[z\,x^2(z)\,x'(z)\right]^{1/3} \tag{A10.6}\]</div>
+<div class="equation">where S absorbs the conversion between model-distance units and sound-horizon ruler units; hatted quantities are model predictions for the dimensionless BAO ratios. The scale S carries whatever reciprocal units are needed to make the products dimensionless.</div>
+<div class="equation">\[\chi^2_{\mathrm{BAO}}=\sum_i\left(\frac{B_i-\widehat{B}_i}{\sigma_{B,i}}\right)^2 \tag{A10.7}\]</div>
+<div class="equation">where Bi is the observed BAO ratio for point i; Bi is the model-predicted BAO ratio; σB,i is the reported BAO uncertainty. Representative values are χ2=11.8514 for flat ΛCDM and χ2=28.1117 for the finite-boundary case in the simplified shape test.</div>
+<div class="equation">For a BAO point i, define Fi as the corresponding model-shape term: xzi for DM/rd, x'zi for DH/rd, or zixzi2x'zi1/3 for DV/rd. The nuisance scale is then fit by minimizing</div>
+<div class="equation">\[\chi^2_{\mathrm{BAO}}(S)=\sum_i\left(\frac{B_i-SF_i}{\sigma_{B,i}}\right)^2 \tag{A10.8}\]</div>
+<p>For a single shared scale over the included BAO points, the analytic weighted least-squares solution is</p>
+<div class="equation">\[S_{\mathrm{BAO}}=\frac{\sum_i B_iF_i/\sigma_{B,i}^2}{\sum_i F_i^2/\sigma_{B,i}^2} \tag{A10.9}\]</div>
+<div class="equation">where Fi has the model-coordinate units needed for the selected observable, and SBAO converts those model-coordinate units into the dimensionless BAO ratio scale.</div>
+<p class="appendix-note">Implementation notes. Inputs are BAO redshifts, BAO observable labels, BAO ratios, uncertainties, and finite-boundary xz and x'z. Compute Fi for each observable, fit S with Equation (A10.8) or (A10.9), compute Equations (A10.4-A10.6), then compute Equation (A10.7).</p>
+<p>Minimal BAO replication recipe.</p>
+<div class="equation">Read BAO measurements as DM/rd, DH/rd, or DV/rd with redshift and uncertainty.</div>
+<div class="equation">Compute xz and x'z from Section A6 at each BAO redshift.</div>
+<div class="equation">Fit the nuisance scale S by minimizing Equation (A10.8), or use the analytic solution in Equation (A10.9) when one shared linear scale is used.</div>
+<p>Compute predicted BAO ratios with Equations (A10.4-A10.6).</p>
+<div class="equation">Compute χBAO2 with Equation (A10.7).</div>
+<p>Treat the result as a shape-compatibility diagnostic because covariance matrices are not included.</p>
+<h2 id="a11">A11. Chronometer-style derivative comparison</h2>
+<p class="appendix-note">Calculation purpose: compare chronometer H(z) trends with the inverse finite-boundary derivative shape.</p>
+<div class="equation">Inputs are chronometer redshifts, H(z), uncertainties, and x'z from Equation (A6.4). Output is a calibrated derivative-shape comparison.</div>
+<p>Cosmic chronometers estimate expansion history from differential galaxy ages:</p>
+<p class="equation-number">(A11.1)</p>
+<div class="equation">Hz=-11+zdzdt</div>
+<div class="equation">where Hz is the expansion-history quantity inferred from differential ages; t is cosmic time in the chronometer interpretation; dz/dt is redshift change per unit time.</div>
+<p>For the finite-boundary diagnostic:</p>
+<p class="equation-number">(A11.2)</p>
+<div class="equation">Hshapez∝1x'z</div>
+<p>Substituting Equation (A6.4) gives:</p>
+<p class="equation-number">(A11.3)</p>
+<div class="equation">Hshapez∝g01+z1-1/g0db</div>
+<div class="equation">where Hshapez is a shape comparison, not a fully calibrated expansion history. A calibration constant is required to express the diagnostic in km s-1 Mpc-1.</div>
+<p class="appendix-note">Implementation notes. Inputs are chronometer redshifts, reported Hz values, uncertainties, and finite-boundary parameters. Compute the derivative shape from Equation (A11.3), apply an arbitrary normalization or best-fit calibration, and compare trend and residuals. Output is a derivative-shape comparison rather than a full cosmological expansion solution.</p>
+<p>Minimal chronometer replication recipe.</p>
+<div class="equation">Read chronometer redshift, Hz, and uncertainty columns.</div>
+<div class="equation">Compute x'z from Equation (A6.4).</div>
+<p>Form the inverse-derivative shape using Equation (A11.2) or (A11.3).</p>
+<div class="equation">Fit one calibration constant to place the curve in km s-1 Mpc-1.</div>
+<p>Compare shape and residuals, but do not interpret this as a full likelihood expansion-history fit.</p>
+<h2 id="a12">A12. Supernova time-dilation exponent</h2>
+<p class="appendix-note">Calculation purpose: compare published supernova time-dilation exponents with b=1 and b=0 hypotheses.</p>
+<p>The time-dilation calculation is used as an external constraint that any path-response redshift explanation must satisfy.</p>
+<p class="equation-number">(A12.1)</p>
+<div class="equation">Δtobs=Δtemit1+zb</div>
+<div class="equation">where Δtobs is the observed time interval; Δtemit is the emitted or rest-frame time interval; b is the fitted time-dilation exponent.</div>
+<p>The two limiting cases are:</p>
+<p class="equation-number">(A12.2)</p>
+<div class="equation">b=1 standard cosmological time dilation</div>
+<p class="equation-number">(A12.3)</p>
+<div class="equation">b=0 no time dilation</div>
+<p>The diagnostic comparison reports a weighted common value close to:</p>
+<p class="equation-number">(A12.4)</p>
+<div class="equation">b≈1.0062</div>
+<p>where 1.0062 is the representative fitted common time-dilation exponent from the diagnostic comparison.</p>
+<p class="appendix-note">Implementation notes. Inputs are published time-dilation exponents, uncertainties, and model comparison cases b=1 and b=0. Output is a weighted comparison showing whether the observations favor arrival-time stretching. Any path-response redshift model must explain both wavelength change and arrival-time stretching.</p>
+<p>Minimal time-dilation replication recipe.</p>
+<div class="equation">Read the published b values and uncertainties.</div>
+<div class="equation">Compare the weighted result to b=1 and b=0.</div>
+<p>Compute the mismatch statistic for each hypothesis if uncertainties are available.</p>
+<p>Use the result as a constraint on physical interpretations of redshift and keep it separate from distance-fit statistics.</p>
+<h2 id="a13">A13. CMB compressed distance-prior quantities</h2>
+<p class="appendix-note">Calculation purpose: evaluate compressed CMB distance-prior consistency using x(z*) and the prior covariance.</p>
+<div class="equation">Inputs are z*, xz from Section A6, the observed prior vector, and covariance matrix. Output is χCMB2.</div>
+<p>The compressed CMB-prior vector can be written as:</p>
+<div class="equation">\[\mathbf{p}=\left(R,\ell_A,\omega_b h^2\right)^T \tag{A13.1}\]</div>
+<div class="equation">where p is the vector of compressed CMB-prior quantities; R is the CMB shift parameter; lA is the acoustic angular scale; ωbh2 is the physical baryon-density term; T denotes transpose.</div>
+<p>A schematic acoustic-scale definition is:</p>
+<div class="equation">\[\ell_A=\pi\frac{D_M(z_*)}{r_s(z_*)} \tag{A13.2}\]</div>
+<div class="equation">where z* is the last-scattering redshift, approximately 1089.92 here; DMz* is the transverse comoving distance to last scattering; rsz* is the sound horizon at last scattering. The ratio is dimensionless.</div>
+<p>The model coordinate at last scattering is evaluated as:</p>
+<div class="equation">\[x(z_*)=d_b\left[(1+z_*)^{1/(g_0d_b)}-1\right] \tag{A13.3}\]</div>
+<div class="equation">where xz* is the model distance coordinate evaluated at last scattering.</div>
+<p>To make the compressed-prior mapping explicit, the model distance to last scattering is represented as</p>
+<div class="equation">\[D_{M,\mathrm{model}}(z_*)=S_{\mathrm{CMB}}x(z_*) \tag{A13.4}\]</div>
+<div class="equation">where SCMB is the effective CMB-side calibration scale. With that convention, the acoustic angular scale is</div>
+<div class="equation">\[\ell_{A,\mathrm{model}}=\pi\frac{S_{\mathrm{CMB}}x(z_*)}{r_s(z_*)} \tag{A13.5}\]</div>
+<p>A schematic shift-parameter mapping is</p>
+<div class="equation">\[R_{\mathrm{model}}=\frac{\sqrt{\Omega_m}H_0}{c}S_{\mathrm{CMB}}x(z_*) \tag{A13.6}\]</div>
+<div class="equation">where Rmodel is dimensionless; H0, Ωm, c, and rsz* are supplied by the compressed-prior convention or absorbed into the calibration used in the diagnostic. The CMB comparison is therefore expressed as a compressed distance-prior consistency test.</div>
+<p>The covariance-weighted CMB-prior statistic has the form:</p>
+<div class="equation">\[\chi^2_{\mathrm{CMB}}=(\mathbf{p}_{\mathrm{model}}-\mathbf{p}_{\mathrm{obs}})^T C^{-1}(\mathbf{p}_{\mathrm{model}}-\mathbf{p}_{\mathrm{obs}}) \tag{A13.7}\]</div>
+<div class="equation">where pmodel is the model-predicted compressed-prior vector; pobs is the observed compressed-prior vector; C is the covariance matrix; C-1 is the inverse covariance matrix.</div>
+<p class="appendix-note">Implementation notes. Inputs are compressed CMB-prior values, covariance matrix, z*, and model coordinate xz*. Compute the model prior vector using Equations (A13.4-A13.6) and evaluate Equation (A13.7). This uses compressed CMB priors rather than a full CMB anisotropy-spectrum fit.</p>
+<p>Minimal CMB-prior replication recipe.</p>
+<div class="equation">Read pobs and covariance matrix C.</div>
+<div class="equation">Compute xz* at z*≈1089.92 using Equation (A13.3).</div>
+<div class="equation">Convert the model coordinate into Rmodel and lA,model using Equations (A13.4-A13.6), with the same calibration assumptions as the diagnostic.</div>
+<div class="equation">Compute χCMB2 using Equation (A13.7).</div>
+<p>Report the comparison as a compressed distance-prior diagnostic summary.</p>
+<h2 id="a14">A14. Joint BAO+CMB shared-ruler test</h2>
+<p class="appendix-note">Calculation purpose: test whether one calibration scale can satisfy both BAO ratios and compressed CMB-prior distances.</p>
+<p>Inputs are BAO ratios, compressed CMB priors, covariance matrix, and one shared scale S. Output is the combined shared-ruler statistic.</p>
+<div class="equation">\[S_{\mathrm{BAO}}=S_{\mathrm{CMB}}=S \tag{A14.1}\]</div>
+<div class="equation">where SBAO is the effective BAO calibration scale; SCMB is the effective CMB calibration scale; S is the single shared calibration scale.</div>
+<p>In schematic form, the shared calibration connects the model coordinate to both BAO and CMB distance quantities:</p>
+<div class="equation">\[D_M/r_d\approx Sx(z) \tag{A14.2}\]</div>
+<div class="equation">\[\ell_A\approx\pi Sx(z_*) \tag{A14.3}\]</div>
+<div class="equation">where rd is the BAO sound-horizon ruler scale; lA is the CMB acoustic angular scale; xz* is the model coordinate at last scattering.</div>
+<p>The combined statistic is:</p>
+<div class="equation">\[\chi^2_{\mathrm{total}}=\chi^2_{\mathrm{BAO}}+w_{\mathrm{CMB}}\chi^2_{\mathrm{CMB}} \tag{A14.4}\]</div>
+<div class="equation">where wCMB is the weight applied to the CMB term in the diagnostic.</div>
+<div class="equation">For the shared-ruler comparison, the manuscript reports total χ2=11.8573 and reduced χ2=0.9121 for flat ΛCDM. For the locked finite-boundary case, BAO χ2=7730.6214, CMB χ2=2.1744, and total χ2=7732.7958. The failure is dominated by the BAO part of the shared calibration.</div>
+<div class="equation">The shared-scale fit uses one S for both the BAO and CMB-side mapping. In schematic form, the objective is</div>
+<div class="equation">\[\chi^2_{\mathrm{total}}(S)=\chi^2_{\mathrm{BAO}}(S)+w_{\mathrm{CMB}}\chi^2_{\mathrm{CMB}}(S) \tag{A14.5}\]</div>
+<div class="equation">where both terms are evaluated after applying the same calibration scale. If the CMB-prior mapping is not strictly linear in S, the scale is obtained by a one-dimensional numerical minimization rather than the analytic BAO-only formula.</div>
+<p class="appendix-note">Implementation notes. Inputs are BAO ratios, compressed CMB-prior values, the covariance matrix, and one shared calibration scale S. Fit or evaluate the model under Equation (A14.1), minimize the schematic objective in Equation (A14.5), and compute Equation (A14.4). Output is the shared-ruler consistency statistic.</p>
+<h2 id="a15">A15. Separate BAO and CMB effective scales</h2>
+<p class="appendix-note">Calculation purpose: fit BAO-side and CMB-side effective scales separately and compute their ratio.</p>
+<p>Inputs are the same BAO and CMB quantities used in Section A14, with separate scales SBAO and SCMB. Output is the target ratio for projection functions.</p>
+<p class="equation-number">(A15.1)</p>
+<div class="equation">Sratio=SCMBSBAO</div>
+<div class="equation">where Sratio is the CMB-to-BAO effective scale ratio.</div>
+<p>The diagnostic result is:</p>
+<p class="equation-number">(A15.2)</p>
+<div class="equation">Sratio=0.390906</div>
+<p>where 0.390906 is the representative separated-calibration scale ratio. Equivalently, the CMB-side effective scale is about 39.1% of the BAO-side effective scale in this diagnostic.</p>
+<div class="equation">The separate-scale diagnostic repeats the scale minimization twice: once for BAO-only terms to obtain SBAO, and once for the CMB-prior terms to obtain SCMB. The ratio in Equation (A15.1) is then a diagnostic of the mismatch between the low/intermediate-redshift ruler scale and the high-redshift compressed-prior scale.</div>
+<p class="appendix-note">Implementation notes. Inputs are the same BAO and CMB quantities used in Section A14, but with separate calibration scales. Fit SBAO and SCMB independently by minimizing their respective diagnostic objectives, then compute Equation (A15.1). Output is the scale-ratio recovery target.</p>
+<h2 id="a16">A16. Redshift-dependent projection factor</h2>
+<p class="appendix-note">Calculation purpose: test redshift-dependent projection factors that preserve BAO ratios while reaching the CMB-side scale target.</p>
+<p>Inputs are xz, db, the BAO redshift range, z*, and the target value 0.390906. Output is projection behavior across BAO and CMB regimes.</p>
+<div class="equation">\[S_{\mathrm{eff}}(z)=S_0T(z) \tag{A16.1}\]</div>
+<div class="equation">where Seffz is the redshift-dependent effective scale; S0 is the low-redshift normalization; Tz is a dimensionless projection factor.</div>
+<p>The low-redshift BAO requirement is:</p>
+<div class="equation">\[T(z)\approx 1\quad\text{for BAO redshifts} \tag{A16.2}\]</div>
+<p>The high-redshift CMB target is:</p>
+<div class="equation">\[T(z_*)\approx0.390906 \tag{A16.3}\]</div>
+<div class="equation">where z* is the last-scattering redshift and 0.390906 is the required CMB-to-BAO effective scale ratio from Equation (A15.2).</div>
+<p>Simple projection functions explored in the diagnostics include:</p>
+<div class="equation">\[T_1(z)=(1+z)^{-q} \tag{A16.4}\]</div>
+<div class="equation">\[T_2(z)=\frac{1}{1+q\,x(z)/d_b} \tag{A16.5}\]</div>
+<div class="equation">\[T_3(z)=\left(1+\frac{x(z)}{d_b}\right)^{-q} \tag{A16.6}\]</div>
+<div class="equation">where q is a fitted projection-strength parameter; xz is the inverted finite-boundary coordinate; db is the finite-boundary scale. Broad, gentle transformations tend to disturb the BAO redshift range before reaching the CMB-side target.</div>
+<div class="equation">A useful scoring target for these trial functions is a two-part requirement: keep Tzi close to 1 for BAO redshifts zi, and keep Tz* close to 0.390906. This can be represented schematically as a penalty objective containing a BAO-preservation term and a CMB-target term.</div>
+<p class="appendix-note">Implementation notes. Inputs are xz, db, the BAO redshift range, z*, and the target value 0.390906. Compute trial forms for Tz and evaluate whether they remain near 1 across BAO redshifts while approaching 0.390906 near z*. Output is a projection-behavior comparison used to set transition targets.</p>
+<h2 id="a17">A17. Sharp high-redshift transition</h2>
+<p class="appendix-note">Calculation purpose: define a sharp projection transition that preserves the BAO range and reaches the CMB-to-BAO scale ratio.</p>
+<p>Inputs are z, zt, m, and Δ. Output is the phenomenological recovery target used in the chapter analyses.</p>
+<div class="equation">\[T(z)=1-\frac{\Delta z^m}{z^m+z_t^m} \tag{A17.1}\]</div>
+<div class="equation">where Δ is the transition amplitude; z is redshift; zt is transition midpoint redshift; m is the sharpness parameter.</div>
+<p>The limiting behavior is:</p>
+<div class="equation">\[\lim_{z\ll z_t}T(z)\approx1 \tag{A17.2}\]</div>
+<div class="equation">\[\lim_{z\gg z_t}T(z)\approx1-\Delta \tag{A17.3}\]</div>
+<div class="equation">where z≪zt means redshifts well below the transition, and z≫zt means redshifts well above the transition.</div>
+<p>To match the CMB-to-BAO scale ratio, the high-redshift value must approach:</p>
+<div class="equation">\[1-\Delta\approx0.390906 \tag{A17.4}\]</div>
+<p>Therefore:</p>
+<div class="equation">\[\Delta\approx1-0.390906=0.609094 \tag{A17.5}\]</div>
+<p>where 0.609094 is the approximate transition amplitude required by the separated-scale diagnostic.</p>
+<p>The sharp-transition parameters are selected to satisfy the high-redshift target while penalizing disruption of the BAO range. A schematic version of that fitting target is</p>
+<div class="equation">\[\Phi=\chi^2_{\mathrm{BAO}}(T)+w_{\mathrm{CMB}}\chi^2_{\mathrm{CMB}}(T)+\lambda_{\mathrm{BAO}}\sum_{z_i\in\mathrm{BAO}}[T(z_i)-1]^2 \tag{A17.6}\]</div>
+<div class="equation">where Φ is the diagnostic objective; λBAO is the BAO-preservation penalty weight; and the final term penalizes projection changes across the BAO redshift range. The representative BAO-preservation penalty weight is 5.00.</div>
+<section class="table-card appendix-table"><div class="table-scroll"><table><thead><tr><th>Parameter</th><th>Representative value</th><th>Meaning</th></tr></thead><tbody><tr><td>db</td><td>about 2.04</td><td>finite-boundary distance scale in the locked high-redshift tests</td></tr><tr><td>zt</td><td>about 34 to 35</td><td>transition midpoint redshift</td></tr><tr><td>m</td><td>about 4 to 20</td><td>controls transition sharpness</td></tr><tr><td>Tz*</td><td>about 0.37 to 0.39</td><td>projection factor near last scattering</td></tr><tr><td>target CMB/BAO scale ratio</td><td>0.390906</td><td>separate-scale recovery target</td></tr></tbody></table></div></section>
+<p>The transition equation does not by itself identify the physical mechanism. Candidate interpretations include a geometric projection change, boundary-layer behavior, a change in effective degrees of freedom, a change in the coupling between wavelength response and arrival-time stretching, or missing early-universe dynamics compressed into a phenomenological projection factor.</p>
+<p class="appendix-note">Implementation notes. Inputs are z, zt, m, and Δ. Choose parameters so that Equation (A17.2) holds across the BAO range, Equation (A17.4) holds near the CMB regime, and the diagnostic objective in Equation (A17.6) remains small. Output is the sharp projection-transition target.</p>
+<h2 id="a18">A18. Compact replication chain</h2>
+<p class="appendix-note">Calculation purpose: list the minimum end-to-end dependency chain for reproducing the appendix calculations.</p>
+<p>The finite-boundary calculation can be summarized as a stepwise dependency chain:</p>
+<p>Define the local response law using Equation (A5.1):</p>
+<div class="equation">\[G(d)=\frac{g_0}{1+d/d_b}\]</div>
+<p>Accumulate the local response using Equation (A2.4):</p>
+<div class="equation">\[A(d)=\int_0^d G(s)\,ds\]</div>
+<p>Evaluate the finite-boundary accumulated response using Equation (A5.5):</p>
+<div class="equation">\[A(d)=g_0d_b\ln\!\left(1+\frac{d}{d_b}\right)\]</div>
+<p>Convert accumulated response to redshift using Equations (A2.2-A2.3):</p>
+<div class="equation">\[1+z=\exp[A(d)]\]</div>
+<p>Use the finite-boundary redshift relation from Equation (A5.7):</p>
+<div class="equation">\[z(d)=\left(1+\frac{d}{d_b}\right)^{g_0d_b}-1\]</div>
+<p>Invert to the model distance coordinate using Equation (A6.3):</p>
+<div class="equation">\[x(z)=d_b\left[(1+z)^{1/(g_0d_b)}-1\right]\]</div>
+<p>Build BAO shape predictions using Equations (A10.4-A10.6):</p>
+<div class="equation">\[D_M/r_d=Sx(z)\]</div>
+<div class="equation">\[D_H/r_d=Sx'(z)\]</div>
+<div class="equation">\[D_V/r_d=S\left[zx^2(z)x'(z)\right]^{1/3}\]</div>
+<p>Introduce a redshift-dependent effective scale using Equation (A16.1):</p>
+<div class="equation">\[S_{\mathrm{eff}}(z)=S_0T(z)\]</div>
+<p>Apply the sharp transition target from Equation (A17.1):</p>
+<div class="equation">Tz=1-Δzmzm+ztm</div>
+<p>Enforce the recovery behavior from Equations (A16.2-A16.3):</p>
+<div class="equation">Tz≈1 across the BAO range</div>
+<div class="equation">Tz*≈0.390906 near the CMB distance-prior regime</div>
+<p>A complete implementation should reproduce the dependency chain as a whole: empirical supernova fit, accumulated-response transform, finite-boundary mechanism fit, stability tests, BAO shape comparison, chronometer and time-dilation checks, CMB-prior comparison, shared-ruler failure, separate-scale ratio, and sharp-transition recovery target.</p>
+<h2 id="a19">A19. Assumptions and caveats</h2>
+<p>This appendix is a reproduction guide for the diagnostic calculations. The main assumptions and caveats are:</p>
+<div class="equation">The supernova distance coordinate d is used as supplied. Changes in distance calibration would change fitted scale values.</div>
+<div class="equation">The use of d versus d/1000 Mpc changes the numerical value of db and g0, but not dimensionless predictions when units are handled consistently.</div>
+<div class="equation">The BAO χ2 values are shape-compatibility diagnostics because full covariance matrices are not included.</div>
+<p>The compressed CMB-prior comparison uses priors rather than a full CMB anisotropy-spectrum fit.</p>
+<div class="equation">The last-scattering redshift is held near z*≈1089.92 in the CMB-prior diagnostics.</div>
+<div class="equation">The nuisance scale S absorbs ruler calibration and therefore separates redshift-dependent shape from absolute sound-horizon derivation.</div>
+<div class="equation">The projection functions Tz are phenomenological recovery tests. They identify the magnitude and redshift behavior required of a mechanism but do not derive that mechanism from first-principles microphysics.</div>
+<p>The chronometer comparison is a derivative-shape comparison unless an explicit calibration is supplied.</p>
+<p>The time-dilation result is used as an external constraint on interpretation: a path-response redshift explanation must account for arrival-time stretching as well as wavelength change.</p>
+<p>The data specification and procedural-settings tables are intended to prevent accidental dataset or split-protocol substitutions. Substituting a different public compilation constitutes a new test and will not reproduce the reported values exactly.</p>
+      <nav class="chapter-bottom-nav">
+        <a href="chapter_4.html">Previous: Chapter 4</a>
+        <a href="references.html">Next: References</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
+
+
+
+
+
+

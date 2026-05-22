@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Measurement Registers | A FINITE UNIVERSE</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.MathJax = { tex: { tags: 'ams' } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">A FINITE UNIVERSE</a>
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="guidebook.html">Guidebook</a>
+      <a href="note_from_author.html">Author Note</a>
+      <a href="measurement_registers.html">Registers</a>
+      <a href="chapter_1.html">Chapter 1</a>
+      <a href="chapter_2.html">Chapter 2</a>
+      <a href="chapter_3.html">Chapter 3</a>
+      <a href="chapter_4.html">Chapter 4</a>
+      <a href="quantitative_appendix.html">Appendix</a>
+      <a href="references.html">References</a>
+    </nav>
+  </header>
+
+  <main class="chapter-layout">
+    <aside class="chapter-toc">
+      <p>Registers</p>
+      <a href="#top">Top</a>
+      <a href="#symbols">Symbols</a>
+    </aside>
+    <article class="chapter-content" id="top">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Measurement Registers</span></nav>
+      <section class="chapter-intro">
+        <p class="kicker">Model register guide</p>
+        <h1>Measurement Registers</h1>
+      </section>
+      <p>This page collects the symbols used to keep the model's measurement registers separate. The notation distinguishes observed redshift, accumulated path response, depth coordinates, weak-field response, and compactness so the chapters can refer to each register consistently without collapsing them into one scale.</p>
+      <section class="table-card" id="symbols">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Short meaning</th>
+                <th>Role in the model</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>z</strong></td>
+                <td>Observed redshift</td>
+                <td>The measured spectral shift of light from a source.</td>
+                <td>Primary observable that is re-expressed, but not replaced, by the finite-response registers.</td>
+              </tr>
+              <tr>
+                <td><strong>A = ln(1+z)</strong></td>
+                <td>Accumulated path response</td>
+                <td>A logarithmic rewrite of the same observed redshift signal.</td>
+                <td>Tracks cumulative response along the path through the finite deformable domain.</td>
+              </tr>
+              <tr>
+                <td><strong>G(d)</strong></td>
+                <td>Local response rate</td>
+                <td>The incremental response assigned to path coordinate d.</td>
+                <td>Defines how accumulated response builds up across distance or path length.</td>
+              </tr>
+              <tr>
+                <td><strong>&chi;</strong></td>
+                <td>Finite-depth coordinate</td>
+                <td>A normalized depth register inside the model&#39;s projected geometry.</td>
+                <td>Places observables on a compact depth scale used for regime comparisons.</td>
+              </tr>
+              <tr>
+                <td><strong>X</strong></td>
+                <td>Normalized transition coordinate</td>
+                <td>A display coordinate with the boundary transition set to X = 1.</td>
+                <td>Marks the recovered projection shoulder and separates interior from transition behavior.</td>
+              </tr>
+              <tr>
+                <td><strong>&eta;</strong></td>
+                <td>Weak-field compliance coordinate</td>
+                <td>The ratio g<sub>bar</sub>/g<sup>&dagger;</sup>.</td>
+                <td>Measures how gravity departs from ordinary weak-field behavior.</td>
+              </tr>
+              <tr>
+                <td><strong>u</strong></td>
+                <td>Compactness register</td>
+                <td>The dimensionless ratio 2GM/(Rc&sup2;).</td>
+                <td>Tracks approach to compactness-regime behavior and boundary saturation.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <nav class="chapter-bottom-nav">
+        <a href="index.html">Previous: Home</a>
+        <a href="chapter_1.html">Next: Chapter 1</a>
+      </nav>
+    </article>
+  </main>
+</body>
+</html>
+
+
+

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 4: A Finite Deformable Boundary Cosmology</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.MathJax = { tex: { tags: 'ams' } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">A FINITE UNIVERSE</a>
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="guidebook.html">Guidebook</a>
+      <a href="note_from_author.html">Author Note</a>
+      <a href="measurement_registers.html">Registers</a>
+      <a href="chapter_1.html">Chapter 1</a>
+      <a href="chapter_2.html">Chapter 2</a>
+      <a href="chapter_3.html">Chapter 3</a>
+      <a href="chapter_4.html">Chapter 4</a>
+      <a href="quantitative_appendix.html">Appendix</a>
+      <a href="references.html">References</a>
+    </nav>
+  </header>
+
+  <main class="chapter-layout">
+    <aside class="chapter-toc">
+      <p>Chapter 4</p>
+      <a href="#top">Top</a>
+      <a href="#figures">Figures</a>
+      <a href="references.html">References</a>
+    </aside>
+    <article class="chapter-content" id="top">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Chapter 4</span></nav>
+      <section class="chapter-intro">
+        <p class="kicker">Chapter 4</p>
+        <h1>Chapter 4: A Finite Deformable Boundary Cosmology</h1>
+      </section>
+      <div class="model-status"><strong>Model status.</strong> This chapter defines the finite-boundary cosmology through local GR-compatible gravity, path-response redshift, register-split distances, P★ projection, and the response engine C(X, eta, u, D_n). P★ remains central here as a reverse-solved construction, with the next step being deeper physical derivation of that projection behavior.</div>
+      <div class="guide-callout">
+        <strong>Plain-language companion:</strong>
+        For a less technical explanation of the boundary-cosmology picture, see
+        <a href="guidebook.html#not-a-hallway">Not a hallway</a>,
+        <a href="guidebook.html#oldest-light">The oldest light</a>, and
+        <a href="guidebook.html#different-way-to-stand-under-the-sky">A different way to stand under the sky</a>.
+      </div>
+      <details class="technical-details" open>
+        <summary>Chapter 4 figure anchors</summary>
+        <div class="figure-jump-list" id="figures"><a href="#fig-4-1">Figure 4-1</a>
+<a href="#fig-4-2">Figure 4-2</a>
+<a href="#fig-4-3">Figure 4-3</a>
+<a href="#fig-4-4">Figure 4-4</a>
+<a href="#fig-4-5">Figure 4-5</a>
+<a href="#fig-4-6">Figure 4-6</a></div>
+      </details>
+      <h2>Abstract</h2>
+<p>A finite deformable boundary cosmology is defined as a universe model in which local gravity is preserved as a General-Relativity-compatible limit, while cosmological observations are interpreted through finite internal registers rather than one universal expansion scale. The model treats the universe as a bounded deformable event-domain with an interior stable region, an approach regime, a projection boundary, a compressed projection side, local deformation wells, matter-void foam, and compactness screens. Measured redshift remains the direct observable, but it is written as accumulated path response, A = ln(1 + z). The response law G(d) = g0/(1 + d/db) integrates to A(d) = g0 db ln(1 + d/db), giving a non-expansion path coordinate d(z). Observable distances are separated into radial, transverse, luminosity, angular-size, time-stretch, acoustic, morphology, gravity, and compactness registers. The preferred projection law is reverse-solved from three anchors: BAO preservation, the JWST mass-size direction, and the CMB-side compressed projection band. The resulting construction, P★(z) = 1 - 0.627714 z^8/(z^8 + 8^8), leaves the BAO range nearly unchanged, moves z≈8 galaxy masses downward and radii upward, and approaches the same CMB-side compression identified by the BAO-CMB shared-ruler failure. It is used here as the organized projection target. The complete model is therefore a finite-register cosmology: local GR-compatible behavior nearby, path-response redshift through the interior, a projection shoulder in the high-redshift galaxy regime, and a compressed acoustic projection register toward the CMB side.</p>
+<h2>1. Cosmological premise</h2>
+<p>The model begins from the premise that measurement is internal to the universe <a class="citation" href="references.html#ref-rovelli-c-1991-103">[73]</a>. Before a universe-state exists, size, duration, distance, and direction have no operational meaning. Once a finite event-domain exists, clocks, rulers, wavelengths, accelerations, voids, structures, and compact objects become meaningful inside that domain. The universe is therefore described as a finite deformable geometry whose observables are read from within, not as an object expanding into an external ruler.</p>
+<p>The first three chapters establish the components used here. The redshift sector is the path-response law A(d)=ln(1+z), the observational sector supplies the finite-depth coordinates and projection registers, and the synthesis chapter organizes projection, gravity, morphology, and compactness through the variables X, η, u, and D_n. Chapter 4 collects those pieces into a single cosmology.</p><p>Key symbols used throughout the model are summarized in the <a href="measurement_registers.html">Measurement Registers page</a>.</p><figure class="figure-card" id="fig-4-1">
+  <a href="assets/figures/figure_4_1.png" target="_blank">
+    <img src="assets/figures/figure_4_1.png" alt="Figure 4-1">
+  </a>
+  <figcaption>
+    <strong>Figure 4-1.</strong> Finite deformable boundary cosmology. The universe is represented as a bounded event-domain with an interior stable register, an approach/JWST shoulder, a projection boundary, a compressed CMB-side projection register, local deformation wells, matter-void foam, and compactness screens.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_4_1.png" target="_blank">Open full-size image</a>
+  
+</figure><h2>2. Local gravity as the interior boundary condition</h2>
+<p>The local sector is fixed by the requirement that ordinary weak-field gravity remains unchanged. In the interior stable register, a spherical mass is represented by a three-dimensional spatial deformation and a coupled local clock-rate field. The spatial line element is</p><div class="equation">\[d\ell^2 = \psi^4(r)\left(dr^2 + r^2d\Omega^2\right),\quad \psi(r) = 1 + \frac{GM}{2c^2r} \tag{4-1}\]</div><p>The clock-rate field follows the same deformation:</p><div class="equation">\[dT = \alpha(\psi)d\tau,\quad \alpha(\psi) = \frac{2 - \psi}{\psi} \tag{4-2}\]</div><p>Substitution gives</p><div class="equation">\[\alpha(r) = \frac{1 - GM/(2c^2r)}{1 + GM/(2c^2r)} \tag{4-3}\]</div><p>Equations (4.1) through (4.3) reproduce the isotropic Schwarzschild exterior form when written as three-dimensional space plus a lapse-like local time factor. In the weak-field expansion, the effective post-Newtonian parameters are β = 1 and γ = 1. The weak-field expansion is given in the quantitative appendix. The model therefore contains the standard local solar-system limit used for light deflection, Shapiro delay, redshift, and perihelion advance <a class="citation" href="references.html#ref-will-c-2014">[74]</a> <a class="citation" href="references.html#ref-arnowitt-r-1962-2008">[75]</a>.</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a19">Quantitative Appendix</a> for the local weak-field expansion note.</p>
+<p>This is the role of Space-Time in the model. Space is the deformable three-dimensional domain. Time is a positive local ordering of physical change. They are not the same kind of dimension, although local observations require the local clock-rate register to remain coupled to the spatial deformation.</p>
+<h2>3. Model definition</h2>
+<p>Definition 4.1. A finite deformable boundary cosmology consists of the following linked structures.</p>
+<h3>3.1 Local 3D-plus-clock gravity</h3><div class="equation">\[d\ell^2 = \psi^4(r)\left(dr^2 + r^2d\Omega^2\right),\quad \psi(r)=1+\frac{GM}{2c^2r},\quad dT=\frac{2-\psi}{\psi}d\tau \tag{4-4}\]</div><p>This is the interior gravitational limit. It is not re-fit cosmologically.</p>
+<h3>3.2 Cosmological path response</h3><div class="equation">\[A(d) = \int_0^d G(s)\,ds,\quad G(d)=\frac{g_0}{1+d/d_b} \tag{4-5}\]</div><p>Here d and d_b share distance units, g_0 has inverse-distance units, and p = g_0d_b is dimensionless.</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a5">Quantitative Appendix</a> for finite-response inversion and units.</p><div class="equation">\[A(d)=g_0 d_b \ln(1+d/d_b) \tag{4-6}\]</div><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>Since A = ln(1+z), the inverse finite path coordinate is</p>
+</details><div class="equation">\[d(z)=d_b\left[(1+z)^{1/(g_0 d_b)}-1\right] \tag{4-8}\]</div><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>With p = g0 db and ξ = d/db,</p>
+</details><div class="equation">\[\xi(z)=\exp\left[A(z)/p\right]-1 = (1+z)^{1/p}-1 \tag{4-10}\]</div><figure class="figure-card" id="fig-4-2">
+  <a href="assets/figures/figure_4_2.png" target="_blank">
+    <img src="assets/figures/figure_4_2.png" alt="Figure 4-2">
+  </a>
+  <figcaption>
+    <strong>Figure 4-2.</strong> Path response. The local contribution G weakens with normalized path coordinate ξ, while accumulated response A continues to grow.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_4_2.png" target="_blank">Open full-size image</a>
+  
+</figure><h3>3.3 Register-split cosmological distances</h3>
+<p>Observable distances are not forced into one universal register. The working distance system is</p><div class="equation">\[D_R(z)=d(z),\quad D_H(z)=\frac{dD_R}{dz},\quad D_M(z)=d(z) \tag{4-11}\]</div><p>Here the finite-model radial register is written as D_H = dD_R/dz, equivalent to c/H_eff(z) if an effective Hubble register is defined. It is not being identified with the standard ΛCDM H(z).</p><div class="equation">\[D_L(z)=(1+z)^{q_L}D_M(z),\quad D_A(z)=\frac{D_M(z)}{(1+z)^{q_A}} \tag{4-12}\]</div><p>The empirical luminosity register gives qL≈1.2335 when p≈19.878 is anchored by the BAO radial/transverse shape. Standard metric distance-duality corresponds to qL=1 when qA=1 <a class="citation" href="references.html#ref-etherington-i-1933">[76]</a> <a class="citation" href="references.html#ref-hogg-d-1999-2000">[77]</a>. The finite model therefore interprets qL≠1 as a real luminosity/time-transfer/projection-register effect, not as a harmless notation change.</p>
+<h3>3.4 Reverse-solved projection law</h3>
+<p>The preferred finite projection is</p><div class="equation">\[P_{\star}(z)=1-\frac{\Delta z^n}{z^n+z_s^n},\quad \Delta=0.627714,\quad z_s=8,\quad n=8 \tag{4-13}\]</div><p>Thus</p><div class="equation">\[P_{\star}(z)=1-\frac{0.627714 z^8}{z^8+8^8} \tag{4-14}\]</div><p>This construction is fixed by the combined projection requirements: BAO remains nearly unchanged, the JWST high-redshift galaxy regime is shifted in the mass-size direction, and the CMB-side register reaches the compressed projection band. It is a reverse-solved model component used as the projection law in this chapter.</p><p>Projection factors and scale-changing coordinates sit near a broader literature on conformal methods in cosmology, where metric rescalings preserve angular structure while changing length-scale relations <a class="citation" href="references.html#ref-penrose-r-1965">[1]</a> <a class="citation" href="references.html#ref-meissner-k-2017">[82]</a>. This differs from a direct conformal transformation of the metric: the present model instead uses empirical finite-register mappings to organize distance, angular-size, and acoustic-scale behavior. The connection is conceptual, in that both approaches separate angle-preserving structure from scale-setting structure.</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a17">Quantitative Appendix</a> for projection-transition definitions and stage diagnostics.</p><figure class="figure-card" id="fig-4-4">
+  <a href="assets/figures/figure_4_4.png" target="_blank">
+    <img src="assets/figures/figure_4_4.png" alt="Figure 4-4">
+  </a>
+  <figcaption>
+    <strong>Figure 4-4.</strong> Preferred projection law. P★(z) preserves the BAO regime, changes the JWST z≈8 register, and approaches the CMB-side compressed projection band. The earlier BAO-CMB transition is shown only as the construction baseline.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_4_4.png" target="_blank">Open full-size image</a>
+  
+</figure><h3>3.5 Finite-deformation curvature bridge</h3>
+<p>The local three-dimensional curvature relation is extended by a finite-response correction:</p><div class="equation">\[{}^3R[h] = \frac{16\pi G}{c^2}\rho F(X) + L_F^{-2} Q(X) \tag{4-15}\]</div><p>F(X) and Q(X) are dimensionless response functions. L_F is a finite-response length scale, so both terms carry curvature units. The local limit is</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a19">Quantitative Appendix</a> for curvature-bridge definitions and response-register notation.</p>
+<p>F(X)→1,     Q(X)→0     for X≪1.     (4-17)</p>
+<p>The long-term field-theory target is a unified response engine</p><div class="equation">\[C = C(X,\eta,u,D_n) \tag{4-16}\]</div><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>where X is projection depth, η is weak-field gravity compliance, u is compactness, and D_n = D/D0 is the normalized matter-void morphology coordinate.</p>
+</details><h2>4. Dimensionless finite-register dictionary</h2>
+<p>The model uses dimensionless registers to keep measurement scales separate. Redshift is measured directly. The finite cosmology then maps it into accumulated response, normalized transition depth, display depth, weakening response, morphology response, gravity compliance, and compactness.</p><figure class="figure-card" id="fig-4-3">
+  <a href="assets/figures/figure_4_3.png" target="_blank">
+    <img src="assets/figures/figure_4_3.png" alt="Figure 4-3">
+  </a>
+  <figcaption>
+    <strong>Figure 4-3.</strong> Redshift recast into finite-register depth coordinates. A/ACMB, χ, and Xs are related but not interchangeable.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_4_3.png" target="_blank">Open full-size image</a>
+  
+</figure><section class="table-card">
+  <p class="table-caption"><strong>Table 4-1.</strong> Dimensionless finite-register dictionary.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Register</th><th>Definition</th><th>Role</th></tr></thead>
+      <tbody>
+        <tr><td>z</td><td>observed redshift</td><td>measured spectral shift</td></tr>
+<tr><td>A=ln(1+z)</td><td>accumulated path response</td><td>redshift bookkeeping register</td></tr>
+<tr><td>ξ=d/db</td><td>normalized path coordinate</td><td>finite path depth from the response solution</td></tr>
+<tr><td>G=1/(1+ξ)</td><td>local response rate</td><td>weakening incremental response</td></tr>
+<tr><td>X=A/As</td><td>projection-depth coordinate</td><td>X=1 at the preferred JWST-centered projection shoulder</td></tr>
+<tr><td>χ=fvis A/ACMB</td><td>finite-depth display coordinate</td><td>places BAO, JWST, and CMB on one compact depth scale</td></tr>
+<tr><td>D=AG</td><td>morphology response</td><td>raw matter-void foam coordinate</td></tr>
+<tr><td>D_n=D/D0</td><td>normalized morphology response</td><td>response-function argument; D0 has the same units as D</td></tr>
+<tr><td>η=gbar/g†</td><td>weak-field gravity coordinate</td><td>SPARC/RAR-style compliance register</td></tr>
+<tr><td>u=2GM/(Rc²)</td><td>compactness coordinate</td><td>black-hole/finite-saturation register</td></tr>
+<tr><td>P★(z)</td><td>projection factor</td><td>mass-size/acoustic projection conversion</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><h2>5. Reverse-solved projection as the organizing construction</h2>
+<p>The projection law is fixed by working backward from the observables that the earlier chapters isolate. BAO requires the low-redshift acoustic-shape range to remain nearly unchanged. JWST requires the high-redshift galaxy conversion to move stellar mass downward and effective radius upward. CMB requires the far-side acoustic projection to approach the compressed scale identified by the BAO-CMB shared-ruler failure. This is why P★ is treated as the organizing construction for the chapter, while its physical derivation remains a model-building target.</p>
+<p>The earlier BAO-CMB-only transition placed the midpoint near zt≈34.6. That transition reaches the CMB-side compression but is almost unity at z≈8, so it does not alter JWST galaxy sizes. The reverse solution moves the projection shoulder to the JWST regime while increasing sharpness enough to preserve BAO.</p><section class="table-card">
+  <p class="table-caption"><strong>Table 4-2.</strong> Anchor values for the preferred projection law P★.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Regime</th><th>z</th><th>A=ln(1+z)</th><th>chi</th><th>P_star</th><th>Mass ratio P^2</th><th>Radius ratio 1/P</th></tr></thead>
+      <tbody>
+        <tr><td>BAO high end</td><td>2.3</td><td>1.1939</td><td>0.0667</td><td>0.999971</td><td>0.9999</td><td>1.0000</td></tr>
+<tr><td>JWST shoulder</td><td>8</td><td>2.1972</td><td>0.1228</td><td>0.686143</td><td>0.4708</td><td>1.4574</td></tr>
+<tr><td>CMB side</td><td>1089.92</td><td>6.9948</td><td>0.3909</td><td>0.372286</td><td>0.1386</td><td>2.6861</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><p>At z=2.3, P★=0.999988, so the BAO range is nearly unchanged. At z=8, P★=0.686143. In the JWST mass-size register, this implies Mnew/Mstandard≈P★²≈0.4708 and Rnew/Rstandard≈1/P★≈1.457. At z=1089.92, P★ approaches 0.372286, the same compressed asymptote required by the CMB-side projection band.</p><figure class="figure-card" id="fig-4-5">
+  <a href="assets/figures/figure_4_5.png" target="_blank">
+    <img src="assets/figures/figure_4_5.png" alt="Figure 4-5">
+  </a>
+  <figcaption>
+    <strong>Figure 4-5.</strong> JWST consequence of P★. The preferred projection law lowers inferred stellar mass and increases inferred effective radius in the z≈7–9 high-redshift galaxy regime.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_4_5.png" target="_blank">Open full-size image</a>
+  
+</figure><h2>6. Observable sectors of the cosmology</h2>
+<h3>6.1 Redshift and supernova luminosity</h3>
+<p>The supernova sector uses the path-response solution and luminosity register. Redshift is A=ln(1+z), radial path coordinate is d(z), and observed brightness is compared through DL=(1+z)^qL DM. This separates spectral shift, finite path length, and luminosity transfer. The supernova curvature that motivated Chapter 1 is therefore not discarded; it becomes the interior path-response sector of the cosmology.</p>
+<h3>6.2 BAO radial/transverse shape</h3>
+<p>The BAO anisotropy sector uses the register ratio</p><div class="equation">\[Q_{\mathrm{BAO}}(z)=\frac{D_M(z)}{D_H(z)} \tag{4-18}\]</div><p>Because the absolute ruler scale r_d cancels from Δz/θ as shown in Chapter 1, this sector compares the shape of radial and transverse distances before imposing a shared acoustic calibration. The finite model uses the same path coordinate d(z) for DM and the derivative register dDR/dz for DH.</p>
+<h3>6.3 BAO-CMB acoustic projection</h3>
+<p>The BAO-CMB shared-ruler failure is represented as a projection-boundary effect rather than a failure of local gravity. P★ leaves the BAO redshift range nearly unchanged while sending the CMB-side register toward the high-redshift compressed band. The acoustic-ruler scale is therefore not forced to remain one universal projection register across all finite depth.</p>
+<h3>6.4 Time dilation</h3><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>The time-stretch sector follows from the same accumulated response. Since A=ln(1+z), arrival intervals stretch as</p>
+</details><div class="equation">\[\Delta t_{\mathrm{obs}} = \Delta t_{\mathrm{em}} e^A = \Delta t_{\mathrm{em}}(1+z) \tag{4-20}\]</div><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>The model therefore predicts the standard b=1 time-dilation exponent while interpreting the stretching as a path-response timing register rather than as proof that all registers must share one FLRW expansion scale.</p>
+</details><h3>6.5 High-redshift galaxy mass and size</h3>
+<p>JWST high-redshift galaxies are direct tests of derived quantities. Spectroscopic redshift, flux, angular size, and spectra remain direct observables. Stellar mass, luminosity, physical size, and compactness are inferred through a cosmological conversion. In the finite projection register, the leading conversion is</p>
+<p>M★,FD ≈ P★² M★,standard,     Re,FD ≈ Re,standard/P★.     (4-21)</p>
+<p>Flux-based inferred mass scales with luminosity-distance squared, while physical radius scales through the angular-size-distance register. The projection factor is therefore used as a diagnostic scaling, with the full derivation deferred to the quantitative appendix. Thus the same projection shoulder that preserves BAO and reaches the CMB-side limit moves z≈8 galaxy properties toward lower inferred mass, larger radius, and lower compactness.</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a18">Quantitative Appendix</a> for the diagnostic mass-size scaling details.</p>
+<h3>6.6 Weak-field gravity</h3>
+<p>The galaxy-scale gravity register uses</p><div class="equation">\[\eta = \frac{g_{\mathrm{bar}}}{g^\dagger} \tag{4-22}\]</div><p>The corresponding compliance function can be written as</p><div class="equation">\[C_g(\eta)=1-\exp\left(-\sqrt{\eta}\right) \tag{4-23}\]</div><p>This register places low-acceleration galaxy behavior within the same finite-response vocabulary without changing the local high-acceleration GR-compatible limit.</p>
+<h3>6.7 Matter-void morphology</h3>
+<p>The matter-void sector uses</p><div class="equation">\[D = A\,G,\quad D_n = D/D_0 \tag{4-24}\]</div><p>This register treats the cosmic web as a matter-plus-void foam, not only as a distribution of matter points. D combines the accumulated path response with the local weakening rate and provides the raw morphology coordinate developed in the observational-register chapter. D_n is used when morphology enters the response engine.</p>
+<h3>6.8 Compactness and finite saturation</h3>
+<p>The compactness sector uses</p><div class="equation">\[u = \frac{2GM}{Rc^2} \tag{4-25}\]</div><p>In the finite-domain interpretation, u is a regime coordinate approaching saturation rather than a literal route to physical infinity. Singular behavior marks the edge of a response law’s domain, not the required existence of infinite physical density.</p>
+<h2>7. Unified finite-response engine</h2>
+<p>The finite-boundary cosmology is not a collection of unrelated corrections. Its observable sectors are faces of one deformable domain. Projection depth, path response, weak-field gravity, foam morphology, and compactness are collected into the response engine</p>
+<p>C(X, η, u, D_n).     (4-26)</p>
+<p>The curvature bridge, projection law, and observational registers are then connected by</p><div class="equation">\[{}^3R[h] = \frac{16\pi G}{c^2}\rho F(X) + L_F^{-2}Q(X) \tag{4-27}\]</div><p>F and Q are components or limiting cases of the broader finite-response function C(X,η,u,D_n). The local regime has F→1 and Q→0. The finite-boundary regime activates projection and morphology registers without changing local laboratory or solar-system physics.</p><figure class="figure-card" id="fig-4-6">
+  <a href="assets/figures/figure_4_6.png" target="_blank">
+    <img src="assets/figures/figure_4_6.png" alt="Figure 4-6">
+  </a>
+  <figcaption>
+    <strong>Figure 4-6.</strong> Unified finite-response engine. The observable registers are treated as linked responses of one finite deformable domain.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_4_6.png" target="_blank">Open full-size image</a>
+  
+</figure><h2>8. Cosmological picture</h2>
+<p>The resulting universe is a finite deformable boundary system. Its interior is locally stable and GR-compatible. Redshift accumulates as path response rather than as a direct reading of one universal expansion scale. BAO radial/transverse shape follows the interior path register. At greater finite depth, the projection shoulder appears in the high-redshift galaxy regime and changes inferred mass and size. Farther still, the acoustic projection approaches the CMB-side compressed register.</p>
+<p>This picture explains why different observables can agree locally and diverge globally. A clock, a wavelength, a ruler, an angular size, a luminosity, a void shape, a galaxy rotation curve, and a compactness boundary are all internal measurements, but they do not have to remain locked to one background scale across the full finite domain.</p>
+<p>The model’s central physical claim is therefore simple: the universe does not require an infinite external stage or a single universal measurement register. It can be a finite deformable event-domain whose internal observables separate into stable local registers, approach registers, projection registers, and compressed boundary registers.</p>
+<h2>9. Empirical correspondence</h2><section class="table-card">
+  <p class="table-caption"><strong>Table 4-3.</strong> Empirical correspondence of the finite-boundary cosmology.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Sector</th><th>Register</th><th>Model role</th></tr></thead>
+      <tbody>
+        <tr><td>Local gravity</td><td>3D+clock exterior</td><td>β=1, γ=1 weak-field limit</td></tr>
+<tr><td>Supernovae</td><td>A(d), d(z), DL</td><td>nonlinear redshift-distance curvature as path response</td></tr>
+<tr><td>BAO shape</td><td>DM/DH</td><td>radial/transverse anisotropy without absolute-ruler dependence</td></tr>
+<tr><td>BAO-CMB</td><td>P★ high-z asymptote</td><td>compressed acoustic projection band</td></tr>
+<tr><td>JWST galaxies</td><td>P★ mass-size conversion</td><td>lower mass, larger radius, lower compactness</td></tr>
+<tr><td>Time dilation</td><td>A timing register</td><td>Δtobs=Δtem(1+z)</td></tr>
+<tr><td>SPARC/RAR</td><td>η</td><td>weak-field compliance register</td></tr>
+<tr><td>Voids/foam</td><td>D=AG</td><td>matter-void morphology register</td></tr>
+<tr><td>Compactness</td><td>u</td><td>finite saturation register</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><p>From the model-building perspective, the form is now fixed: local GR-compatible gravity, accumulated path response, register-split distances, the reverse-solved projection construction P★, and the unified response engine C(X,η,u,D_n). Further work concerns precision implementation and physical derivation, not invention of the cosmological structure.</p>
+<h2>10. Definition and status of the finite-boundary model</h2>
+<p>The finite deformable boundary cosmology is defined by five statements.</p>
+<p>1. The universe is a finite deformable event-domain, not an object measured from an external infinite ruler.</p>
+<p>2. Local gravity is the GR-compatible interior limit, expressed as three-dimensional spatial deformation plus a coupled positive clock-rate field.</p><p>3. Observed redshift is accumulated path response:</p><div class="equation">\[A=\ln(1+z),\quad G(d)=\frac{g_0}{1+d/d_b}. \tag{4-28}\]</div><p>4. Cosmological observables occupy separate but linked finite registers: DR, DH, DM, DL, DA, timing, acoustic projection, morphology, gravity compliance, and compactness.</p><p>5. The preferred projection construction is fixed by BAO preservation, JWST mass-size conversion, and CMB-side compression:</p><div class="equation">\[P_{\star}(z)=1-\frac{0.627714 z^8}{z^8+8^8}. \tag{4-29}\]</div><p>The model matches local weak-field gravity by construction, reproduces the path-response redshift sector developed earlier, preserves the BAO radial/transverse regime, moves JWST high-redshift mass-size inferences in the required direction, and reaches the CMB-side compressed projection band. Its remaining quantitative development is technical: full covariance likelihoods, a full CMB-spectrum implementation, homogeneous JWST population remeasurement, and numerical evolution of the unified response engine.</p>
+<p>The cosmology is therefore a defined finite-register model of a universe with stable local behavior, finite-depth path response, a projection shoulder, and a compressed boundary-side register.</p>
+      <nav class="chapter-bottom-nav">
+        <a href="chapter_3.html">Previous: Chapter 3</a>
+        <a href="references.html">Next: References</a>
+      </nav>
+    </article>
+  </main>
+
+</body>
+</html>
+
+
+
+

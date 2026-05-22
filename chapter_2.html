@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 2: Observational Registers</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.MathJax = { tex: { tags: 'ams' } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">A FINITE UNIVERSE</a>
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="guidebook.html">Guidebook</a>
+      <a href="note_from_author.html">Author Note</a>
+      <a href="measurement_registers.html">Registers</a>
+      <a href="chapter_1.html">Chapter 1</a>
+      <a href="chapter_2.html">Chapter 2</a>
+      <a href="chapter_3.html">Chapter 3</a>
+      <a href="chapter_4.html">Chapter 4</a>
+      <a href="quantitative_appendix.html">Appendix</a>
+      <a href="references.html">References</a>
+    </nav>
+  </header>
+
+  <main class="chapter-layout">
+    <aside class="chapter-toc">
+      <p>Chapter 2</p>
+      <a href="#top">Top</a>
+      <a href="#figures">Figures</a>
+      <a href="references.html">References</a>
+    </aside>
+    <article class="chapter-content" id="top">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Chapter 2</span></nav>
+      <section class="chapter-intro">
+        <p class="kicker">Chapter 2</p>
+        <h1>Chapter 2: Observational Registers</h1>
+      </section>
+      <div class="model-status"><strong>Model status.</strong> This chapter extends the model across projection, galaxy, gravity, void, and compactness registers. The strongest current anchors are the JWST mass-size direction and the SPARC acceleration transition; the model-building target is a unified response law that connects those registers without collapsing them into one scale.</div>
+      <div class="guide-callout">
+        <strong>Plain-language companion:</strong>
+        For a less technical explanation of the observational registers, see
+        <a href="guidebook.html#early-galaxies">The early galaxies</a>,
+        <a href="guidebook.html#web-of-galaxies-and-emptiness">The web of galaxies and emptiness</a>, and
+        <a href="guidebook.html#gravity-at-edges-of-galaxies">Gravity at the edges of galaxies</a>.
+      </div>
+      <details class="technical-details" open>
+        <summary>Chapter 2 figure anchors</summary>
+        <div class="figure-jump-list" id="figures"><a href="#fig-2-1">Figure 2-1</a>
+<a href="#fig-2-2">Figure 2-2</a>
+<a href="#fig-2-3">Figure 2-3</a>
+<a href="#fig-2-4">Figure 2-4</a>
+<a href="#fig-2-5">Figure 2-5</a>
+<a href="#fig-2-6">Figure 2-6</a>
+<a href="#fig-2-7">Figure 2-7</a>
+<a href="#fig-2-8">Figure 2-8</a>
+<a href="#fig-2-9">Figure 2-9</a>
+<a href="#fig-2-10">Figure 2-10</a>
+<a href="#fig-2-11">Figure 2-11</a>
+<a href="#fig-2-12">Figure 2-12</a>
+<a href="#fig-2-13">Figure 2-13</a>
+<a href="#fig-2-14">Figure 2-14</a></div>
+      </details>
+      <h1>Chapter 2: Observational Registers: Galaxies, Gravity, Voids, and Boundaries</h1>
+<p>Observational Registers: Galaxies, Gravity, Voids, and Boundaries</p>
+<h2>Abstract</h2>
+<p>The finite deformable redshift framework is extended across additional observational registers. A previous BAO-CMB shared-ruler failure identified a sharp recovery transition. Recasting that result as a dimensionless projection-depth scale gives chi, defined from the CMB-to-BAO separate-scale ratio 0.390906. This coordinate places the BAO regime deep in the transparent interior, JWST z approximately 8 galaxies on the approach to the transition, the reconstructed projection break near chi approximately 0.20, and the CMB-side scale near chi approximately 0.39. These chi values are normalized depth coordinates and should not be confused with A = ln(1+z) or with redshift itself. A Labbé-Baggen JWST mass-size audit shows that a finite-geometry projection shoulder moves published z &gt; 7 galaxy properties toward lower inferred stellar mass, larger effective radius, and lower compactness. An expanded JWST-PRIMAL spectroscopic test does not isolate a clean residual color or sky-position signal after line strength, ionization, Lyα damping behavior, and UV slope are considered. The gravity extension adds the SPARC radial acceleration relation, selected dissociative cluster offsets, and large-scale basins of attraction. The cleanest gravity result is the galaxy-scale acceleration transition: SPARC binned data recover a characteristic acceleration near 10⁻¹⁰ m s⁻², with the observed-to-baryonic response rising systematically below that scale. An SDSS DR7 VAST morphology screen asks whether matter-void foam architecture is better organized by the full finite-response coordinate D = A G than by redshift or A = ln(1+z) alone. D improves several independent shape metrics, while standard redshift remains competitive and the SDSS depth is too shallow to reach the proposed transition range. The field-equation bridge retains general relativity as the local high-acceleration limit while adding a finite-geometry correction term that activates near regime thresholds. The black-hole extension treats u = 2GM/(Rc²) as a compactness-regime variable that approaches finite saturation rather than physical infinity.</p>
+<p>Keywords: JWST, high-redshift galaxies, finite geometry, redshift, BAO-CMB tension, projection effects, PRIMAL, DAWN JWST Archive, SPARC, radial acceleration relation, galaxy clusters, basins of attraction</p>
+<p>The organizing idea is that the universe may not have one common measurement scale across all registers. Redshift, luminosity distance, angular-size distance, weak-field gravity, void architecture, and compactness may remain locally measurable while still requiring different finite-response coordinates when compared across regimes.</p>
+<h2>1. Introduction</h2>
+<p>A redshift path-response analysis previously tested whether redshift can be treated as accumulated response inside finite deformable geometry, rather than as a purely expansion-based distance clock. Its strongest result was a set of constraints: the supernova redshift-distance relation could be represented by a compact declining-response law, but the same mapping failed sharply when BAO and CMB information were forced to share one acoustic-ruler calibration. The recovery target preserved the low- and intermediate-redshift BAO range while changing high-redshift projection rapidly.</p>
+<p>High-redshift JWST galaxies provide an independent place to test the same conversion issue. The relevant distinction is between direct observables and cosmology-dependent derived quantities. Spectroscopic redshift, observed flux, sky position, line ratios, equivalent widths, and continuum slopes are close to measurement. Stellar mass, physical radius, luminosity, star-formation rate, age, and number density require a cosmological conversion from redshift to distance and time. If that conversion is incomplete at high redshift, some galaxies can appear too massive, too compact, or too old even when the measured spectra are correct.</p>
+<p>The conversion audit asks whether derived masses, sizes, colors, and sky/redshift structures behave in a way compatible with a projection-register shift. Mass-size quantities move in the direction expected from a finite-geometry projection correction. Spectral color and sky-position structure do not show a clean residual geometric signal in the present PRIMAL tests.</p>
+<h2>2. Dimensionless finite-geometry depth coordinate</h2>
+<p>The BAO-CMB analysis identified an effective separate-scale ratio between CMB-side and BAO-side acoustic calibration. S_BAO is the effective BAO-side calibration scale and S_CMB is the effective CMB-side calibration scale. Their ratio is used here as the organizing depth scale. The visible-to-total finite-geometry radius fraction is written as</p><div class="equation">\[f_{\mathrm{vis}} = S_{\mathrm{CMB}} / S_{\mathrm{BAO}} = 0.390906 \tag{2-1}\]</div><p class="legacy-note">See the <a href="quantitative_appendix.html#a15">Quantitative Appendix</a> for the separate-scale ratio and calibration details.</p><p>This ratio gives a total-to-visible radius ratio of 2.558 and a visible-to-total volume fraction of 0.0597. It also gives an attenuation-like number, -ln(f(vis)) = 0.939, close to one optical-depth-style unit. Its main use here is as a dimensionless depth coordinate:</p><div class="equation">\[\chi(z) = f_{\mathrm{vis}} \ln(1 + z) / \ln\left[1 + z(CMB)\right] \tag{2-2}\]</div><p>Equation (2) leaves redshift as the measured quantity but maps it onto a compact depth scale. With z(CMB) = 1089.92, the CMB-side scale lies at chi = 0.390906 by construction. Lower redshift observables then occupy smaller positions inside this finite-geometry depth.</p><figure class="figure-card" id="fig-2-1">
+  <a href="assets/figures/figure_2_1.png" target="_blank">
+    <img src="assets/figures/figure_2_1.png" alt="Figure 2-1">
+  </a>
+  <figcaption>
+    <strong>Figure 2-1.</strong> Key observational regimes recast onto the assumed finite-geometry depth coordinate. BAO occupies the low-depth interior, the JWST z approximately 8 regime sits near chi approximately 0.12, the reconstructed projection transition lies near chi approximately 0.20, and the CMB-side scale sits at chi = 0.390906 by construction.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_1.png" target="_blank">Open full-size image</a>
+  
+</figure><p>Coordinate discipline is essential. The redshift-response analysis used A = ln(1+z) as the accumulated path response and G(d) as the local response rate. The chi coordinate is only a finite-depth display coordinate scaled by the CMB-to-BAO separate-scale ratio. These quantities are related, but they are not interchangeable. The normalized transition coordinate X = A/A_t, where A_t = ln(1+z_t) and z_t = 34.5754, gives a common comparison coordinate. In this notation, X = 1 marks the reconstructed recovery transition, analogous to a one-focal-length transition scale.</p>
+<p>Table 1A. Coordinate dictionary for the finite-response registers.</p><section class="table-card">
+  <p class="table-caption"><strong>Table 2-1.</strong> Key observables recast onto the dimensionless finite-geometry depth scale.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Symbol or value</th><th>Definition</th><th>Use in the finite-response analysis</th></tr></thead>
+      <tbody>
+        <tr><td>z</td><td>observed redshift</td><td>Measured quantity; not itself a depth fraction.</td></tr>
+<tr><td>A = ln(1+z)</td><td>accumulated path response</td><td>Core accumulated-response bookkeeping variable.</td></tr>
+<tr><td>G(d) = g0/(1+d/db)</td><td>local response rate</td><td>Weakening finite-geometry response used in redshift and shape screens.</td></tr>
+<tr><td>D = A G</td><td>finite-response morphology predictor</td><td>Raw matter-void morphology coordinate for shape screens.</td></tr>
+<tr><td>D_n = D/D0</td><td>normalized morphology response</td><td>Response-function argument; D0 has the same units as D.</td></tr>
+<tr><td>chi = fvis A / A_CMB</td><td>finite-depth display coordinate</td><td>Finite-depth display coordinate; chi is not A.</td></tr>
+<tr><td>X = A/A_t</td><td>normalized transition coordinate</td><td>Common comparison coordinate; X=1 is the reconstructed transition.</td></tr>
+<tr><td>0.390906</td><td>S_CMB/S_BAO = fvis</td><td>CMB-to-BAO effective scale ratio; not z, not A, and not chi.</td></tr>
+<tr><td>T(1089.92) approximately 0.372287</td><td>high-redshift recovery value</td><td>Close to, but distinct from, the 0.390906 scale ratio.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><section class="table-card">
+  <p class="table-caption"><strong>Table 2-2.</strong> Finite-depth regime markers.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Feature</th><th>z</th><th>ln(1+z)</th><th>chi</th><th>fraction of CMB depth</th></tr></thead>
+      <tbody>
+        <tr><td>BAO high end</td><td>2.3000</td><td>1.1939</td><td>0.0667</td><td>0.1707</td></tr>
+<tr><td>JWST z~8 regime</td><td>8.0000</td><td>2.1972</td><td>0.1228</td><td>0.3141</td></tr>
+<tr><td>JADES-GS-z14-like regime</td><td>14.3200</td><td>2.7292</td><td>0.1525</td><td>0.3902</td></tr>
+<tr><td>Transition midpoint</td><td>34.5754</td><td>3.5717</td><td>0.1996</td><td>0.5106</td></tr>
+<tr><td>CMB last-scattering-side scale</td><td>1089.9200</td><td>6.9948</td><td>0.3909</td><td>1.0000</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><h2>3. Data and methods</h2>
+<h3>3.1 Projection transition displayed as T(chi)</h3>
+<p>The same transition behavior is displayed in chi-space as a compact boundary-layer recovery function:</p><div class="equation">\[T(\chi) = 1 - \Delta \chi^m / (\chi^m + \chi_t^m) \tag{2-3}\]</div><p>In redshift space, the best recovery case used Δ = 0.627714, zₜ = 34.5754, and m = 4. In the chi display, that midpoint becomes chiₜ = 0.1996. This display is useful because the transition is described as occurring at about one-fifth of the assumed finite-geometry depth, rather than being tied only to a large redshift value. It is the same transition behavior shown in a different coordinate, not a new independent derivation.</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a16">Quantitative Appendix</a> for transition-function definitions and stage-output mapping.</p><figure class="figure-card" id="fig-2-2">
+  <a href="assets/figures/figure_2_2.png" target="_blank">
+    <img src="assets/figures/figure_2_2.png" alt="Figure 2-2">
+  </a>
+  <figcaption>
+    <strong>Figure 2-2.</strong> Recovery transition recast as T(chi). The boundary-layer transition is nearly flat through the BAO and JWST regimes, changes rapidly near chi approximately 0.20, and approaches the high-redshift compression band well before the CMB-side scale at chi = 0.390906.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_2.png" target="_blank">Open full-size image</a>
+  
+</figure><h3>3.2 JWST mass-size projection audit</h3>
+<p>The first galaxy audit uses the Labbé et al. red massive candidate sample and the Baggen et al. structural subset. Labbé et al. reported red candidate massive galaxies at z approximately 7.4-9.1, and Baggen et al. measured compact effective radii for the subset with usable structural fits. The present calculation does not refit SEDs or morphologies. It asks how published mass and radius values move under a simple projection conversion.</p>
+<p>A fourth-power projection shoulder centered in the JWST redshift range is used as a stress test:</p><div class="equation">\[\Phi(z) = 1 - \Delta z^4 / (z^4 + z_s^4) \tag{2-4}\]</div><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>The amplitude Δ = 0.627714 is retained from the recovery transition, while the midpoint is shifted to zₛ = 8. This deliberately tests a weaker high-redshift shoulder in the red massive galaxy regime rather than the main BAO-CMB transition.</p>
+</details><div class="equation">\[M(audit) \approx \Phi(z)^2 M(\Lambda\mathrm{CDM}) \tag{2-6}\]</div><div class="equation">\[R_e(audit) \approx R_e(\Lambda\mathrm{CDM}) / \Phi(z) \tag{2-7}\]</div><figure class="figure-card" id="fig-2-3">
+  <a href="assets/figures/figure_2_3.png" target="_blank">
+    <img src="assets/figures/figure_2_3.png" alt="Figure 2-3">
+  </a>
+  <figcaption>
+    <strong>Figure 2-3.</strong> JWST z &gt; 7 mass-size audit recast against chi. The same eight objects move toward lower inferred stellar mass, larger effective radius, and lower compactness under the projection-shoulder conversion. This is a direction-of-effect result, not a validation of the projection law.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_3.png" target="_blank">Open full-size image</a>
+  
+</figure><section class="table-card">
+  <p class="table-caption"><strong>Table 2-3.</strong> Median before/after values in the z &gt; 7 mass-size projection audit.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Quantity</th><th>Published median</th><th>Audit median</th><th>Direction</th></tr></thead>
+      <tbody>
+        <tr><td>median log stellar mass</td><td>9.7369</td><td>9.4260</td><td>lower mass</td></tr>
+<tr><td>median effective radius pc</td><td>125.5000</td><td>189.9640</td><td>larger size</td></tr>
+<tr><td>median log compactness</td><td>5.4826</td><td>4.9411</td><td>lower compactness</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><h3>3.3 Expanded PRIMAL spectroscopy tests</h3>
+<p>The expanded spectral audit uses the JWST-PRIMAL catalog <a class="citation" href="references.html#ref-heintz-k-2025">[47]</a>, a public JWST/NIRSpec reference sample for reionization-era galaxies. The processed test table contains 584 rows spanning z = 5.0-13.4, including 134 objects at z &gt;= 7, 51 at z &gt;= 8, and 17 at z &gt;= 10. The catalog provides spectroscopic redshift, UV magnitude, UV slope βUV, \[OIII\]+Hβ equivalent width, Lyα damping parameter D(Lyα), O32, line fluxes, and sky position <a class="citation" href="references.html#ref-brammer-g-2025">[48]</a> <a class="citation" href="references.html#ref-tang-m-2023">[49]</a>.</p><section class="table-card">
+  <p class="table-caption"><strong>Table 2-4.</strong> PRIMAL sample summary used for the expanded spectral and sky-position audit.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Metric</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>total PRIMAL rows</td><td>584.0000</td></tr>
+<tr><td>redshift min</td><td>5.0019</td></tr>
+<tr><td>redshift max</td><td>13.3605</td></tr>
+<tr><td>z &gt;= 7 count</td><td>134.0000</td></tr>
+<tr><td>z &gt;= 8 count</td><td>51.0000</td></tr>
+<tr><td>z &gt;= 10 count</td><td>17.0000</td></tr>
+<tr><td>βUV available</td><td>584.0000</td></tr>
+<tr><td>\[O III\</td><td>519.0000</td></tr>
+<tr><td>O32 positive finite</td><td>500.0000</td></tr>
+<tr><td>spectral residual model n</td><td>473.0000</td></tr>
+<tr><td>spectral-only residual R²</td><td>0.1243</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><h3>3.4 Gravity-regime audit</h3>
+<p>The gravity audit adds three real-data diagnostics. The galaxy-scale test uses the published SPARC binned radial acceleration relation, which compares the observed centripetal acceleration from rotation curves with the acceleration predicted from the observed baryonic mass distribution <a class="citation" href="references.html#ref-lelli-f-2016">[50]</a> <a class="citation" href="references.html#ref-mcgaugh-s-2016">[51]</a>. The binned relation was fit with the empirical RAR form:</p><div class="equation">\[g_{\mathrm{obs}} = \frac{g_{\mathrm{bar}}}{1 - \exp\left[-\left(g_{\mathrm{bar}}/g^\dagger\right)^{1/2}\right]} \tag{2-8}\]</div><p>where g† is the characteristic acceleration scale. The response ratio gobs/gbar is then used as a dimensionless measure of gravitational-regime departure. The cluster-scale test uses a literature-coded set of dissociative mergers, where gravitational-lensing centers, hot X-ray gas, and galaxy concentrations are spatially separated. The large-scale test uses published velocity-flow basin results from Laniakea and Cosmicflows-4 to ask whether gravitational flow domains provide a larger-scale analogue of regime boundaries <a class="citation" href="references.html#ref-tully-r-2014">[52]</a> <a class="citation" href="references.html#ref-valade-a-2024">[53]</a>.</p>
+<h2>4. Results</h2>
+<h3>4.1 The chi coordinate gives a compact ordering of regimes</h3>
+<p>The depth coordinate organizes the main regimes in a simple order. The BAO high end lies at chi = 0.0667. The JWST z approximately 8 regime lies near chi = 0.1228, and a z = 14.32 object would lie near chi = 0.1525. The reconstructed transition midpoint lies at chi = 0.1996, while the CMB-side scale lies at chi = 0.390906. In this ordering, JWST z &gt; 7 galaxies do not lie at the main transition, but they do sit on the approach toward it.</p>
+<h3>4.2 Mass-size quantities move in the expected direction</h3>
+<p>The Labbé-Baggen audit gives the most constructive result. The median log stellar mass shifts from 9.7369 to 9.4260. The median effective radius increases from 125.5 pc to 190.0 pc. The median compactness proxy log10(M\*/Rₑ²) decreases from 5.4826 to 4.9411. These changes show that the correction acts in the direction needed to reduce the apparent too-massive and too-compact tension.</p>
+<h3>4.3 Spectral color does not isolate a geometric residual</h3>
+<p>The larger PRIMAL test is more restrictive. Higher βUV corresponds to a redder UV continuum. In the full PRIMAL sample, βUV becomes bluer, not redder, with increasing redshift. The descriptive Pearson correlation between βUV and redshift is -0.226. Correlations with spectral features also show that conventional galaxy physics is important: βUV correlates with D(Lyα), \[OIII\]+Hβ equivalent width, and O32. A regression against MUV, log EW(\[OIII\]+Hβ), D(Lyα), and log O32 explains a modest fraction of the βUV variance, with R² = 0.124. The residual βUV trend against chi remains weak.</p><figure class="figure-card" id="fig-2-4">
+  <a href="assets/figures/figure_2_4.png" target="_blank">
+    <img src="assets/figures/figure_2_4.png" alt="Figure 2-4">
+  </a>
+  <figcaption>
+    <strong>Figure 2-4.</strong> PRIMAL UV slope and residual UV slope recast against chi. The observed βUV distribution does not produce a clean residual geometric signal after spectral-feature correction. The residual scatter remains large and only weakly structured on the chi scale.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_4.png" target="_blank">Open full-size image</a>
+  
+</figure><section class="table-card">
+  <p class="table-caption"><strong>Table 2-5.</strong> Descriptive correlations from the PRIMAL spectral and sky-position audit.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Test</th><th>n</th><th>Pearson r</th></tr></thead>
+      <tbody>
+        <tr><td>βUV redness vs z</td><td>584</td><td>-0.2258</td></tr>
+<tr><td>βUV redness vs D(Lyα)</td><td>584</td><td>-0.1633</td></tr>
+<tr><td>βUV redness vs log EW(\[O III\</td><td>519</td><td>-0.1969</td></tr>
+<tr><td>βUV redness vs log O32</td><td>500</td><td>-0.2778</td></tr>
+<tr><td>log O32 vs z</td><td>500</td><td>0.3288</td></tr>
+<tr><td>z vs RA</td><td>584</td><td>-0.0612</td></tr>
+<tr><td>z vs Dec</td><td>584</td><td>-0.0741</td></tr>
+<tr><td>spectral residual βUV vs z</td><td>473</td><td>-0.1058</td></tr>
+<tr><td>spectral residual βUV vs RA</td><td>473</td><td>0.0654</td></tr>
+<tr><td>spectral residual βUV vs Dec</td><td>473</td><td>0.0690</td></tr>
+<tr><td>residual βUV (no z in model) vs chi</td><td>473</td><td>-0.1099</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><h3>4.4 Multi-field sky-position tests do not show a simple boundary pattern</h3>
+<p>The sky-position tests are also limiting. In the PRIMAL sample, redshift shows little linear dependence on RA or Dec, with r = -0.061 for z versus RA and r = -0.074 for z versus Dec. The residual βUV field is also weakly correlated with sky position. These results do not rule out a geometric interpretation, because the public sample is assembled from many JWST programs with different selection functions. They do mean that the present data do not show a simple RA/Dec phase-boundary pattern.</p><figure class="figure-card" id="fig-2-5">
+  <a href="assets/figures/figure_2_5.png" target="_blank">
+    <img src="assets/figures/figure_2_5.png" alt="Figure 2-5">
+  </a>
+  <figcaption>
+    <strong>Figure 2-5.</strong> PRIMAL sky-position checks. Panel A shows the multi-field sky distribution colored by chi. Panel B shows positions colored by residual UV slope after spectral-feature correction. No simple sky-position pattern is evident in this first-pass audit.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_5.png" target="_blank">Open full-size image</a>
+  
+</figure><figure class="figure-card" id="fig-2-6">
+  <a href="assets/figures/figure_2_6.png" target="_blank">
+    <img src="assets/figures/figure_2_6.png" alt="Figure 2-6">
+  </a>
+  <figcaption>
+    <strong>Figure 2-6.</strong> PRIMAL sample coverage on the chi scale. The sample occupies the high-redshift galaxy approach region, below the reconstructed transition at chi approximately 0.20.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_6.png" target="_blank">Open full-size image</a>
+  
+</figure><h3>4.5 Gravity-regime tests</h3>
+<p>The gravity tests are included as a bridge from projection-depth behavior to local and large-scale gravitational response. They ask whether gravitational observables contain natural transition scales or domain boundaries that can be compared with the finite-geometry language developed above.</p><section class="table-card">
+  <p class="table-caption"><strong>Table 2-6.</strong> Gravity-regime audit summary.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Test</th><th>Scale</th><th>Key result</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>SPARC RAR</td><td>Galaxy</td><td>g† = 9.89 × 10⁻¹¹ m s⁻²; 2× response at 6.07 × 10⁻¹¹ m s⁻²</td><td>Strongest transition</td></tr>
+<tr><td>Dissociative clusters</td><td>Cluster</td><td>Mixed offsets; 45% of 38 clusters have X-ray/lensing offsets &gt;10″</td><td>Useful but ambiguous</td></tr>
+<tr><td>Attractor basins</td><td>Large scale</td><td>Laniakea, Shapley, and Sloan Great Wall velocity-flow basins</td><td>Conceptual analogue</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><p>The galaxy acceleration test gives the strongest result. The SPARC binned radial acceleration relation is fit by Equation (2-8) with g† = 9.89 × 10⁻¹¹ m s⁻². The observed-to-baryonic response reaches about a factor of two at gbar = 6.07 × 10⁻¹¹ m s⁻². Above the characteristic scale, the relation approaches the one-to-one baryonic prediction. Below it, the observed gravitational response increasingly exceeds the baryonic prediction (Figure 7). This is a clear gravitational-regime transition in a dimensionless response ratio.</p><figure class="figure-card" id="fig-2-7">
+  <a href="assets/figures/figure_2_7.png" target="_blank">
+    <img src="assets/figures/figure_2_7.png" alt="Figure 2-7">
+  </a>
+  <figcaption>
+    <strong>Figure 2-7.</strong> Galaxy-scale gravitational-response transition from the SPARC radial acceleration relation. Panel A shows the binned relation between observed acceleration and baryonic acceleration, with the empirical RAR fit and the Newtonian one-to-one line. Panel B shows the response ratio gobs/gbar. The relation departs systematically from unity below an acceleration scale near 10⁻¹⁰ m s⁻², giving the cleanest gravity-regime transition found in this audit <a class="citation" href="references.html#ref-lelli-f-2016">[50]</a> <a class="citation" href="references.html#ref-mcgaugh-s-2016">[51]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_7.png" target="_blank">Open full-size image</a>
+  
+</figure><p>The dissociative-cluster test is informative but less clean. The Bullet Cluster and MACS J0025.4-1222 show lensing/gravity peaks separated from the hot X-ray gas and aligned more closely with the collisionless component <a class="citation" href="references.html#ref-clowe-d-2006">[54]</a> <a class="citation" href="references.html#ref-brada-m-2008">[55]</a>. Abell 520 is a counterexample-like system with a dark-core morphology associated with the X-ray gas and poor in bright galaxies <a class="citation" href="references.html#ref-mahdavi-a-2007">[56]</a> <a class="citation" href="references.html#ref-jee-m-2012">[57]</a>. Abell 56 and related bullet-like mergers show additional offsets but complex merger geometry <a class="citation" href="references.html#ref-albuquerque-r-2024">[58]</a>. In a 38-cluster lensing/X-ray sample, 45 percent of clusters had projected offsets larger than 10 arcsec <a class="citation" href="references.html#ref-shan-h-2010">[59]</a>. These results show that hot baryonic gas, galaxies, and gravitational lensing centers can separate, but they do not by themselves distinguish finite-geometry response from collisionless dark matter (Figure 8).</p><figure class="figure-card" id="fig-2-8">
+  <a href="assets/figures/figure_2_8.png" target="_blank">
+    <img src="assets/figures/figure_2_8.png" alt="Figure 2-8">
+  </a>
+  <figcaption>
+    <strong>Figure 2-8.</strong> Cluster-scale baryon/lensing decoupling tests. Panel A summarizes selected dissociative mergers with a qualitative alignment index: +1 indicates lensing/gravity aligned with galaxies or the collisionless component, 0 indicates mixed or non-significant alignment, and -1 indicates a gas/dark-core anomaly. Panel B shows the offset frequency reported for a 38-cluster sample. Cluster mergers demonstrate baryon/lensing separation, but merger dynamics and dark-matter interpretations remain major confounding factors.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_8.png" target="_blank">Open full-size image</a>
+  
+</figure><p>The attractor test is best treated as a conceptual large-scale analogue. Laniakea was defined through velocity-flow watersheds, with galaxy motions organized into an inward-flowing basin after subtracting mean expansion and longer-range flows <a class="citation" href="references.html#ref-tully-r-2014">[52]</a>. Cosmicflows-4 work extends this idea probabilistically and gives a slight preference for Laniakea being part of the larger Shapley basin; the Sloan Great Wall basin is the largest recovered basin in that analysis <a class="citation" href="references.html#ref-valade-a-2024">[53]</a>. These results support the language of gravitational domains and watershed boundaries. They are not independent proof of finite geometry because peculiar-velocity reconstructions are model-dependent (Figure 9).</p><figure class="figure-card" id="fig-2-9">
+  <a href="assets/figures/figure_2_9.png" target="_blank">
+    <img src="assets/figures/figure_2_9.png" alt="Figure 2-9">
+  </a>
+  <figcaption>
+    <strong>Figure 2-9.</strong> Large-scale basin-of-attraction hierarchy from Cosmicflows-4. The Sloan Great Wall basin is the largest recovered basin in the cited analysis and has a volume more than twice that of the Shapley basin <a class="citation" href="references.html#ref-valade-a-2024">[53]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_9.png" target="_blank">Open full-size image</a>
+  
+</figure><h3>4.6 Matter-void foam morphology screen and finite-response screening</h3>
+<p>The projection-depth, spectroscopic-residual, and gravitational-response tests are extended to matter-void morphology. The screen tests whether the large-scale distribution of void space and web-bounded foam structure is organized by the full finite-response coordinate, rather than by redshift ordering alone.</p>
+<p>The test uses the public SDSS DR7 VAST void catalogs, which provide complementary void populations found with VoidFinder and with V2 watershed methods using VIDE and REVOLVER pruning <a class="citation" href="references.html#ref-pan-d-2012">[60]</a>. The Planck 2018 VAST release reports 1163 VoidFinder voids, 531 V2/VIDE voids, and 518 V2/REVOLVER voids in the SDSS DR7 main-survey volume to z = 0.114, with effective radii and centers included in ASCII catalog files <a class="citation" href="references.html#ref-douglass-k-2023">[61]</a> <a class="citation" href="references.html#ref-douglass-k-2024">[62]</a>. This is shallower than the desired transition test, but it is useful because the same volume-limited galaxy sample can be inspected with large-void and watershed-style definitions.</p><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>Because the catalog reaches only z = 0.114, it probes the early side of the response curve. It is an early-range morphology screen for D = A G, not a direct sample of the proposed deeper transition region.</p>
+</details><p>VoidFinder and watershed methods are treated as complementary shape filters. VoidFinder is used as a proxy for large coherent inter-web void regions. VIDE and REVOLVER are used as proxies for nested basin-like void structure within the foam. Watershed algorithms segment the density field into basins and can preserve hierarchical structure, while VIDE uses a Voronoi tessellation, a ZOBOV-based watershed transform, and a hierarchy tree to construct and analyze void catalogs <a class="citation" href="references.html#ref-neyrinck-m-2008">[63]</a> <a class="citation" href="references.html#ref-sutter-p-2015">[64]</a> <a class="citation" href="references.html#ref-platen-e-2007">[65]</a>. Differences among void definitions become measurable morphology signals.</p><figure class="figure-card" id="fig-2-10">
+  <a href="assets/figures/figure_2_10.png" target="_blank">
+    <img src="assets/figures/figure_2_10.png" alt="Figure 2-10">
+  </a>
+  <figcaption>
+    <strong>Figure 2-10.</strong> Conceptual separation of large coherent voids and nested watershed basins. VoidFinder traces large inter-web voids, while V2/VIDE and V2/REVOLVER trace watershed-defined foam cells and basin hierarchy. The comparison supplies a shape diagnostic across complementary void definitions.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_10.png" target="_blank">Open full-size image</a>
+  
+</figure><p>The earlier coordinate-only morphology screen compared standard redshift z with the accumulated finite-geometry coordinate</p><div class="equation">\[A(z) = \ln(1 + z) \tag{2-10}\]</div><p>That screen was incomplete because it did not include the response-weakening term used in the finite deformable-geometry model. The fuller screen therefore compares void metrics against four predictors:</p><div class="equation">\[z,   A(z) = \ln(1 + z),   G(d) = g_0 / \left[1 + d/d_b\right],   D(z) = A(z)G(d). \tag{2-11}\]</div><p>When D is used later as a response-function argument, it is normalized as D_n = D/D0, where D0 is a chosen reference response scale with the same units as D. The raw D is retained for the morphology screen.</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a19">Quantitative Appendix</a> for D_n normalization and response-function bookkeeping.</p><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>For comparison with the projection transition, the same redshift bins can also be expressed as X = A/A_t. This X coordinate reports where a sample lies relative to the recovery transition and complements the z, A, G, and D predictor comparison.</p>
+</details><p>For this first catalog-level test, d is treated as a normalized redshift-distance proxy, d_norm = z / z_max, and g0 is set to 1. The response scale db is scanned over db = 0.05, 0.10, 0.20, 0.30, 0.50, and 1.00. This normalization makes the screen dimensionless and reproducible; full cosmological distance reconstruction is a separate step.</p>
+<p>A foam index is defined as the ratio of watershed-defined voids to large VoidFinder voids within the same redshift or response-coordinate bin:</p><div class="equation">\[I_{\mathrm{foam}}(z) = N_{\mathrm{watershed}}(z) / N_{\mathrm{VoidFinder}}(z). \tag{2-13}\]</div><p>The tested morphology vector is therefore</p><div class="equation">\[S(z) = \left[I_{\mathrm{foam}}, R_{\mathrm{eff}}, Ve, C_{\mathrm{shape}}\right], \tag{2-14}\]</div><p>where Ifoam is the foam-index proxy, Reff is effective radius, Ve is void ellipticity where available, and C_shape is a hierarchy/connectivity proxy where catalog columns allow it. Dimensional vector entries are standardized before comparison. Each metric is compared against z, A, G, and D using linear, quadratic, and two-segment piecewise fits, with neutral labels assigned from R2, RMSE, monotonicity, and Spearman trend diagnostics.</p><figure class="figure-card" id="fig-2-11">
+  <a href="assets/figures/figure_2_11.png" target="_blank">
+    <img src="assets/figures/figure_2_11.png" alt="Figure 2-11">
+  </a>
+  <figcaption>
+    <strong>Figure 2-11.</strong> Best-predictor summary from the SDSS VAST full-response screen. The full response coordinate D = A G wins four metric-level comparisons, while standard redshift z wins six and two remain indistinguishable. The result is mixed: D improves several independent shape metrics, but it does not dominate the screen.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_11.png" target="_blank">Open full-size image</a>
+  
+</figure><section class="table-card">
+  <p class="table-caption"><strong>Table 2-7.</strong> Summary of the SDSS VAST full finite-response morphology screen. The labels summarize descriptive comparison outcomes.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Predictor label</th><th>Number of metric-level wins</th><th>Representative metrics</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>D better</td><td>4</td><td>REVOLVER foam index; REVOLVER mean ellipticity; VIDE mean ellipticity; VoidFinder median radius</td><td>Several independent shape metrics are more organized by the full response variable.</td></tr>
+<tr><td>G better</td><td>2</td><td>VoidFinder count; VoidFinder mean ellipticity</td><td>Some metrics respond most strongly to the weakening function alone.</td></tr>
+<tr><td>A better</td><td>1</td><td>VIDE count</td><td>Accumulated deformation alone is not the dominant predictor.</td></tr>
+<tr><td>z better</td><td>6</td><td>REVOLVER count; VIDE foam index; mean foam index; selected median ellipticity and radius metrics</td><td>Standard redshift remains competitive and often better.</td></tr>
+<tr><td>Indistinguishable</td><td>2</td><td>VIDE median ellipticity; VIDE median radius</td><td>Some metrics cannot separate the predictors in the SDSS redshift range.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><p>The most important outcome is the pattern of where the winning labels occur. D = A G performs better than A alone for several independent morphology metrics, including the REVOLVER foam index, mean ellipticity in both REVOLVER and VIDE, and VoidFinder median radius. This indicates that adding the response-weakening term G can organize some shape quantities that are not clarified by accumulated deformation A alone. The best response-scale value in the tested grid is db = 1.0, which means the preferred response weakening is gradual across the SDSS range. A sharply decaying response function is not favored by this early-range morphology screen.</p>
+<p>Standard redshift remains the best predictor for several metrics, including the mean foam index and selected radius and ellipticity summaries. The full finite-response variable is therefore worth testing in a deeper object-level survey <a class="citation" href="references.html#ref-rincon-h-2024">[66]</a>, while the shallow SDSS screen remains subordinate to the stronger JWST mass-size and SPARC constraints.</p><figure class="figure-card" id="fig-2-12">
+  <a href="assets/figures/figure_2_12.png" target="_blank">
+    <img src="assets/figures/figure_2_12.png" alt="Figure 2-12">
+  </a>
+  <figcaption>
+    <strong>Figure 2-12.</strong> Low-redshift void-catalog coverage relative to the recovery transition. The figure uses the normalized transition coordinate X = A/A_t = ln(1+z)/ln(1+z_t), where z_t = 34.5754 and X = 1 marks the reconstructed transition. SDSS VAST reaches only X approximately 0.030, and DESI DR1 low-redshift void catalogs would reach only X approximately 0.060. These data can screen whether D = A G behaves sensibly at low redshift, but they do not reach the chi approximately 0.20 / X = 1 transition regime.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_12.png" target="_blank">Open full-size image</a>
+  
+</figure><p>The possible pressure behavior is not a negative-pressure claim. The relevant transition is the recovery transition recast as chi approximately 0.20, or equivalently X = 1. That transition corresponds to z_t = 34.5754 and A_t = ln(1+z_t) approximately 3.572, not A approximately 0.20. The SDSS screen samples only X approximately 0.03, so it is an early-range morphology screen for the D = A G variable rather than a direct pressure-transition test. A decisive shape test would require a much deeper structure probe or another observable that samples the X approximately 1 regime.</p>
+<h2>5. Discussion</h2>
+<p>Three classes of observational registers are compared. The JWST sections audit projection conversion using derived galaxy properties while holding direct observables such as redshift, flux, and spectra as close to measurement as possible. The gravity sections recast acceleration and compactness behavior as finite-response regimes. The foam-shape and black-hole sections define shape and boundary targets. The interpretive weight is unequal: JWST mass-size conversion and the SPARC transition are current constraints, while matter-void and compactness results are early-stage constraints and model targets.</p>
+<h3>5.1 What strengthens the model</h3>
+<p>The strongest positive result is the mass-size direction of effect. Under the projection shoulder, published high-redshift galaxies become less massive, larger, and less compact. This is exactly the direction required if part of the early-galaxy tension comes from the expansion-based conversion between redshift, luminosity distance, angular-size distance, and physical age. The precise amplitude of the chosen shoulder matters less here than measurability: raw redshift, flux, angular size, and spectra can be held fixed while derived masses and sizes are recomputed under an alternative projection law.</p>
+<p>Because the PRIMAL color and sky-position audits do not provide independent support, the strongest current JWST leverage remains in the mass-size conversion test rather than in spectral residuals.</p>
+<h3>5.2 Spectral and void-shape constraints</h3>
+<p>The PRIMAL results constrain the projection interpretation. UV color and sky position do not provide independent support for a finite-geometry boundary. Strong rest-optical emission lines, ionization state, Lyα damping behavior, dust, selection, and field structure all influence the appearance of high-redshift galaxies. The expanded sample trends bluer with redshift, and the residual color signal after spectral-feature correction remains weak. A geometric interpretation is therefore better tested first through mass-size-age conversion rather than red color alone.</p>
+<p>The void-shape screen is also constrained by depth. Its value is methodological: it shows how to formulate a deeper matter-void shape test against z, A, G, and D. It does not change the stronger constraints set by JWST mass-size conversion and the SPARC transition.</p>
+<h3>5.3 Required projection-conversion test</h3>
+<p>A stronger projection-conversion test requires spectroscopic redshifts and line diagnostics from PRIMAL or the DAWN JWST Archive, homogeneous morphology and size measurements, and a controlled projection conversion applied to luminosity distance and angular-size distance separately. The decisive question is whether finite-geometry conversion systematically reduces the mass-size-age tension without degrading direct spectroscopic observables. If the effect survives across multiple fields and independent reduction pipelines, it becomes a stronger test of projection-regime physics. If it disappears after improved SED modeling, AGN screening, dust correction, and morphology homogenization, then the JWST anomaly is better treated as ordinary high-redshift galaxy astrophysics.</p>
+<h3>5.4 Gravity-regime implication</h3>
+<p>The gravity audit strengthens one part of the finite-geometry program and limits another. The strongest addition is the SPARC acceleration transition. It shows a repeatable, dimensionless departure in gravitational response near 10⁻¹⁰ m s⁻², independent of the redshift-depth coordinate. This is the natural gravity analogue of a regime boundary: baryons remain the local source term, while the effective gravitational response changes below a characteristic acceleration scale.</p>
+<p>The cluster and attractor tests are useful but less decisive. Dissociative clusters show that lensing response, hot gas, and galaxies can occupy different observational registers during mergers, but collisionless dark matter already explains much of this behavior in the standard framework. Velocity-flow basins such as Laniakea and the Shapley basin provide a suggestive large-scale vocabulary of gravitational domains, yet those reconstructions depend on expansion-subtracted peculiar velocities. The result is a hierarchy of test strength: galaxy acceleration gives a clean regime transition; cluster mergers provide ambiguous decoupling cases; attractor basins provide a large-scale conceptual analogue.</p>
+<h3>5.5 Finite-geometry correction term for the GR limit</h3>
+<p>The gravity result suggests a conservative route for connecting the model to relativistic gravity. The local success of general relativity should be retained. The finite-deformable framework can be written as an effective correction that becomes negligible in high-acceleration, weak-boundary regimes and activates only when a system crosses a deformation threshold. A compact form is:</p><div class="equation">\[G_{\mu\nu} + \Lambda g_{\mu\nu} + F_{\mu\nu} = (8\pi G/c^4)T_{\mu\nu} \tag{2-15}\]</div><p>Here F with tensor indices is not introduced as a new matter component. It represents an effective finite-geometry response term. The term must vanish where ordinary tests of GR are already successful and must be constrained by conservation requirements. A useful phenomenological decomposition is:</p><div class="equation">\[F_{\mu\nu} = \alpha B_{\mu\nu} C(\chi, \eta, u, D_n) \tag{2-16}\]</div><p>In this notation, B with tensor indices sets the direction and structure of the correction, α sets its amplitude, and C is a dimensionless compliance function. The regime variables used here are:</p><div class="equation">\[\eta = g_{\mathrm{bar}}/g^\dagger,     u = 2GM/(Rc^2),     D_n = D/D_0 \tag{2-17}\]</div><p>The variables describe different kinds of boundary approach: η is the galaxy acceleration regime, u is the Schwarzschild compactness measure, and D_n is the normalized morphology-response coordinate. The symbol ψ is reserved for the Chapter 4 conformal factor. The SPARC result gives the first empirical calibration. The binned relation is well described by a dimensionless compliance factor:</p><div class="equation">\[C_g(\eta) = 1 - \exp(-\sqrt{\eta}),     g_{\mathrm{obs}}/g_{\mathrm{bar}} = 1/C_g(\eta) \tag{2-18}\]</div><p>Equation (2-18) recasts the radial acceleration relation as a weak-field finite-geometry compliance law. At η much greater than 1, the response ratio approaches unity and ordinary baryonic gravity is recovered. At η below order unity, the geometry behaves as if it becomes more compliant, and the observed response exceeds the baryonic prediction. This interpretation has an empirical relation to MOND and relativistic MOND-like theories, while the present model treats the transition as a finite-geometry regime effect rather than as a completed modified-gravity theory <a class="citation" href="references.html#ref-milgrom-m-1983">[67]</a> <a class="citation" href="references.html#ref-bekenstein-j-2004">[68]</a> <a class="citation" href="references.html#ref-sotiriou-t-2010">[69]</a>.</p><p>The weak-field comparison also sits beside MOND and relativistic-MOND review literature. The present model instead uses SPARC/RAR behavior as a finite-geometry compliance register, not as a direct adoption of MOND dynamics <a class="citation" href="references.html#ref-famaey-b-2012">[81]</a>.</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a19">Quantitative Appendix</a> for response-function notation used by the register bridge.</p><figure class="figure-card" id="fig-2-13">
+  <a href="assets/figures/figure_2_13.png" target="_blank">
+    <img src="assets/figures/figure_2_13.png" alt="Figure 2-13">
+  </a>
+  <figcaption>
+    <strong>Figure 2-13.</strong> Dimensionless weak-field compliance form from the SPARC radial acceleration relation. The horizontal axis is η = gbar/g†, using the fitted g† = 9.89 × 10⁻¹¹ m s⁻². The vertical axis is the dimensionless gravitational response gobs/gbar. The data approach unity at high η and rise systematically below η ≈ 1, which provides the cleanest empirical target for a finite-geometry correction term.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_13.png" target="_blank">Open full-size image</a>
+  
+</figure><h3>5.6 Black holes as compactness-boundary tests</h3>
+<p>The black-hole compactness register supplies a boundary-condition target. It sets what a finite-deformable model must satisfy at the compactness limit while remaining consistent with the chi, JWST, SPARC, and void-shape results.</p>
+<p>The black-hole case is the next natural boundary test because it pushes the same question to the strongest compactness limit. The dimensionless variable u = 2GM/(Rc²) compares a system&#x27;s Schwarzschild radius with the radius at which the mass is being evaluated. For a nonrotating exterior solution, u = 1 marks the horizon scale. The classical singularity is a further extrapolation toward R -&gt; 0. In the finite-deformable framework, the horizon is not treated as a physical infinity. It is treated as the entry into a compactness regime where the relationships among mass, time, distance, and curvature may no longer be described by extending ordinary exterior coordinates without limit.</p>
+<p>A finite-saturation target can be written as:</p><div class="equation">\[S(u) = u^m / (u^m + u_c^m),     u_c \approx 1 \tag{2-19}\]</div><p>Here S(u) is a compactness-response function, uₕ is the order-unity threshold, and m controls transition sharpness. The function is small in weak compactness, rises rapidly near the horizon-scale threshold when m is large, and approaches a finite value instead of diverging. It defines a boundary condition: preserve the exterior behavior that makes GR successful while replacing the singular endpoint with a finite interior response. This framing is consistent in spirit with regular or nonsingular black-hole programs, which seek finite interior geometries rather than curvature singularities, but the present motivation is finite-geometry regime saturation <a class="citation" href="references.html#ref-penrose-r-1965">[1]</a> <a class="citation" href="references.html#ref-hawking-s-1970">[2]</a> <a class="citation" href="references.html#ref-hayward-s-2006">[70]</a>.</p>
+<p>The schematic black-hole contribution to the finite-geometry term can then be written as:</p><div class="equation">\[F_{\mu\nu}(BH) = \alpha_{BH} B_{\mu\nu}(BH) S(u) \tag{2-20}\]</div><p>In this expression, αBH sets the amplitude of the compactness-regime correction, Bμν(BH) sets its tensor structure, and S(u) controls when it activates. A future theory would have to derive this term from an action or another conservation-compatible principle. It would also have to recover the exterior Schwarzschild/Kerr behavior tested by black-hole shadows and gravitational-wave mergers while changing only the interior or near-boundary extrapolation that would otherwise produce a singularity <a class="citation" href="references.html#ref-abbott-b-2016">[71]</a> <a class="citation" href="references.html#ref-akiyama-k-2019">[72]</a>.</p>
+<p>A future extension would also need to show that any S(u)-driven interior modification leaves exterior lensing, ringdown, and shadow observables unchanged to current precision, while remaining derivable from an action-compatible or otherwise conservation-compatible Fμν term.</p><figure class="figure-card" id="fig-2-14">
+  <a href="assets/figures/figure_2_14.png" target="_blank">
+    <img src="assets/figures/figure_2_14.png" alt="Figure 2-14">
+  </a>
+  <figcaption>
+    <strong>Figure 2-14.</strong> Compactness-regime saturation target for black holes. The variable u = 2GM/(Rc²) is treated as the boundary coordinate. The horizon-scale threshold for a nonrotating exterior solution occurs near u = 1. The plotted functions are not black-hole solutions; they show the type of finite saturation behavior a future finite-deformable model would need if it replaces physical infinity with a compactness-regime boundary.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_2_14.png" target="_blank">Open full-size image</a>
+  
+</figure><h3>5.7 Shape-test implication and pressure-transition target</h3>
+<p>The matter-void morphology screen adds a shape register to the projection and gravity registers. High-redshift galaxy sections test whether derived galaxy properties are altered by projection-depth conversion. Gravity sections test whether acceleration and compactness regimes can be written as finite-response boundaries. The void test asks whether underdense space and web-bounded foam structure organize under the finite deformable response variable.</p>
+<p>The SDSS VAST catalogs show that the question is measurable, and the full response coordinate D = A G improves several independent shape metrics relative to A alone. Standard z remains the strongest predictor for other metrics, and the available SDSS redshift range samples only the very early part of the normalized transition coordinate.</p>
+<p>The pressure question belongs after the shape test. In the present framework, the pressure-transition target belongs to the chi approximately 0.20 / X = 1 recovery regime. A physical test would ask whether matter-coupled deformation response weakens toward a vacuum-like state as X approaches 1. The pressure-like quantity would decrease from positive response toward near-zero vacuum response, not cross into a required negative-pressure regime. The current SDSS test cannot reach that regime; it only tests whether low-redshift matter-void foam metrics behave coherently under z, A, G, and D.</p>
+<h2>6. Limitations</h2>
+<p>The present analysis uses processed catalog products and descriptive correlations. The Labbé-Baggen mass-size sample is small. The PRIMAL sample is larger but not a uniform all-sky survey, and field selection remains important. The residual-color regression uses a compact model and does not include full hierarchical treatment. Full SED refitting, morphology remeasurement, covariance propagation, and AGN removal are outside this pass. The chi coordinate depends on f(vis) = 0.390906 as the organizing scale. The SPARC result is based on binned acceleration data, the cluster comparison uses a literature-coded merger set, and the attractor analysis depends on peculiar-velocity reconstructions built on a background cosmological model. The finite-geometry correction term is phenomenological, and the black-hole saturation function is specified as a boundary target. A full relativistic theory would need to define F with tensor indices from an action or other dynamical principle and show compatibility with the Bianchi identity, energy-momentum conservation, gravitational lensing, Solar System tests, gravitational waves, black-hole observations, and exterior Schwarzschild/Kerr behavior. The SDSS DR7 VAST foam screen uses a normalized distance proxy d_norm = z/z_max and reaches only A = ln(1+z) approximately 0.108, which is X approximately 0.030 relative to the recovery transition; it therefore does not sample the chi approximately 0.20 / X = 1 pressure-to-vacuum regime directly.</p>
+<h2>7. Conclusions</h2>
+<h3>Empirical findings</h3>
+<p>• Interpreting the separate-scale ratio 0.390906 as a finite-geometry depth scale gives a useful unitless coordinate, chi.</p>
+<p>• In chi, BAO lies near 0.067, JWST z approximately 8 galaxies near 0.123, the reconstructed projection transition near 0.200, and the CMB-side scale at 0.391.</p>
+<p>• The JWST mass-size audit moves derived galaxy properties in the expected direction: lower stellar mass, larger radius, and lower compactness.</p>
+<p>• Expanded PRIMAL spectroscopy does not isolate a clean residual color or sky-position signal after spectral-feature effects are considered. The strongest current JWST leverage remains in mass-size conversion.</p>
+<p>• The gravity extension identifies the SPARC radial acceleration relation as the cleanest gravitational-regime transition, with g† near 10⁻¹⁰ m s⁻² and a 2× response near 6.07 × 10⁻¹¹ m s⁻².</p><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>• The SPARC acceleration transition can be written as a weak-field compliance law, gobs/gbar = 1/Cg(η), where η = gbar/g† and Cg(η) = 1 - exp(-√η).</p>
+</details><p>• The SDSS VAST matter-void screen treats the cosmic web and its void spaces as a foam-like architecture, using VoidFinder as a proxy for large coherent inter-web voids and V2/VIDE and V2/REVOLVER as proxies for watershed-defined basin structure.</p>
+<p>• The full finite-response coordinate D = A G performs better than A alone for several independent shape metrics, including REVOLVER foam index, VIDE and REVOLVER mean ellipticity, and VoidFinder median radius. The result remains mixed because standard z is better for several other metrics.</p>
+<h3>Conceptual targets</h3>
+<p>• Dissociative clusters and large-scale basins show baryon/lensing and velocity-flow decoupling, but those tests remain dynamically complex and model-dependent.</p>
+<p>• A conservative field-equation bridge is possible: retain GR as the local high-acceleration limit and add an effective finite-geometry term Fμν that activates only near regime thresholds.</p>
+<p>• The SDSS VAST screen reaches only A approximately 0.108, which is X approximately 0.030 relative to the recovery transition. The chi approximately 0.20 / X = 1 pressure-to-vacuum target therefore requires a deeper or different object-level structure probe, evaluated first as a shape-transition test.</p>
+<p>• Gravity testing requires a full SPARC galaxy-by-galaxy finite-compliance fit, followed by a homogeneous cluster-offset catalog and controlled attractor-basin analysis.</p><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>• Black holes are treated as a compactness-boundary target. The model should treat u = 2GM/(Rc²) as a compactness-regime variable and seek finite saturation S(u), rather than allowing a mathematical singularity to become a physical endpoint.</p>
+</details><p>• The black-hole extension requires exterior GR behavior, compatibility with black-hole shadows and gravitational-wave mergers, and finite behavior as compactness crosses the horizon-scale regime.</p>
+      <nav class="chapter-bottom-nav">
+        <a href="chapter_1.html">Previous: Chapter 1</a>
+        <a href="chapter_3.html">Next: Chapter 3</a>
+      </nav>
+    </article>
+  </main>
+
+</body>
+</html>
+
+
+
+

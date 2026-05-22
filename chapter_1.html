@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chapter 1: Redshift as Path Response</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    window.MathJax = { tex: { tags: 'ams' } };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">A FINITE UNIVERSE</a>
+    <nav class="top-nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="guidebook.html">Guidebook</a>
+      <a href="note_from_author.html">Author Note</a>
+      <a href="measurement_registers.html">Registers</a>
+      <a href="chapter_1.html">Chapter 1</a>
+      <a href="chapter_2.html">Chapter 2</a>
+      <a href="chapter_3.html">Chapter 3</a>
+      <a href="chapter_4.html">Chapter 4</a>
+      <a href="quantitative_appendix.html">Appendix</a>
+      <a href="references.html">References</a>
+    </nav>
+  </header>
+
+  <main class="chapter-layout">
+    <aside class="chapter-toc">
+      <p>Chapter 1</p>
+      <a href="#top">Top</a>
+      <a href="#figures">Figures</a>
+      <a href="references.html">References</a>
+    </aside>
+    <article class="chapter-content" id="top">
+      <nav class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Chapter 1</span></nav>
+      <section class="chapter-intro">
+        <p class="kicker">Chapter 1</p>
+        <h1>Chapter 1: Redshift as Path Response</h1>
+      </section>
+      <div class="model-status"><strong>Model status.</strong> This chapter establishes the path-response redshift sector: observed redshift is kept as the measured quantity and written as accumulated response through a finite geometry. The remaining target is the physical mechanism that preserves the supernova-scale relation while producing the sharp BAO-CMB projection break.</div>
+      <div class="guide-callout">
+        <strong>Plain-language companion:</strong>
+        For a less technical explanation of redshift as a traveled message, see
+        <a href="guidebook.html#light-with-a-history">Light with a history</a>,
+        <a href="guidebook.html#color-of-distance">The color of distance</a>, and
+        <a href="guidebook.html#when-rulers-stop-agreeing">When rulers stop agreeing</a>.
+      </div>
+      <details class="technical-details" open>
+        <summary>Chapter 1 figure anchors</summary>
+        <div class="figure-jump-list" id="figures"><a href="#fig-1-1">Figure 1-1</a>
+<a href="#fig-1-2">Figure 1-2</a>
+<a href="#fig-1-3">Figure 1-3</a>
+<a href="#fig-1-4">Figure 1-4</a>
+<a href="#fig-1-5">Figure 1-5</a>
+<a href="#fig-1-6">Figure 1-6</a>
+<a href="#fig-1-7">Figure 1-7</a>
+<a href="#fig-1-8">Figure 1-8</a>
+<a href="#fig-1-9">Figure 1-9</a>
+<a href="#fig-1-10">Figure 1-10</a>
+<a href="#fig-1-11">Figure 1-11</a>
+<a href="#fig-1-12">Figure 1-12</a>
+<a href="#fig-1-13">Figure 1-13</a></div>
+      </details>
+      <h1>Chapter 1: Redshift as Path Response in a Finite Deformable Geometry</h1>
+<h2>Abstract</h2>
+<p>A finite deformable geometry model is tested for redshift and distance in a non-expanding setting. Mathematical infinities are treated as limiting operations unless they connect directly to observables. Observed redshift is written as an accumulated path response, A(d) = ln(1 + z), and tested with the local-response law G(d) = g₀/(1 + d/d?). Using Type Ia supernovae, BAO measurements, cosmic chronometers, supernova time-dilation constraints, and compressed CMB distance priors, the supernova-centered relation reproduces nonlinear redshift-distance curvature and remains stable under model-selection, resampling, catalogue, and coarse sky-sector checks. An Alcock-Paczynski-style BAO anisotropy check uses the radial-to-angular ratio Δz/θ, where the BAO ruler scale r_d cancels as shown in the method section, and yields Qnorm(z) ≈ 1.005z + 0.843. The scale-free BAO shape points in the same direction as the power-law-like supernova scaling while leaving the shared-ruler problem unchanged. The model breaks sharply when BAO and CMB constraints are forced to share one sound-horizon calibration. That failure sets a numerical recovery target: the BAO redshift range stays nearly unchanged, while high-redshift projections change rapidly. The best target has zt ≈ 34.6, a fourth-power transition form, and a high-redshift limit in the CMB-side compression band. The combined result is a repeatable supernova-scale pattern, an Alcock-Paczynski BAO anisotropy check, a shared-ruler failure, and a boundary-layer-style transition that any physical mechanism must explain.</p>
+<p>The calculation begins only after a measurable universe-state exists. It does not describe a before-time event. It tests whether measured redshift can be interpreted as path response inside a finite geometry, rather than a direct measure of one universal expansion scale.</p>
+<h2>Introduction</h2>
+<p>The model assumes that mathematical infinities require observational support before they are treated as physical structure. In General Relativity, singularity theorems show that classical spacetime can become geodesically incomplete under broad physical conditions. Here, geodesic incompleteness is treated as a domain-limit signal, not as direct evidence for physically realized infinite density or curvature <a class="citation" href="references.html#ref-penrose-r-1965">[1]</a> <a class="citation" href="references.html#ref-hawking-s-1970">[2]</a> <a class="citation" href="references.html#ref-ellis-g-1977">[3]</a>. Quantum mechanics offers a related warning: physically meaningful states must yield finite, normalizable probabilities, whereas ideal plane waves are generalized mathematical states, not finite-energy physical objects <a class="citation" href="references.html#ref-born-m-1926">[4]</a> <a class="citation" href="references.html#ref-roberts-j-1966">[5]</a>. Mathematical limits may be useful, but they should not be elevated to physical structure without observational support.</p>
+<p>The same rule motivates a cosmological starting point that does not assume infinite extent. Finite and multiply connected cosmologies have a substantial prior literature, including cosmic-topology work showing that local curvature and global extent are distinct questions <a class="citation" href="references.html#ref-lachi-ze-rey-m-1995">[6]</a> <a class="citation" href="references.html#ref-levin-j-2002">[7]</a> <a class="citation" href="references.html#ref-luminet-j-2003">[8]</a> <a class="citation" href="references.html#ref-cornish-n-2004">[9]</a> <a class="citation" href="references.html#ref-ryan-p-2024">[10]</a>. Dynamical and relational views of geometry, reference systems, and time also have long histories in geometrodynamics and relational gravity <a class="citation" href="references.html#ref-misner-c-1957">[11]</a> <a class="citation" href="references.html#ref-wheeler-j-1957">[12]</a> <a class="citation" href="references.html#ref-barbour-j-1982">[13]</a> <a class="citation" href="references.html#ref-rovelli-c-1991">[14]</a>. Finite deformable geometry is used as a descriptive label for a bounded response model within that broader lineage, without identifying it with a single prior formulation.</p>
+<p>Key symbols used throughout the model are summarized in the <a href="measurement_registers.html">Measurement Registers page</a>.</p>
+<p>Non-expansion redshift mechanisms also have historical precedent, including Zwicky&#x27;s tired-light proposal and later non-expanding redshift frameworks, although such models face strong constraints from time dilation and image quality <a class="citation" href="references.html#ref-zwicky-f-1929">[15]</a> <a class="citation" href="references.html#ref-narlikar-j-1993">[16]</a> <a class="citation" href="references.html#ref-white-r-2024">[17]</a>. The path-response law evaluated here treats the observable universe as a horizon-limited region within a larger finite event and evaluates redshift as an accumulated interaction with deformable geometry. Light is still assumed to travel locally at speed c, while wavelength, timing, and observed redshift may depend on the geometry crossed along the path (Figure 1).</p>
+<p>Adjacent redshift alternatives include variable-speed-of-light cosmologies and plasma-redshift models. VSL cosmologies alter the role or value of \(c\) in cosmological dynamics, including work by Albrecht and Magueijo and later reviews by Magueijo <a class="citation" href="references.html#ref-albrecht-a-1999">[78]</a> <a class="citation" href="references.html#ref-magueijo-j-2003">[79]</a>. Plasma-redshift proposals instead attribute redshift to photon interactions with hot, sparse plasma <a class="citation" href="references.html#ref-brynjolfsson-a-2004">[80]</a>. The present model instead keeps local light propagation at \(c\) and treats observed redshift as accumulated path response through finite geometry, so the mechanism differs from both variable local light speed and plasma energy-loss laws.</p>
+<p>The Copernican principle is retained as a local observational guide, but it is not extended into the claim that all scales must share the same effective geometry. Dimensionless ratios that cancel absolute calibration scales provide useful secondary diagnostics. The redshift relation is carried until independent observables force a change in the model. The contribution is not a redefinition of these observables; it is a finite deformable test of whether one accumulated response law can organize them.</p>
+<p>Supernova dimming, BAO standard ruler measurements, chronometers, time-dilation measurements, and CMB acoustic-scale constraints provide the comparison field for the model <a class="citation" href="references.html#ref-riess-a-1998">[18]</a> <a class="citation" href="references.html#ref-perlmutter-s-1999">[19]</a> <a class="citation" href="references.html#ref-eisenstein-d-2005">[20]</a> <a class="citation" href="references.html#ref-alam-s-2021">[21]</a> <a class="citation" href="references.html#ref-chen-l-2019">[22]</a> <a class="citation" href="references.html#ref-planck-collaboration-vi-2020">[23]</a>. The same published observables are evaluated under a finite deformable path-response interpretation through internal stability checks, BAO ratios, time dilation, an Alcock-Paczynski-style BAO anisotropy ratio, and the BAO-CMB shared-ruler constraint.</p>
+<p>The supernova data provide the starting point. They test whether the observed nonlinearity can be represented by a path response whose local contribution weakens with distance. In this formulation, A(d) = ln(1 + z) is cumulative bookkeeping for observed redshift. It reexpresses the same observable and does not create a separate statistic. G(d) is the local response rate assigned to that accumulation. The fitted form is then compared with held-out prediction, redshift-window stability, sky-sector partitions, BAO ratios, chronometers, time-dilation measurements, an Alcock-Paczynski-style BAO shape ratio, and CMB distance priors to locate where the relation carries information and where it breaks.</p><figure class="figure-card" id="fig-1-1">
+  <a href="assets/figures/figure_1_1.png" target="_blank">
+    <img src="assets/figures/figure_1_1.png" alt="Figure 1-1">
+  </a>
+  <figcaption>
+    <strong>Figure 1-1.</strong> Conceptual schematic. Weakening local response, accumulated response A(d), and observed redshift are shown as a single proposed sequence.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_1.png" target="_blank">Open full-size image</a>
+  
+</figure><h2>Methods</h2>
+<h3>Supernova and path-response fitting</h3>
+<p>The supplied supernova distance coordinate is used directly, and observed redshift is fit with linear, exponential, power-law, quadratic, and flat ΛCDM reference forms ranked by residual pattern, RMSE, AIC, and BIC (Figure 2; <a class="citation" href="references.html#ref-akaike-h-1974">[24]</a>; <a class="citation" href="references.html#ref-schwarz-g-1978">[25]</a>; <a class="citation" href="references.html#ref-liddle-a-2004">[26]</a>; <a class="citation" href="references.html#ref-riess-a-1998">[18]</a>; <a class="citation" href="references.html#ref-perlmutter-s-1999">[19]</a>; <a class="citation" href="references.html#ref-scolnic-d-2022">[27]</a>; <a class="citation" href="references.html#ref-brout-d-2022">[28]</a>). RMSE, AIC, and BIC are used as standard ranking tools for compact forms within the same data set. Redshift is then rewritten as Equation (1), which tracks how the signal accumulates with path length (Figure 3). The power-law redshift-distance form is retained because it provides the closest compact description of the observed curvature in this exploratory comparison. All supernova distances and redshifts are taken from the published catalogues listed in the Data Sources section without re-fitting light curves or recalibrating distances <a class="citation" href="references.html#ref-nasa-ipac-extragalactic-database-43">[29]</a> <a class="citation" href="references.html#ref-pantheon-sh0es-collaboration-2022">[30]</a> <a class="citation" href="references.html#ref-supernova-cosmology-project-47">[31]</a>.</p><figure class="figure-card" id="fig-1-2">
+  <a href="assets/figures/figure_1_2.png" target="_blank">
+    <img src="assets/figures/figure_1_2.png" alt="Figure 1-2">
+  </a>
+  <figcaption>
+    <strong>Figure 1-2.</strong> Observed redshift is plotted against the supplied distance proxy d and compared with linear, exponential, power-law, quadratic, and flat ΛCDM reference curves. The residual panel shows observed-minus-predicted redshift, with the largest separation at high distance. The power-law form provides the compact starting relation for later tests. <a class="citation" href="references.html#ref-akaike-h-1974">[24]</a> <a class="citation" href="references.html#ref-schwarz-g-1978">[25]</a> <a class="citation" href="references.html#ref-liddle-a-2004">[26]</a> <a class="citation" href="references.html#ref-riess-a-1998">[18]</a> <a class="citation" href="references.html#ref-perlmutter-s-1999">[19]</a> <a class="citation" href="references.html#ref-scolnic-d-2022">[27]</a> <a class="citation" href="references.html#ref-brout-d-2022">[28]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_2.png" target="_blank">Open full-size image</a>
+  
+</figure><div class="equation">\[A(d) = \ln(1 + z) \tag{1-1}\]</div><figure class="figure-card" id="fig-1-3">
+  <a href="assets/figures/figure_1_3.png" target="_blank">
+    <img src="assets/figures/figure_1_3.png" alt="Figure 1-3">
+  </a>
+  <figcaption>
+    <strong>Figure 1-3.</strong> Redshift expressed as accumulated path response. The observed redshift is rewritten as \(A(d)=\ln(1+z)\) while keeping the same distance coordinate \(d\). This view treats redshift as a quantity accumulated along the path. The residuals show where the transformed relation smooths the curvature of the original redshift-distance trend and where structure remains. <a class="citation" href="references.html#ref-scolnic-d-2022">[27]</a> <a class="citation" href="references.html#ref-brout-d-2022">[28]</a>.</figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_3.png" target="_blank">Open full-size image</a>
+  
+</figure><p>The finite-response law is written as the local-response law shown in Figure 4 and Equation (2):</p><figure class="figure-card" id="fig-1-4">
+  <a href="assets/figures/figure_1_4.png" target="_blank">
+    <img src="assets/figures/figure_1_4.png" alt="Figure 1-4">
+  </a>
+  <figcaption>
+    <strong>Figure 1-4.</strong> The power-law relation is recast as A(d) and compared with several local rate laws, G(d). The finite-response rate, G(d) = g₀/(1 + d/d?), gives logarithmic accumulation and a decreasing incremental contribution along the path. Residuals retain high-redshift structure. <a class="citation" href="references.html#ref-scolnic-d-2022">[27]</a> <a class="citation" href="references.html#ref-brout-d-2022">[28]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_4.png" target="_blank">Open full-size image</a>
+  
+</figure><div class="equation">\[G(d) = g_0 / (1 + d/d_b) \tag{1-2}\]</div><p>Here d and d? share distance units, g₀ has inverse-distance units, and g₀dᵦ is dimensionless.</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a5">Quantitative Appendix</a> for units and derivation details.</p><p>Integrating Equation (2) gives Equation (3):</p><div class="equation">\[A(d) = g_0 d_b \ln(1 + d/d_b) \tag{1-3}\]</div><p>After integration, the relation can be converted back to redshift and compared with observations. The 1/(1 + d/d?) form is used as a phenomenological ansatz: it is the simplest monotonic weakening response tested here that introduces one finite scale while retaining logarithmic accumulation. The fitted scale d? lies in the distance range where Hubble-diagram curvature becomes visually important. Prediction, subsampling, sky partitioning, and external data comparisons then probe whether that scale remains stable.</p>
+<h3>Stability and external comparison tests</h3>
+<p>Supernova luminosity distances, BAO ratios, chronometers, time-dilation measurements, and CMB distance priors are kept in separate groups because each probes a different physical question <a class="citation" href="references.html#ref-eisenstein-d-2005">[20]</a> <a class="citation" href="references.html#ref-alam-s-2021">[21]</a> <a class="citation" href="references.html#ref-jimenez-r-2002">[32]</a> <a class="citation" href="references.html#ref-moresco-m-2012">[33]</a> <a class="citation" href="references.html#ref-chen-l-2019">[22]</a> <a class="citation" href="references.html#ref-white-r-2024">[17]</a>. Supernovae provide the initial redshift-distance comparison. BAO ratios probe standard ruler distance structure, chronometers probe derivative behavior, time-dilation measurements probe temporal stretching, and compressed CMB distance priors probe the high-redshift acoustic scale. BAO and chronometer observables are used as published; only the theoretical distance mapping is changed.</p>
+<p>The analysis first checks the supernova trend against compact finite-response forms. The fitted scale d? is then examined under resampling, catalogue changes, and coarse sky partitions. The same relation is next compared with BAO, chronometer, time-dilation, and CMB-prior constraints. When the shared BAO-CMB ruler fails, the analysis records the recovery values SCMB/SBAO and T(z) imposed by that failure.</p>
+<p>Cross-validation compares predictions for training and held-out points outside the fitting subset using standard prediction-assessment logic (Figure 5; <a class="citation" href="references.html#ref-stone-m-1974">[34]</a>). Redshift-window tests repeat the fit across upper-redshift cutoffs, lower-redshift cutoffs, and training fractions, then report the win rate and spread of recovered d? values (Figure 6). These resampling checks assess whether the finite deformable scale d? persists under changes to the fitted redshift range and training subset; the win-rate summary reports how often the finite deformable form outperforms the alternatives under those resamplings. The dataset comparison checks whether d? can be reproduced across independent catalogues when available. Sky-sector tests split the sample by quadrants and right ascension as a coarse isotropy-style check for large directional changes in the fitted scale (Figure 7).</p><figure class="figure-card" id="fig-1-5">
+  <a href="assets/figures/figure_1_5.png" target="_blank">
+    <img src="assets/figures/figure_1_5.png" alt="Figure 1-5">
+  </a>
+  <figcaption>
+    <strong>Figure 1-5.</strong> Training and held-out points test prediction outside the fitting subset. The power-law relation follows the held-out trend more consistently than the constant-accumulation and polynomial alternatives, which diverge at high distances. <a class="citation" href="references.html#ref-stone-m-1974">[34]</a> <a class="citation" href="references.html#ref-scolnic-d-2022">[27]</a> <a class="citation" href="references.html#ref-brout-d-2022">[28]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_5.png" target="_blank">Open full-size image</a>
+  
+</figure><p>BAO, chronometer, time-dilation, and CMB-prior data provide the external comparison set <a class="citation" href="references.html#ref-eisenstein-d-2005">[20]</a> <a class="citation" href="references.html#ref-alam-s-2021">[21]</a> <a class="citation" href="references.html#ref-jimenez-r-2002">[32]</a> <a class="citation" href="references.html#ref-moresco-m-2012">[33]</a> <a class="citation" href="references.html#ref-chen-l-2019">[22]</a> <a class="citation" href="references.html#ref-planck-collaboration-vi-2020">[23]</a> <a class="citation" href="references.html#ref-white-r-2024">[17]</a>. The BAO comparison uses standard transverse, radial, and volume-averaged distance ratios tied to the sound-horizon scale through a nuisance parameter S. The finite deformable distance relation is inserted into this ratio structure and compared with the published BAO values <a class="citation" href="references.html#ref-sdss-collaboration-46">[35]</a>. Because full covariance matrices are not included, the BAO χ² values are treated as shape-compatibility measures. The same relation is differentiated for an H(z)-style chronometer comparison. Published supernova time-dilation measurements are summarized through the usual exponent b, where b = 1 represents full time stretching and b = 0 represents no time dilation. Planck 2018 distance priors are then combined with BAO distances through a single shared-ruler calibration.</p>
+<h3>Scale-free BAO shape and recovery transition</h3>
+<p>The BAO anisotropy diagnostic provides a scale-free shape check. It follows the radial-to-transverse ratio used in the Alcock-Paczynski geometric test and later redshift-survey applications <a class="citation" href="references.html#ref-alcock-c-1979">[36]</a> <a class="citation" href="references.html#ref-ballinger-w-1996">[37]</a> <a class="citation" href="references.html#ref-blake-c-2011">[38]</a>. Here D_M is the transverse comoving-distance register and D_H is the radial Hubble-distance register. The Hubble distance is</p><div class="equation">\[D_H(z) = c/H(z) \tag{1-4}\]</div><p>In the BAO context, the angular BAO scale and radial redshift interval can be written as θ = r_d/D_M and Δz = r_d/D_H. Therefore Δz/θ = (r_d/D_H)/(r_d/D_M) = D_M/D_H, so the sound-horizon ruler r_d cancels from the ratio. The measured radial redshift interval and angular scale are then combined in Equation (5):</p><div class="equation">\[Q_{BAO}(z) = \Delta z / \theta = D_M(z) / D_H(z) = H(z)D_M(z) / c \tag{1-5}\]</div><p class="legacy-note">See the <a href="quantitative_appendix.html#a10">Quantitative Appendix</a> for BAO ratio definitions and calibration details.</p><p>The normalized form used for the descriptive comparison is given in Equation (6):</p><div class="equation">\[Q_{norm}(z) = Q_{BAO}(z) / Q_{BAO}(z_0) = (\Delta z / \theta) / (\Delta z_0 / \theta_0) \tag{1-6}\]</div><p>Equation (6) is used as a distilled shape summary for testing whether BAO anisotropies track the same power-law-like scaling inferred from supernovae after the absolute ruler calibration is divided out. Qnorm(z) is a rescaled version of that ratio. A least-squares line was fit to Qnorm(z) as a descriptive shape comparison. A full BAO likelihood would require the published covariance structure and is outside this compact diagnostic.</p>
+<p>Separate effective scales and the projection function T(z) are used as recovery diagnostics for the model. Equation (7) gives the compact transition form used to represent the recovery target:</p><div class="equation">\[T(z) = 1 - \Delta z^m / (z^m + z_t^m) \tag{1-7}\]</div><p>Here, T(z) is the projection/recovery factor, T(z) = 1 represents no projection change, 1 - Δ is the high-redshift asymptote, zt is the transition midpoint, and m controls transition sharpness. Equation (7) is a compact recovery target: the BAO redshift range should remain nearly unchanged while the CMB-side projection approaches the required compressed scale.</p>
+<h2>Results</h2>
+<h3>Supernova curvature fits</h3>
+<p>With this response law, the supernova fits show a clear pattern in the redshift-distance data <a class="citation" href="references.html#ref-riess-a-1998">[18]</a> <a class="citation" href="references.html#ref-perlmutter-s-1999">[19]</a> <a class="citation" href="references.html#ref-scolnic-d-2022">[27]</a> <a class="citation" href="references.html#ref-brout-d-2022">[28]</a>. In the initial comparison, the power-law curve follows the observed supernova curvature better than the other empirical z(d) alternatives. Residuals separate most clearly at larger distances. Recasting the same behavior into A(d) and G(d) reproduces the logarithmic buildup but leaves residual structure at higher redshift.</p>
+<p>Table 1 summarizes the main fit and constraint metrics. The table separates the local supernova result from the high-redshift shared-ruler failure.</p><section class="table-card">
+  <p class="table-caption"><strong>Table 1-1.</strong> Summary metrics for the finite-response comparison.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Diagnostic</th><th>Flat ΛCDM / reference</th><th>Finite-response mapping</th><th>Comparator / note</th></tr></thead>
+      <tbody>
+        <tr><td>Supernova RMSE</td><td>Not explicitly listed in this compact comparison</td><td>Power-law: 0.0213</td><td>Linear Hubble: 0.0488; exponential: 0.1303; quadratic proxy: 0.0709</td></tr>
+<tr><td>BAO shape χ²</td><td>11.8514</td><td>28.1117</td><td>Shape-comparison value; full covariance matrices are not included</td></tr>
+<tr><td>Shared-ruler total χ²</td><td>11.8573; reduced χ² = 0.9121</td><td>7732.7958</td><td>Finite-response mismatch is BAO dominated</td></tr>
+<tr><td>Locked finite-ruler partition</td><td>N/A</td><td>BAO χ² = 7730.6214; CMB χ² = 2.1744</td><td>Identifies the BAO-CMB shared-ruler failure</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><h3>Data stability</h3>
+<p>The stability results show that the low-redshift behavior is not confined to one narrow data selection <a class="citation" href="references.html#ref-scolnic-d-2022">[27]</a> <a class="citation" href="references.html#ref-brout-d-2022">[28]</a> <a class="citation" href="references.html#ref-suzuki-n-2012">[39]</a> <a class="citation" href="references.html#ref-steer-i-2017">[40]</a>. In held-out prediction, the power-law relation performs better on the test data than the constant-accumulation and polynomial alternatives. Redshift-window and holdout tests give a 97.6 percent win rate, median d? near 1.57, and coefficient of variation near 0.26. The loaded Pantheon+SH0ES sample gives d? about 2.32 in the dataset comparison. Directional partitioning gives mean d? about 2.25 across right-ascension slices, with a coefficient of variation near 0.077.</p><figure class="figure-card" id="fig-1-6">
+  <a href="assets/figures/figure_1_6.png" target="_blank">
+    <img src="assets/figures/figure_1_6.png" alt="Figure 1-6">
+  </a>
+  <figcaption>
+    <strong>Figure 1-6.</strong> The finite-response fit is repeated across redshift cutoffs and training fractions as a robustness check of the fitted scale d?. The plotted run shows a 97.6% win rate, median d? near 1.57, coefficient of variation near 0.26, and increasing train/test gaps at the largest z values. <a class="citation" href="references.html#ref-stone-m-1974">[34]</a> <a class="citation" href="references.html#ref-scolnic-d-2022">[27]</a> <a class="citation" href="references.html#ref-brout-d-2022">[28]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_6.png" target="_blank">Open full-size image</a>
+  
+</figure><p>The shift from median d? near 1.57 in the resampling tests to d? about 2.32 in the Pantheon+SH0ES comparison indicates sensitivity to catalogue definition, distance-coordinate construction, and redshift coverage. It does not by itself define a universal constant. The important result is that the fitted scale remains finite, order-unity in the normalized distance coordinate, and repeatable enough to support the external checks.</p><figure class="figure-card" id="fig-1-7">
+  <a href="assets/figures/figure_1_7.png" target="_blank">
+    <img src="assets/figures/figure_1_7.png" alt="Figure 1-7">
+  </a>
+  <figcaption>
+    <strong>Figure 1-7.</strong> Sky-sector fits compare d? across quadrants and right-ascension slices. The RA-slice result has a mean d? of about 2.25, a coefficient of variation of about 0.077, and max/min near 1.23. The narrow color range argues against a large directional breakdown in this coarse test. <a class="citation" href="references.html#ref-scolnic-d-2022">[27]</a> <a class="citation" href="references.html#ref-brout-d-2022">[28]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_7.png" target="_blank">Open full-size image</a>
+  
+</figure><h3>BAO, chronometer, and time-dilation constraints</h3>
+<p>BAO, chronometer, time-dilation, and CMB-prior data provide information not visible in the supernova redshift-distance comparison <a class="citation" href="references.html#ref-eisenstein-d-2005">[20]</a> <a class="citation" href="references.html#ref-alam-s-2021">[21]</a> <a class="citation" href="references.html#ref-jimenez-r-2002">[32]</a> <a class="citation" href="references.html#ref-moresco-m-2012">[33]</a> <a class="citation" href="references.html#ref-chen-l-2019">[22]</a> <a class="citation" href="references.html#ref-white-r-2024">[17]</a>. For BAO ratios, the simplified shape test yields χ² = 11.8514 for flat ΛCDM and χ² = 28.1117 for the finite deformable case (Figure 8). Radial BAO distance ratios show the largest discrepancies. Chronometer data follow the broad trend, though the derivative comparison is less clean than the supernova fit and remains sensitive to the locked d? value (Figure 9). The weighted supernova time-dilation result lies close to b = 1 and far from b = 0 (Figure 10). Any path-based redshift explanation must account for the stretching of photon-arrival intervals.</p><figure class="figure-card" id="fig-1-8">
+  <a href="assets/figures/figure_1_8.png" target="_blank">
+    <img src="assets/figures/figure_1_8.png" alt="Figure 1-8">
+  </a>
+  <figcaption>
+    <strong>Figure 1-8.</strong> The finite deformable distance coordinate is converted into standard transverse, radial, and volume-averaged BAO ratios, with a nuisance scale for ruler conversion. Low-redshift BAO points track comparatively well, while radial BAO and sigma residuals show the largest tension. Flat ΛCDM is the reference comparison. <a class="citation" href="references.html#ref-eisenstein-d-2005">[20]</a> <a class="citation" href="references.html#ref-alam-s-2021">[21]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_8.png" target="_blank">Open full-size image</a>
+  
+</figure><figure class="figure-card" id="fig-1-9">
+  <a href="assets/figures/figure_1_9.png" target="_blank">
+    <img src="assets/figures/figure_1_9.png" alt="Figure 1-9">
+  </a>
+  <figcaption>
+    <strong>Figure 1-9.</strong> The distance-redshift relation is differentiated into an H(z)-style curve and compared with differential-age chronometer measurements. Large error bars make this a trend comparison, not a precise reconstruction. The finite deformable variants follow the broad trend but are sensitive to the locked d? value. <a class="citation" href="references.html#ref-jimenez-r-2002">[32]</a> <a class="citation" href="references.html#ref-moresco-m-2012">[33]</a> <a class="citation" href="references.html#ref-favale-a-2023">[41]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_9.png" target="_blank">Open full-size image</a>
+  
+</figure><figure class="figure-card" id="fig-1-10">
+  <a href="assets/figures/figure_1_10.png" target="_blank">
+    <img src="assets/figures/figure_1_10.png" alt="Figure 1-10">
+  </a>
+  <figcaption>
+    <strong>Figure 1-10.</strong> Published time-dilation exponents b are compared using the standard b = 1 and b = 0 interpretation. The weighted result lies close to b = 1, so any finite-geometry path-response explanation must also carry temporal stretching. <a class="citation" href="references.html#ref-white-r-2024">[17]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_10.png" target="_blank">Open full-size image</a>
+  
+</figure><h3>Scale-free BAO anisotropy</h3>
+<p>The Alcock-Paczynski-style BAO anisotropy check provides a BAO-only test of compatible scaling behavior (Figure 11). After normalization, the observable follows an approximately linear trend across the sampled redshift range. The least-squares fit is given in Equation (8):</p><figure class="figure-card" id="fig-1-11">
+  <a href="assets/figures/figure_1_11.png" target="_blank">
+    <img src="assets/figures/figure_1_11.png" alt="Figure 1-11">
+  </a>
+  <figcaption>
+    <strong>Figure 1-11.</strong> Normalized BAO anisotropy observable Qnorm(z), plotted against redshift. The ratio follows the Alcock-Paczynski radial-to-transverse BAO form, for which the sound-horizon scale cancels. The data follow an approximately linear trend, and the least-squares line Qnorm(z) = 1.005z + 0.843 is shown for reference. The comparison asks whether this scale-free BAO shape tracks the power-law-like scaling inferred from the supernova redshift-distance relation after the absolute ruler calibration is divided out; it does not resolve the shared-ruler BAO-CMB calibration failure. <a class="citation" href="references.html#ref-alcock-c-1979">[36]</a> <a class="citation" href="references.html#ref-ballinger-w-1996">[37]</a> <a class="citation" href="references.html#ref-blake-c-2011">[38]</a> <a class="citation" href="references.html#ref-eisenstein-d-2005">[20]</a> <a class="citation" href="references.html#ref-alam-s-2021">[21]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_11.png" target="_blank">Open full-size image</a>
+  
+</figure><div class="equation">\[Q_{norm}(z) = 1.005z + 0.843 \tag{1-8}\]</div><p>The near-unity slope indicates that the normalized radial-to-angular BAO observable grows approximately linearly with redshift over the sampled range. Once the absolute BAO ruler calibration is divided out, the remaining BAO anisotropy shape is consistent with the power-law-like scaling identified from the supernova relation without retuning that relation. This is still a shape diagnostic, and its statistical strength depends on propagated BAO uncertainties and covariance.</p>
+<h3>BAO-CMB shared-ruler failure and recovery target</h3>
+<p>The sharpest break occurs when BAO and CMB information share a ruler scale <a class="citation" href="references.html#ref-eisenstein-d-2005">[20]</a> <a class="citation" href="references.html#ref-alam-s-2021">[21]</a> <a class="citation" href="references.html#ref-chen-l-2019">[22]</a> <a class="citation" href="references.html#ref-planck-collaboration-vi-2020">[23]</a>. The compressed CMB distance-prior comparison identifies the acoustic angular scale as the high-redshift constraint. With one shared ruler, flat ΛCDM gives total χ² = 11.8573 and reduced χ² = 0.9121. The finite model with locked d? gives BAO χ² = 7730.6214, CMB χ² = 2.1744, and total χ² = 7732.7958. The BAO portion dominates this mismatch. Allowing separate BAO and CMB scales requires a CMB-to-BAO effective scale ratio of 0.390906.</p>
+<p>Equation (7) describes the recovery target required by this failure.</p>
+<p>The best recovery case identified here gives Δ = 0.627714, zt = 34.5754, and m = 4. This transition leaves the BAO range essentially unchanged, with T(2.3) = 0.999988, while reaching T(1089.92) = 0.372287 by the CMB-side redshift. This value is close to the separate-scale CMB-to-BAO ratio of 0.390906, but the two values should be kept distinct. The result identifies a sharp projection transition, not a broad rescaling, as the best recovery shape (Figure 12).</p><figure class="figure-card" id="fig-1-12">
+  <a href="assets/figures/figure_1_12.png" target="_blank">
+    <img src="assets/figures/figure_1_12.png" alt="Figure 1-12">
+  </a>
+  <figcaption>
+    <strong>Figure 1-12.</strong> Reconstructed recovery transition for T(z). The function uses Δ = 0.627714, zt = 34.5754, and m = 4. It preserves the BAO redshift range, with T(2.3) = 0.999988, then drops sharply across the intermediate-redshift transition and approaches T(1089.92) = 0.372287 by the CMB-side redshift. This figure defines the required projection shape used in the model. <a class="citation" href="references.html#ref-alam-s-2021">[21]</a> <a class="citation" href="references.html#ref-chen-l-2019">[22]</a> <a class="citation" href="references.html#ref-planck-collaboration-vi-2020">[23]</a>.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_12.png" target="_blank">Open full-size image</a>
+  
+</figure><section class="table-card">
+  <p class="table-caption"><strong>Table 1-2.</strong> Reconstructed boundary-layer recovery target.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Quantity</th><th>Value</th><th>Interpretation</th></tr></thead>
+      <tbody>
+        <tr><td>Δ</td><td>0.627714</td><td>Transition amplitude</td></tr>
+<tr><td>zt</td><td>34.5754</td><td>Transition midpoint</td></tr>
+<tr><td>m</td><td>4</td><td>Transition sharpness; fourth-power form</td></tr>
+<tr><td>1 - Δ</td><td>0.372286</td><td>High-redshift asymptote of T(z)</td></tr>
+<tr><td>SCMB/SBAO</td><td>0.390906</td><td>Separate-scale CMB-to-BAO effective ratio</td></tr>
+<tr><td>T(2.3)</td><td>0.999988</td><td>BAO range remains essentially unchanged</td></tr>
+<tr><td>T(1089.92)</td><td>0.372287</td><td>CMB-side projection approaches the compressed band</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><h3>High-redshift galaxy projection audit</h3>
+<p>The same projection question can be asked of JWST high-redshift galaxies. Labbé et al. (2023) <a class="citation" href="references.html#ref-labb-i-2023">[42]</a> reported red candidate massive galaxies at z ≈ 7.4-9.1, and Baggen et al. (2023) <a class="citation" href="references.html#ref-baggen-j-2023">[43]</a> measured compact F200W effective radii for the structural subset. This audit uses the eight z &gt; 7 objects with both published stellar-mass estimates and effective radii <a class="citation" href="references.html#ref-labb-et-al-44">[44]</a> to ask whether a finite-geometry projection shoulder moves the derived properties in the expected direction. The calculation is not a new SED fit; it is a conversion audit applied to published values.</p>
+<p>A fourth-power shoulder centered in the JWST redshift range was used as a stress test. The amplitude Δ = 0.627714 is retained from Equation (7), while the midpoint is shifted to z_s = 8 to test whether a weaker high-redshift shoulder could affect the red massive galaxy regime:</p><div class="equation">\[\Phi(z) = 1 - \Delta z^4 / (z^4 + z_s^4) \tag{1-9}\]</div><p>The audit then recalculates two derived quantities. Flux-based inferred mass scales with luminosity-distance squared, while physical radius scales through the angular-size-distance register. The projection factor is therefore used as a diagnostic scaling, with the full derivation deferred to the quantitative appendix:</p><p class="legacy-note">See the <a href="quantitative_appendix.html#a18">Quantitative Appendix</a> for the diagnostic mass-size scaling details.</p><div class="equation">\[M_\star(audit) \approx \Phi(z)^2 M_\star(\Lambda\mathrm{CDM}) \tag{1-10}\]</div><div class="equation">\[Re(audit) \approx Re(\Lambda\mathrm{CDM}) / \Phi(z) \tag{1-11}\]</div><p>The direction of change is consistent across the sample (Table 3; Figure 13). The median log stellar mass shifts from 9.7369 to 9.4260, the median effective radius increases from 125.5 pc to 190.0 pc, and the median compactness proxy log10(M⋆/R_e²) falls from 5.4826 to 4.9411. The exact amplitude is not the main result. The significant point is the sign of the response: the same type of projection correction that is required by the acoustic-scale failure also moves high-redshift galaxy masses, sizes, and compactness in the direction needed to reduce the apparent &quot;too massive and too compact&quot; tension.</p><figure class="figure-card" id="fig-1-13">
+  <a href="assets/figures/figure_1_13.png" target="_blank">
+    <img src="assets/figures/figure_1_13.png" alt="Figure 1-13">
+  </a>
+  <figcaption>
+    <strong>Figure 1-13.</strong> JWST z &gt; 7 projection audit using the Labbé et al. (2023) red massive candidate sample and the Baggen et al. (2023) structural subset. Panel A compares published ΛCDM-derived stellar masses with finite-geometry audit masses. Panel B compares effective radii. Panel C compares the compactness proxy log10(M⋆/Rₑ²). The audit lowers the median stellar mass, increases the median effective radius, and lowers the compactness proxy, so the correction moves the sample in the direction needed to reduce the apparent high-redshift mass-size tension.
+  </figcaption>
+  <a class="full-size-link" href="assets/figures/figure_1_13.png" target="_blank">Open full-size image</a>
+  
+</figure><section class="table-card">
+  <p class="table-caption"><strong>Table 1-3.</strong> JWST z &gt; 7 projection-audit summary.</p>
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Quantity</th><th>Published ΛCDM-derived median</th><th>Finite-geometry audit median</th><th>Direction of change</th></tr></thead>
+      <tbody>
+        <tr><td>Median log stellar mass</td><td>9.7369</td><td>9.4260</td><td>Lower mass</td></tr>
+<tr><td>Median effective radius (pc)</td><td>125.5</td><td>190.0</td><td>Larger size</td></tr>
+<tr><td>Median log compactness</td><td>5.4826</td><td>4.9411</td><td>Lower compactness</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section><p>The sample is intentionally small because it requires both mass estimates and structural radii from the same candidate set. A larger follow-up should repeat the test with spectroscopic redshifts, homogeneous SED modeling, propagated uncertainties, and a wider z &gt; 7 catalog.</p>
+<h2>Discussion</h2>
+<h3>What the finite deformable mapping captures</h3>
+<p>The supernova tests provide the strongest support for the proposed response law. In that regime, the law captures the observed curvature with a compact declining-response form and remains stable under holdout, window, and coarse directional tests <a class="citation" href="references.html#ref-scolnic-d-2022">[27]</a> <a class="citation" href="references.html#ref-brout-d-2022">[28]</a> <a class="citation" href="references.html#ref-alam-s-2021">[21]</a> <a class="citation" href="references.html#ref-moresco-m-2012">[33]</a> <a class="citation" href="references.html#ref-white-r-2024">[17]</a> <a class="citation" href="references.html#ref-chen-l-2019">[22]</a>. This step gives a specific fitted relation that can be tested against independent distance and time-domain observables.</p>
+<p>The Alcock-Paczynski-style BAO anisotropy result adds independent shape context. A comparable scaling appears when BAO information is reduced to a radial-to-transverse shape ratio. The result does not remove the shared-ruler failure. The model may capture a scale-free BAO shape relation while still failing the absolute calibration that connects BAO measurements to the CMB acoustic scale.</p>
+<h3>What breaks</h3>
+<p>BAO and CMB data expose the main difficulty. A ruler calibration that works over the BAO range does not automatically satisfy compressed high-redshift acoustic-scale priors <a class="citation" href="references.html#ref-eisenstein-d-2005">[20]</a> <a class="citation" href="references.html#ref-alam-s-2021">[21]</a> <a class="citation" href="references.html#ref-chen-l-2019">[22]</a> <a class="citation" href="references.html#ref-planck-collaboration-vi-2020">[23]</a>. With one shared calibration, the finite deformable relation misses the connection between low- and intermediate-redshift BAO observables and the high-redshift acoustic-scale prior. The supernova fit is not the limiting issue; the limiting issue is the single-ruler link between the BAO and CMB regimes.</p>
+<h3>Boundary-layer projection interpretation</h3>
+<p>The boundary-layer projection provides a sharp contrast to the most common theoretical resolution for the BAO-CMB shared-ruler failure: Early Dark Energy (EDE) <a class="citation" href="references.html#ref-poulin-v-2019">[45]</a> <a class="citation" href="references.html#ref-kamionkowski-m-2023">[46]</a>. EDE models operate within an expanding universe by introducing a temporary scalar-field energy component near matter-radiation equality, at redshifts of order z ~ 3000. This additional early energy density briefly increases the expansion rate and reduces the physical sound horizon before recombination. The finite deformable framework does not modify the plasma physics of the early universe or alter the expansion history. It attributes the calibration failure to a geometric projection effect occurring much later, near z ~ 35-37. Under this interpretation, the absolute physical size of the acoustic standard ruler is not the quantity that changes. The single-ruler calibration breaks because the mapping between redshift and inferred distance shifts across an intermediate regime boundary, treating measured distance as a regime-dependent observational register.</p>
+<p>The projection tests narrow the possible mechanisms. The separate-scale ratio is far below unity, so a broad rescaling would move the wrong parts of the curve. Gentle transformations either disturb the BAO range or miss the CMB-side target. A successful mechanism would leave the BAO sector almost unchanged and produce a rapid change in the projection across an intermediate-redshift transition. T(z) represents the required bend in the model. The mechanism would also have to account for the observed stretching of photon-arrival intervals. A simple relabeling of distance or wavelength would not produce that behavior.</p>
+<p>The reconstructed transition points to a boundary-layer projection transition. Wavelength and arrival-time stretching remain tied to the accumulated path response, while the mapping between redshift and standard ruler distance changes across an intermediate-redshift regime. In this interpretation, time, distance, wavelength, and direction are observational registers of a shared deformable geometry. Their relationships are stable within a given geometric regime and may change when signals cross a projection boundary. This would make inferred distances, velocities, and directions between widely separated galaxies regime-dependent.</p>
+<p>The recovery curve now sets a concrete target for theory. A physical model must explain why the recovery function preserves BAO-scale projections, why the transition midpoint is near zt = 34.5754, why the transition has a fourth-power shape, and why the high-redshift limit lands near the CMB-side compression band.</p><details class="technical-details">
+  <summary>Technical note</summary>
+  <p>The high-redshift asymptote of the recovery function, 1 - Δ = 0.372286, is close to e-1 = 0.367879. If T(z) is later interpreted as an attenuation- or transmission-like factor, this would correspond to roughly one characteristic attenuation length.</p>
+</details><h3>High-redshift galaxy implication</h3>
+<p>The JWST audit provides a separate direction-of-effect check. The high-redshift galaxy problem depends on converting observed redshift, flux, color, and angular size into age, stellar mass, and physical radius. Under the finite-geometry audit, the same observed objects appear less massive, larger, and less compact. High-redshift galaxies therefore test whether luminosity distance, angular-size distance, and redshift remain locked to the same expansion-based conversion at early cosmic times.</p>
+<h3>Limitations</h3>
+<p>Methodological limits remain. Full BAO and CMB inferences are covariance-sensitive, and compressed CMB distance priors do not carry the full information in the anisotropy spectrum <a class="citation" href="references.html#ref-alam-s-2021">[21]</a> <a class="citation" href="references.html#ref-chen-l-2019">[22]</a> <a class="citation" href="references.html#ref-planck-collaboration-vi-2020">[23]</a>. The BAO comparison omits covariance matrices, the CMB comparison uses distance priors, and the response law has no first-principles dynamical derivation here. The Alcock-Paczynski-style ratio cancels the absolute sound-horizon scale, but the published BAO measurements still depend on survey modeling, fiducial cosmology conversions, and covariance treatment.</p>
+<p>The analysis identifies a phenomenological response relation, a scale-free BAO shape check, a shared-ruler failure, and a sharply defined recovery target. Any physical finite-geometry mechanism must meet these numerical requirements.</p>
+<h2>Conclusion</h2>
+<p>The accumulated-response form organizes the Type Ia supernova redshift-distance relation and remains stable under the internal tests used here. The Alcock-Paczynski-style BAO anisotropy diagnostic gives Qnorm(z) ≈ 1.005z + 0.843 after the absolute BAO ruler scale is divided out. Under a shared BAO-CMB ruler calibration, however, the same mapping still breaks sharply.</p>
+<p>The recovery target requires a narrow transition with Δ = 0.627714, zt = 34.5754, and m = 4. This transition preserves the BAO redshift range while producing a high-redshift projection change close to the magnitude isolated by the separate-ruler tests. Any future physical model must explain why BAO remains nearly unchanged while the CMB-side projection changes rapidly.</p>
+<p>The JWST z &gt; 7 audit adds an independent direction-of-effect check: when published masses and radii are recalculated with a finite-geometry projection shoulder, the inferred masses and compactness decrease while effective radii increase. That result motivates a broader high-redshift galaxy test using homogeneous spectroscopy and morphology.</p>
+      <nav class="chapter-bottom-nav">
+        <a href="index.html">Previous: Index</a>
+        <a href="chapter_2.html">Next: Chapter 2</a>
+      </nav>
+    </article>
+  </main>
+
+</body>
+</html>
+
+
+
+
